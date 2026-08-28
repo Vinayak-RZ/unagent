@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/superdeterminism-logo.svg" width="560" alt="Superdeterminism — Determinism Advisor">
+  <img src="assets/unagent-logo.svg" width="560" alt="Unagent — Determinism Advisor">
 </p>
 
 <p align="center">
@@ -16,11 +16,11 @@
 
 > Full internals (every package, file map, how the repo runs): [Extensive README](docs/EXTENSIVE.md)
 
-**Determinism Advisor.** A design-time advisor that ingests production agent traces, reconstructs the graph, and estimates which steps should be deterministic tools versus stochastic LLM/subagents — then recommends a refactor with evidence, or abstains.
+**Unagent.** A design-time advisor that ingests production agent traces, reconstructs the graph, and estimates which steps should be deterministic tools versus stochastic LLM/subagents — then recommends a refactor with evidence, or abstains. You unagent a node: flip it from an LLM/subagent to a tool (or the other way) when the tape supports it.
 
-The GitHub repository is named `superdeterminisiom`. The project name is **Superdeterminism**.
+The GitHub repository is still `superdeterminisiom`. The installable package is still `superdeterminism`. The product name is **Unagent**.
 
-> **Superdeterminism is a design-time advisor you can run today.** It is not a runtime eval platform, a workflow searcher, or a LangChain-only plugin.
+> **Unagent is a design-time advisor you can run today.** It is not a runtime eval platform, a workflow searcher, or a LangChain-only plugin.
 > Primary interface: `python -m superdeterminism recommend`. It never auto-applies a refactor.
 
 ## See it running
@@ -59,7 +59,7 @@ $ python -m superdeterminism recommend tests/fixtures/advisor_stable_llm.json --
 
 Teams guess whether a step should be a typed tool or an LLM/subagent. Eval tools score the path you already ran. Architecture-search papers invent new graphs offline. Neither flips **determinism class** on an ingested production graph.
 
-The unclaimed layer is that re-typing — not “nobody does counterfactual agent simulation.” CAR, CausalFlow, Tracefork, AgentReplay, and counterfact already intervene on traces. Superdeterminism asks a different question: *should this node be a function or a model?*
+The unclaimed layer is that re-typing — not “nobody does counterfactual agent simulation.” CAR, CausalFlow, Tracefork, AgentReplay, and counterfact already intervene on traces. Unagent asks a different question: *should this node be a function or a model?*
 
 ## Core techniques
 
@@ -70,7 +70,7 @@ The unclaimed layer is that re-typing — not “nobody does counterfactual agen
 
 ## The idea
 
-Think of each agent step as having a **type**: function or model. Superdeterminism does not ask “did this run succeed?” It asks “if we changed the type, would the outcome vector get better?” — then either recommends that change or refuses to guess.
+Think of each agent step as having a **type**: function or model. Unagent does not ask “did this run succeed?” It asks “if we changed the type, would the outcome vector get better?” — then either recommends that change or refuses to guess.
 
 Analogy: a compiler does not score yesterday’s binary; it re-types an expression when the evidence says the cheaper form is equivalent. The invariant: **simulation ≠ production**. A canary with the same outcome vector is confirmatory. Temperature 0 is not a seed ([Defeating Nondeterminism in LLM Inference](https://thinkingmachines.ai/blog/defeating-nondeterminism-in-llm-inference/)).
 
