@@ -123,7 +123,7 @@ Before large refactors, consider `graphify` on the affected directory.
 | Make a README (choose type) | `readme` |
 | Readable / general README.md | `readable-readme` |
 | Extensive internals companion | `extensive-readme` |
-| Product / OSS landing README | `product-readme` |
+| Product / OSS landing README | `product-readme` (landing that **teaches** the ideas the code uses) |
 | Workflow guide | [docs/cursor-config/LEARNING_AND_RESEARCH.md](docs/cursor-config/LEARNING_AND_RESEARCH.md) |
 
 End each phase with a short **What you learned** summary in [LEARNING.md](LEARNING.md).
