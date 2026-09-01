@@ -5,12 +5,19 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "superdeterminism"
 version = "0.1.0"
-description = "Agnostic determinism advisor: ingest traces, map architecture, recommend tool vs LLM flips."
+description = "Unagent: agnostic determinism advisor. Ingest traces, reconstruct the graph, recommend tool vs LLM flips."
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.10"
-authors = [{ name = "Superdeterminism contributors" }]
+authors = [{ name = "Unagent contributors" }]
+keywords = ["agents", "determinism", "otel", "langgraph"]
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/Vinayak-RZ/unagent"
+Documentation = "https://github.com/Vinayak-RZ/unagent/blob/main/docs/README.md"
+Repository = "https://github.com/Vinayak-RZ/unagent"
+Issues = "https://github.com/Vinayak-RZ/unagent/issues"
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
