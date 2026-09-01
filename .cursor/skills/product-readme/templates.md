@@ -66,6 +66,22 @@ Fenced `text` or bare block, real CLI:
 One conceptual explanation a newcomer can learn from. Analogy + invariant + where
 it lives in the tree. Optional diagram. Not a second feature list.
 
+## Ideas you will learn
+
+Research products: teach the era concepts the code actually uses. Tiny SDKs may
+skip if Core techniques already do this job.
+
+```markdown
+## Ideas you will learn
+
+### {Named idea}
+
+{What it is, in plain language. One analogy.} {Why it matters now — one sentence, only if true.}
+This repo {uses / refuses / narrows} it: {one concrete sentence}. Limit: {honest ceiling}.
+
+**Read next.** [{title}]({verified-url}) — {what you will learn from this source}.
+```
+
 ## Get started
 
 ```markdown

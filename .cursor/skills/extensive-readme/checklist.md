@@ -24,4 +24,5 @@
 ## Teaching and future
 
 - [ ] Non-obvious ideas explained simply; hard ones link a verified blog or wiki
+- [ ] Ideology and engineering bets are named (not only file maps)
 - [ ] Future advancements: at least 3, prefer 4, grounded in this repo

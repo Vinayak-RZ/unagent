@@ -30,8 +30,11 @@
 
 - [ ] 1–5 named techniques, not a generic Features list
 - [ ] Each has mechanism + honest limit
+- [ ] For research/engine products: the reader can name 3 ideas they did not have before (era concepts this repo actually uses or contrasts)
+- [ ] Nearby-wrong products are contrasted in one sentence, not surveyed as a catalog
 - [ ] Citation URLs verified (WebSearch/WebFetch) or omitted
 - [ ] Acknowledgements only name systems this repo uses or cites
+- [ ] Did not invent a fourth “informative README” type — teaching lives in this skill
 
 ## Shape
 

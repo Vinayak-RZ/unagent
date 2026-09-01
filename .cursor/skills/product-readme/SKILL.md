@@ -2,18 +2,21 @@
 name: product-readme
 description: >-
   Authors public product README.md files for software people can install and use:
-  centered logo, badges, tagline, demo, mission, named techniques, tiny quickstart,
-  and a docs index. Colibri / LangChain / vLLM / llama.cpp shape. Use when showcasing
-  an OSS product, library, or engine as a landing page. Do not use for a human
-  readable overview (readable-readme) or a package-by-package internals dump
-  (extensive-readme). Unspecified "make a README" goes to the readme skill.
+  centered logo, badges, tagline, demo, mission, named techniques that teach the
+  current-era ideas the code actually uses, tiny quickstart, and a docs index.
+  Colibri / LangChain / vLLM / llama.cpp shape. Use when showcasing an OSS product,
+  library, or engine as a landing page. Do not use for a human readable overview
+  (readable-readme) or a package-by-package internals dump (extensive-readme).
+  Unspecified "make a README" goes to the readme skill. Do not invent a separate
+  "informative README" type — teaching lives here.
 ---
 
 # Product README Authoring
 
-Write the README as a **product landing page**, not a reference manual. A stranger on
-GitHub should know what this is, why it exists, the clever idea, and how to try it —
-in the first screen — then be sent to `docs/` for catalogs.
+Write the README as a **product landing page that teaches**, not a reference manual
+and not a textbook. A stranger on GitHub should know what this is, why it exists,
+the clever idea, **what ideas of this era they just learned**, and how to try it —
+in the first two screens — then be sent to `docs/` for catalogs.
 
 Primary structure authority: **Colibri**. Also steal from LangChain (tiny install +
 ecosystem), vLLM (named technique + real blog link), llama.cpp (badges + quick start).
@@ -23,10 +26,13 @@ ecosystem), vLLM (named technique + real blog link), llama.cpp (badges + quick s
 - User asks for a **product README**, OSS landing page, or "README like Colibri / LangChain / vLLM"
 - The repo is something people **install and run**, not an internal notes dump
 - User wants a logo, tagline, demo, and "get started" — not every env var
+- User wants the landing to be **informative** (teach concepts). That is this skill,
+  not a fourth README type.
 
 **Use `readable-readme` instead** for a long human `README.md` people finish in one
 sitting. **Use `extensive-readme`** for `docs/EXTENSIVE.md` (every package and file
-map). **Use `readme`** when the user did not name a type — that skill asks first.
+map, plus ideology/engineering). **Use `readme`** when the user did not name a type —
+that skill asks first.
 
 If this run also requested an extensive companion: write `README.md` here, then load
 `extensive-readme`. Put this banner **at the top** of `README.md` (after the logo is
@@ -86,19 +92,42 @@ default (GitHub-native, matches Colibri).
 
 Do not generate favicons, OG images, or a media kit unless asked.
 
-## Teaching (light, mandatory)
+## Teaching (mandatory — this is how a product README informs)
 
-Name the clever bets so a newcomer **learns** them from the README:
+Name the clever bets so a newcomer **learns** them from the README. The landing
+should make a technically curious reader appreciate **what was built** *and* leave
+with knowledge they can reuse on other agent/LLM systems.
 
-- Memorable name ("JIT for weights", "PagedAttention")
+For each named idea:
+
+- Memorable name ("JIT for weights", "PagedAttention", "determinism-class flip")
 - Mechanism in plain language + one analogy
+- Why this idea showed up **now** (one sentence of era context, only if true)
+- How **this repo** uses it, refuses it, or narrows a neighbor’s claim
 - Honest limits (when it wins / loses)
-- 1–3 **verified** links (blog, paper, related system)
+- 1 verified link (blog, paper, wiki, official docs)
 
 Never invent URLs. WebSearch/WebFetch, or omit the link. Same citation bar as
 `extensive-readme` / [further-reading.md](../extensive-readme/further-reading.md).
 
 Screenshots need captions that teach, not "screenshot of the UI".
+
+### Ideas you will learn
+
+Research engines and non-trivial libraries add a section (or fold it into Core
+techniques) that teaches the **current-age ideas this codebase actually touches**:
+counterfactuals vs scoring a path, evidence ceilings, replay vs resample,
+fail-closed abstention, residual LLM nondeterminism, interchange pins, and so on.
+
+Rules:
+
+- Only ideas the tree uses, cites, or explicitly contrasts against
+- Each idea is 1–4 short paragraphs, not a paper summary
+- Nearby-wrong products get one sentence of contrast, not a roast
+- Catalogs, env inventories, and file maps stay in `docs/` / `extensive-readme`
+
+A small SDK can keep this to 1–3 named techniques. A research product should make
+the reader smarter about the *field*, not only about the binary.
 
 ## Section order (Colibri default)
 
@@ -108,20 +137,22 @@ Screenshots need captions that teach, not "screenshot of the UI".
 4. Positioning blockquote (is / is not / invariant)
 5. Proof: terminal demo and/or screenshot with a teaching caption
 6. Why it exists / mission
-7. Core techniques (named, measured, honest)
-8. The idea (one conceptual explanation)
-9. How it works (short; diagrams; details in `docs/`)
-10. What it achieves (real numbers only)
-11. Get started (install + one run command)
-12. Go deeper (doc index table)
-13. Repo layout (brief)
-14. Community / contributing
-15. Acknowledgements (systems this repo actually uses)
-16. License
+7. **Ideas you will learn** (era concepts + how this repo uses them) — skip only for tiny SDKs whose Core techniques already teach
+8. Core techniques (named, measured, honest)
+9. The idea (one conceptual explanation)
+10. How it works (short; diagrams; details in `docs/`)
+11. What it achieves (real numbers only)
+12. Get started (install + one run command)
+13. Go deeper (doc index table)
+14. Repo layout (brief)
+15. Community / contributing
+16. Acknowledgements (systems this repo actually uses)
+17. License
 
 ## Quality bar
 
 - First screen answers: what it is, who it is for, how to try it
+- A curious reader can name 3 ideas they did not have before opening the file
 - One install snippet a newcomer can paste (LangChain-short)
 - Named technique linked to a **real** source (vLLM × PagedAttention blog)
 - Catalogs, env inventories, and full API tables belong in `docs/` or `extensive-readme`
@@ -137,6 +168,9 @@ Screenshots need captions that teach, not "screenshot of the UI".
 - Fake stars, fake "trusted by", fake tok/s
 - Invented citation URLs
 - Empty sections left as placeholders
+- A separate “informative README” skill or fourth router type
+- Survey-paper dump of famous work the code does not use
+- File maps and package catalogs in `README.md` (that is extensive-readme)
 
 ## Output
 

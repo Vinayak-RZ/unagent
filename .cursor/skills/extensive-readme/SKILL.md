@@ -81,7 +81,9 @@ section.** Tiny repos: treat top-level folders (`src/`, `lib/`, `app/`) as packa
 - **Config, tests, CI** in enough detail to operate, not a paste of every flag
 
 **Teaching.** Still explain non-obvious bets (simple paragraph + verified blog/wiki
-when hard). Citation rules: [further-reading.md](further-reading.md).
+when hard). Citation rules: [further-reading.md](further-reading.md). Teach
+**ideology** (why fail-closed, why a stdlib core, why adapters) as well as
+file maps — a directory listing without the bets is not an extensive README.
 
 **Future advancements.** At least 3, prefer 4, grounded in this repo.
 
