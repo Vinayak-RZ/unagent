@@ -2,8 +2,8 @@
 
 This repository vendors [cursor-config-coding](https://github.com/Vinayak-RZ/cursor-config-coding) at `.cursor/` (rules, skills, MCP). Pin: see [`.cursor/VENDOR.md`](.cursor/VENDOR.md).
 
-Project name: **Superdeterminism**. Capability: **Determinism Advisor**.
-GitHub repo name remains `superdeterminisiom`.
+Product name: **Unagent**. Capability: **Determinism Advisor**.
+GitHub repo: [`Vinayak-RZ/unagent`](https://github.com/Vinayak-RZ/unagent). Installable package remains `superdeterminism`.
 
 ## What this repo is
 
@@ -15,15 +15,15 @@ Differentiation (do not weaken this):
 
 ## Current status
 
-**P0 core and P1 LangGraph adapter are implemented.** Core has no LangChain import. P1 lives in `src/superdeterminism/adapters/langgraph.py`.
+**P0 core, P1 LangGraph adapter, and L0 hardening are implemented.** Core has no LangChain import. Unknown/mixed/failing/observational-only nodes ABSTAIN. FlipToDet requires a cassette-stable L0 splice.
 
 ```bash
-python -m superdeterminism recommend traces.json --stdout json
+python -m superdeterminism recommend examples/advisor_stable_llm.json --n-min 1 --stdout json
 python -m superdeterminism recommend traces.json --adapter langgraph --stdout json
 python -m superdeterminism scaffold report.json --out scaffold/RUN
 ```
 
-P2 is **specified, not built**: [docs/p2-ecosystem.md](docs/p2-ecosystem.md). P1 spec: [docs/p1-langgraph.md](docs/p1-langgraph.md). Usage: [docs/usage.md](docs/usage.md). Do not add framework extras to core. Do not auto-apply refactors.
+P2 remaining sinks (Langfuse/MLflow/CrewAI/MAF live APIs) are **specified, not built**: [docs/p2-ecosystem.md](docs/p2-ecosystem.md). `custom` and `atif` adapters exist as pluggability proofs.
 
 Read before any product work:
 

@@ -18,7 +18,7 @@
 
 **Unagent.** A design-time advisor that ingests production agent traces, reconstructs the graph, and estimates which steps should be deterministic tools versus stochastic LLM/subagents — then recommends a refactor with evidence, or abstains. You unagent a node: flip it from an LLM/subagent to a tool (or the other way) when the tape supports it.
 
-The GitHub repository is still `superdeterminisiom`. The installable package is still `superdeterminism`. The product name is **Unagent**.
+The GitHub repository is [`Vinayak-RZ/unagent`](https://github.com/Vinayak-RZ/unagent). The installable package is still `superdeterminism`. The product name is **Unagent**.
 
 > **Unagent is a design-time advisor you can run today.** It is not a runtime eval platform, a workflow searcher, or a LangChain-only plugin.
 > Primary interface: `python -m superdeterminism recommend`. It never auto-applies a refactor.
@@ -95,10 +95,9 @@ You need **Python 3.10+**. No API key for the advisor itself; it reads traces yo
 pip install -e ".[dev]"
 ```
 
-### 2. Run
-
 ```bash
-python -m superdeterminism recommend tests/fixtures/advisor_stable_llm.json --n-min 1 --stdout json
+python -m superdeterminism recommend examples/advisor_stable_llm.json --n-min 1 --stdout json
+python -m superdeterminism recommend examples/advisor_flip_to_det.json --stdout json
 ```
 
 LangGraph ingest (optional extra):

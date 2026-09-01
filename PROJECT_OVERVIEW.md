@@ -2,9 +2,9 @@
 
 ## Purpose
 
-**Superdeterminism** (capability: **Determinism Advisor**) is an open-source design-time advisor for agentic architectures. It will ingest production traces, reconstruct the agent graph, estimate counterfactual determinism-class flips (tool ↔ LLM/subagent), and recommend a refactor with evidence.
+**Unagent** (capability: **Determinism Advisor**) is an open-source design-time advisor for agentic architectures. It will ingest production traces, reconstruct the agent graph, estimate counterfactual determinism-class flips (tool ↔ LLM/subagent), and recommend a refactor with evidence.
 
-The GitHub repository name remains `superdeterminisiom`.
+The GitHub repository is [`Vinayak-RZ/unagent`](https://github.com/Vinayak-RZ/unagent). The installable Python package remains `superdeterminism`.
 
 ## System overview
 
@@ -14,7 +14,7 @@ The intended product loop:
 
 1. **Ingest** OTLP / GenAI semantic convention traces (LangSmith, Langfuse, MLflow, or raw OTel).
 2. **Map** spans to `node_kind` and `det.class`.
-3. **Simulate** offline (v0): historical variance + tape splice. No production-LLM re-run by default.
+3. **Simulate** offline: historical variance **plus hash-verified L0 tape splice**. Observational pooling cannot certify a flip. No production-LLM re-run by default.
 4. **Recommend** FlipToDet, FlipToNondet, STRENGTHEN_SDB, or ABSTAIN, with estimated deltas and confidence intervals.
 5. **Assist** LangGraph/LangChain via a report and optional scaffold. Never auto-apply.
 
