@@ -9,8 +9,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from superdeterminism.ingest import load_traces, load_traces_path
 from superdeterminism.models import Span, Trace
-from superdeterminism.pipeline import load_traces, load_traces_path
 
 _DROP_NODES = frozenset({"__start__", "__end__"})
 _MODEL_NODES = frozenset({"model", "llm_call"})
@@ -85,4 +85,12 @@ def _span(span: Span, attrs: dict[str, Any]) -> Span:
         tokens=span.tokens,
         latency_ms=span.latency_ms,
         error=span.error,
+        trace_id=span.trace_id,
+        span_id=span.span_id,
+        parent_span_id=span.parent_span_id,
+        start_ns=span.start_ns,
+        end_ns=span.end_ns,
+        producer=span.producer,
+        input_capture=span.input_capture,
+        output_capture=span.output_capture,
     )

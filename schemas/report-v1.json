@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Vinayak-RZ/unagent/schemas/report-v1.json",
+  "title": "Unagent recommendation report",
+  "type": "object",
+  "required": [
+    "disclaimer",
+    "report_version",
+    "estimator",
+    "recommendations"
+  ],
+  "properties": {
+    "disclaimer": { "type": "string" },
+    "report_version": { "const": "1.0" },
+    "advisor.schema_version": { "type": "string" },
+    "estimator": {
+      "enum": ["observational_l0_proxy", "l0_tape_splice"]
+    },
+    "evidence_ceiling": {
+      "enum": ["observational", "cassette", "interventional", "production_confirmed"]
+    },
+    "graph_identity": { "type": "string" },
+    "graph_completeness": { "type": "number" },
+    "graph_trust": { "type": "string" },
+    "tape_version": { "type": "string" },
+    "input_hash": { "type": "string" },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["node_id", "action", "n", "evidence_tier", "replay_status"],
+        "properties": {
+          "node_id": { "type": "string" },
+          "action": {
+            "enum": ["FlipToDet", "FlipToNondet", "STRENGTHEN_SDB", "ABSTAIN"]
+          },
+          "n": { "type": "integer" },
+          "evidence_tier": { "type": "string" },
+          "replay_status": { "type": "string" }
+        }
+      }
+    },
+    "canary": { "type": "array", "items": { "type": "string" } }
+  }
+}

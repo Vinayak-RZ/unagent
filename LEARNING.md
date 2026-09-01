@@ -2,6 +2,14 @@
 
 Phase notes per [learn-while-building](.cursor/skills/learn-while-building/SKILL.md). Two to four bullets each.
 
+## Product hardening (2026-09-01)
+
+- Observational `p_mode` is not a counterfactual. Cassette-stable L0 splice is the lowest tier that may FlipToDet.
+- Trace-as-sampling-unit plus mixed-kind sets beats last-write classification; order no longer flips the advice.
+- Progressive Crystallization and FlowScout force a narrower claim: re-typing on the ingested graph, not auto-promotion or workflow search.
+- Control-edge targets must not inherit ROUTER kind; that mixed the destination LLM node and blocked FlipToDet.
+
+
 ## Vendor README skills (2026-08-17)
 
 - The `readme` skill chooses; it does not write. Product landing stays in `README.md`. Extensive is a companion at `docs/EXTENSIVE.md`, never the GitHub front door unless the user overrides.

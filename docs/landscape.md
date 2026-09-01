@@ -1,6 +1,6 @@
 # Landscape
 
-**Dated 2026-08-15.** Adjacent tools will keep shipping. Re-check citations before treating this as current.
+**Dated 2026-09-01.** Adjacent tools will keep shipping. Re-check citations before treating this as current. Previous snapshot: 2026-08-15.
 
 This document exists so we do not claim false whitespace.
 
@@ -57,6 +57,16 @@ Nothing has Yes in the last column **and** ingest-traces **and** recommend-refac
 **counterfact** — [counterfact-labs/counterfact](https://github.com/counterfact-labs/counterfact). Ablates agents, Shapley attribution, fix recommendations. Closest product-shaped OSS on “recommend a change.” Wrong intervention: remove/degrade a node, do not re-type it.
 
 **WHEN2TOOL** — [arXiv:2605.09252](https://arxiv.org/abs/2605.09252). Necessity is decodable from hidden states. Runtime policy, not architecture advice.
+
+**Progressive Crystallization** — [arXiv:2607.07052](https://arxiv.org/abs/2607.07052) (2026-07-08). Promotes repeated traces from stochastic to hybrid to deterministic playbooks in production AIOps. Narrows whitespace: we do **not** claim “trace-driven determinization.” We claim counterfactual *node re-typing* with intervals on an ingested graph, plus ABSTAIN/canary — not automatic promotion.
+
+**RouteGuard** — [arXiv:2608.07583](https://arxiv.org/abs/2608.07583) (2026-08-05). Certifies routing gain; refuses when the gain sits in a few workload cells. Adopt cluster-aware confidence; ABSTAIN when the apparent flip depends on a thin stratum.
+
+**FlowScout** — [arXiv:2608.10039](https://arxiv.org/abs/2608.10039) (2026-08-10). Searches mixed LLM/tool graphs from history (MCTS). Close prior art that **searches a new workflow**, not a determinism-class intervention on the ingested graph.
+
+**SymTrace** — [arXiv:2608.25920](https://arxiv.org/abs/2608.25920) (2026-08-26). Prefix replay vs unguided resample. Reports must expose anchors and replay-vs-resample.
+
+**GCJR** — [arXiv:2608.29228](https://arxiv.org/abs/2608.29228) (2026-08-29). Minimal repair *families* (AND vs OR). Graph-guided replay is not novel; set-valued candidates after singleton correctness are in-scope as hypotheses, not unbounded search.
 
 **Eval platforms** — LangSmith, MLflow, DeepEval Tool Correctness, Galileo Tool Selection Quality, Langfuse. Observe and score. DeepEval’s Tool Correctness is the closest *conceptual* split (deterministic tool check vs LLM-judged steps) and is still testing infrastructure.
 

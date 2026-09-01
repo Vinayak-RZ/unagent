@@ -1,6 +1,6 @@
 # References
 
-Bibliography for Superdeterminism research. **Dated 2026-08-15.** All URLs below returned HTTP 200 on that date (S1 recheck). Use formal titles in citations; short labels (WHEN2TOOL, MaAS) are in-text only.
+Bibliography for Unagent research. **Dated 2026-09-01.** Primary sources below were checked against arXiv HTML/abs and official repos on that date. Short labels (WHEN2TOOL, GCJR) are in-text only.
 
 ## Counterfactual replay and attribution
 
@@ -9,6 +9,14 @@ Bibliography for Superdeterminism research. **Dated 2026-08-15.** All URLs below
 - Tracefork. https://github.com/pratik916/tracefork
 - AgentReplay. https://github.com/gadda00/agentreplay
 - counterfact. https://github.com/counterfact-labs/counterfact
+- Luan, Z. et al. *Repair or Resample? Rethinking Failure Debugging in LLM Multi-Agent Systems* (SymTrace). arXiv:2608.25920. https://arxiv.org/abs/2608.25920 (2026-08-26)
+- *Localizing Emergent Failures in Agentic AI: Recovering Minimal Repair Families via Counterfactual Replay* (GCJR). arXiv:2608.29228. https://arxiv.org/abs/2608.29228 (2026-08-29)
+- *Progressive Crystallization: Turning Agent Exploration into Deterministic, Lower-Cost Workflows in Production.* arXiv:2607.07052. https://arxiv.org/abs/2607.07052 (2026-07-08)
+- *RouteGuard: Certifying Routing Gain in LLM Multi-Agent Systems.* arXiv:2608.07583. https://arxiv.org/abs/2608.07583 (2026-08-05)
+- *FlowScout: From Execution Feedback to Reliable Tool-Using Agent Workflows.* arXiv:2608.10039. https://arxiv.org/abs/2608.10039 (2026-08-10)
+- *IAPO.* arXiv:2608.24588. https://arxiv.org/abs/2608.24588 (2026-08-25)
+- *ACES: Evaluating Skills, Not Just Agents.* arXiv:2608.20614. https://arxiv.org/abs/2608.20614 (2026-08-20)
+- *HANSARD.* arXiv:2608.22512. https://arxiv.org/abs/2608.22512 (2026-08-23)
 
 ## Tool vs LLM (runtime, not architecture)
 

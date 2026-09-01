@@ -1,25 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 120" role="img" aria-label="Unagent">
-  <rect width="560" height="120" fill="none"/>
-  <!-- U-hook -->
-  <path d="M20 24 L20 68 Q20 100 54 100 Q88 100 88 68 L88 52"
-        fill="none" stroke="#1f6feb" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Head sits on the hook -->
-  <circle cx="88" cy="32" r="16" fill="none" stroke="#1f6feb" stroke-width="5"/>
-  <!-- Eyes -->
-  <path d="M81 28 L81 34 M95 28 L95 34"
-        fill="none" stroke="#1f6feb" stroke-width="3.5" stroke-linecap="round"/>
-  <!-- Smile -->
-  <path d="M80 38 Q88 46 96 38"
-        fill="none" stroke="#1f6feb" stroke-width="3.5" stroke-linecap="round"/>
-  <!-- Left antenna -->
-  <path d="M78 18 L72 6 M69 6 L75 6"
-        fill="none" stroke="#1f6feb" stroke-width="4" stroke-linecap="round"/>
-  <!-- Right antenna waving bye -->
-  <path d="M98 18 L106 12 L112 16 L120 5 M117 5 L123 5"
-        fill="none" stroke="#1f6feb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Waving arm -->
-  <path d="M104 36 L116 28 L114 20"
-        fill="none" stroke="#1f6feb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="140" y="74" font-family="ui-sans-serif, system-ui, sans-serif"
-        font-size="40" font-weight="700" fill="#1f6feb">Unagent</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 120" width="380" height="120" role="img" aria-label="Unagent">
+  <!-- Lockup centered in a tight canvas so GitHub's centered <img> looks centered. -->
+  <g transform="translate(22, 6)">
+    <!-- U-hook -->
+    <path d="M20 24 L20 68 Q20 100 54 100 Q88 100 88 68 L88 52"
+          fill="none" stroke="#1f6feb" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Head sits on the hook -->
+    <circle cx="88" cy="32" r="16" fill="none" stroke="#1f6feb" stroke-width="5"/>
+    <!-- Eyes -->
+    <path d="M81 28 L81 34 M95 28 L95 34"
+          fill="none" stroke="#1f6feb" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Smile -->
+    <path d="M80 38 Q88 46 96 38"
+          fill="none" stroke="#1f6feb" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Left antenna -->
+    <path d="M78 18 L72 6 M69 6 L75 6"
+          fill="none" stroke="#1f6feb" stroke-width="4" stroke-linecap="round"/>
+    <!-- Right antenna waving bye -->
+    <path d="M98 18 L106 12 L112 16 L120 5 M117 5 L123 5"
+          fill="none" stroke="#1f6feb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Waving arm -->
+    <path d="M104 36 L116 28 L114 20"
+          fill="none" stroke="#1f6feb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="140" y="72" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
+          font-size="40" font-weight="700" fill="#1f6feb">Unagent</text>
+  </g>
 </svg>

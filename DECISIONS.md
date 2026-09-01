@@ -4,7 +4,7 @@ Index of significant choices. Formal ADRs land in `docs/decisions/` during Phase
 
 | ID | Decision | Status | Record |
 |---|---|---|---|
-| D0 | Project name Superdeterminism; repo URL `superdeterminisiom` unchanged | accepted | this file |
+| D0 | Project name Superdeterminism; repo URL `superdeterminisiom` unchanged | superseded | this file; see D10 |
 | D1 | Apache-2.0 license | accepted | [LICENSE](LICENSE) |
 | D2 | Vendor cursor-config-coding into `.cursor/` (copy, not symlink) | accepted | [.cursor/VENDOR.md](.cursor/VENDOR.md) |
 | D3 | Vendor guides live under `docs/cursor-config/` | accepted | this file |
@@ -14,6 +14,12 @@ Index of significant choices. Formal ADRs land in `docs/decisions/` during Phase
 | D7 | Product code requires a later project-mode nawab plan | superseded | P0 started; see D8 |
 | D8 | Agnostic core; LangGraph and other stacks are adapters | accepted | [0004-agnostic-core.md](docs/decisions/0004-agnostic-core.md) |
 | D9 | Re-vendor cursor-config-coding at 5ecaca9; product README + EXTENSIVE companion | accepted | this file |
+| D10 | GitHub repo `unagent`; product Unagent; package `superdeterminism` | accepted | this file |
+| D11 | Evidence tiers; observational cannot certify a flip | accepted | [0005-evidence-tiers.md](docs/decisions/0005-evidence-tiers.md) |
+| D12 | `report_version` / `advisor.schema_version` 1.0 | accepted | [0006-schema-versioning.md](docs/decisions/0006-schema-versioning.md) |
+| D13 | OTel GenAI pin + compatibility aliases | accepted | [0007-otel-pin.md](docs/decisions/0007-otel-pin.md) |
+| D14 | Research-complete before public release | accepted | [0008-research-first-release.md](docs/decisions/0008-research-first-release.md) |
+| D15 | User-supplied outcome contract | accepted | [0009-outcome-contract.md](docs/decisions/0009-outcome-contract.md) |
 
 ## D0 — Naming
 
@@ -21,6 +27,7 @@ Index of significant choices. Formal ADRs land in `docs/decisions/` during Phase
 - **Alternatives:** Rename the GitHub repo; drop Superdeterminism; use only Determinism Advisor.
 - **Selected:** Keep the repo URL. Project name is Superdeterminism. Capability name is Determinism Advisor.
 - **Rationale:** Avoids a rename mid-research. Names are documented in README and AGENTS.md.
+- **Superseded by:** D10 (GitHub repo renamed to `unagent`; product name Unagent).
 
 ## D1 — License
 
@@ -60,6 +67,13 @@ Written as ADRs in `docs/decisions/`. Do not silently override them.
 - **Alternatives:** Cherry-pick only `product-readme`; keep a single exhaustive `README.md`; symlink to the config repo.
 - **Selected:** Copy upstream at `5ecaca9c5a6e85be8ede01ef33e0af10651c622e`. Main `README.md` is a product landing. Internals live in `docs/EXTENSIVE.md`. Keep `docs/cursor-config/` remaps in `skills-manifest.json` (D3).
 - **Rationale:** Cloud Agents load skills from this clone. The `readme` router forbids dumping internals into `README.md`.
+
+## D10 — GitHub repo `unagent`
+
+- **Context:** Product name is Unagent. GitHub was still `superdeterminisiom`. The remote was renamed to `unagent`.
+- **Alternatives:** Keep the old slug; also rename the Python package to `unagent`.
+- **Selected:** GitHub repo and clone URL are [`Vinayak-RZ/unagent`](https://github.com/Vinayak-RZ/unagent). Product name is Unagent. Installable package and `python -m` entry stay `superdeterminism`. Local checkout folder is `unagent`.
+- **Rationale:** Matches the renamed GitHub repo without a PyPI/import break.
 
 ## D7 — No product code in this plan
 

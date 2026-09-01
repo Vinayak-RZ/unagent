@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Vinayak-RZ/unagent/schemas/tape-v1.json",
+  "title": "Unagent L0 cassette tape",
+  "type": "object",
+  "required": ["tape_version", "records"],
+  "properties": {
+    "tape_version": { "const": "1.0" },
+    "records": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["output", "sha256"],
+        "properties": {
+          "output": { "type": "string" },
+          "sha256": { "type": "string" }
+        }
+      }
+    }
+  }
+}

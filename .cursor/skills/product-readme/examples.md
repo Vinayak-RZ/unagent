@@ -12,6 +12,7 @@ What to copy:
 - Screenshots whose captions teach (metrics, what color means)
 - "Core techniques" as named bets with honest limits
 - "The idea" as one analogy a newcomer can hold (JIT for weights)
+- **Ideas you will learn:** era concepts the binary actually sits in (counterfactual vs score, evidence ceiling, residual nondeterminism) — mechanism, analogy, how this repo uses them, verified link. Do not invent a fourth README type for this.
 - Get started: program + model, then one command
 - "Go deeper" table instead of inlining every guide
 - Acknowledgements that say *how* related systems are used

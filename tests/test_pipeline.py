@@ -79,6 +79,9 @@ def test_flip_to_det_when_stable_schema() -> None:
     assert classify.action is Action.FLIP_TO_DET
     assert classify.schema_ok >= 0.8
     assert classify.p_mode >= 0.7
+    assert classify.evidence_tier == "cassette"
+    assert classify.replay_status == "tail_stable"
+    assert classify.deltas
 
 
 def test_abstain_when_n_below_min() -> None:
@@ -112,9 +115,131 @@ def test_flip_to_nondet_on_failing_tool() -> None:
         output="nope",
         error=True,
     )
-    recs = recommend_traces([Trace(spans=[span] * 40)], n_min=30)
-    assert recs[0].action is Action.FLIP_TO_NONDET
+    recs = recommend_traces([Trace(spans=[span]) for _ in range(40)], n_min=30)
+    assert recs[0].action is Action.ABSTAIN
+    assert "FlipToNondet" in recs[0].reasons[0]
+
+
+def test_unknown_ops_abstain() -> None:
+    span = Span(name="mystery", attributes={"gen_ai.operation.name": "not_a_real_op"})
+    recs = recommend_traces([Trace(spans=[span]) for _ in range(40)], n_min=30)
+    assert recs[0].action is Action.ABSTAIN
+    assert recs[0].node_kind is NodeKind.UNKNOWN
+
+
+def test_failed_llm_does_not_flip() -> None:
+    span = Span(
+        name="chat",
+        attributes={"gen_ai.operation.name": "chat", "langgraph_node": "classify"},
+        output={"intent": "x"},
+        error=True,
+    )
+    recs = recommend_traces([Trace(spans=[span]) for _ in range(40)], n_min=30)
+    assert recs[0].action is Action.ABSTAIN
+    assert recs[0].failure_rate == 1.0
+
+
+def test_mixed_kinds_abstain_order_invariant() -> None:
+    chat = Span(
+        name="chat",
+        attributes={"gen_ai.operation.name": "chat", "langgraph_node": "n"},
+        output={"a": 1},
+    )
+    tool = Span(
+        name="execute_tool n",
+        attributes={"gen_ai.operation.name": "execute_tool", "gen_ai.tool.name": "n"},
+        output={"a": 1},
+    )
+    a = recommend_traces(
+        [Trace(spans=[chat]), Trace(spans=[tool])] * 20, n_min=30
+    )
+    b = recommend_traces(
+        [Trace(spans=[tool]), Trace(spans=[chat])] * 20, n_min=30
+    )
+    assert a[0].action is Action.ABSTAIN
+    assert b[0].action is Action.ABSTAIN
+    assert a[0].mixed and b[0].mixed
+
+
+def test_error_false_string_is_not_failure() -> None:
+    from superdeterminism.ingest import load_traces
+
+    traces = load_traces(
+        {
+            "traces": [
+                {
+                    "spans": [
+                        {
+                            "name": "chat",
+                            "attributes": {"gen_ai.operation.name": "chat"},
+                            "error": "false",
+                            "output": {"ok": True},
+                        }
+                    ]
+                }
+            ]
+        }
+    )
+    assert traces[0].spans[0].error is False
 
 
 def test_wilson_lower_is_below_phat() -> None:
     assert 0 < wilson_lower(21, 30) < 21 / 30
+
+
+def test_mixed_workload_abstains_flip() -> None:
+    traces = []
+    for i in range(40):
+        model = "gpt-4.1-mini" if i < 20 else "gpt-4.1"
+        traces.append(
+            Trace(
+                spans=[
+                    Span(
+                        name="chat",
+                        attributes={
+                            "gen_ai.operation.name": "chat",
+                            "langgraph_node": "classify",
+                            "gen_ai.request.model": model,
+                        },
+                        input={"q": 1},
+                        output={"intent": "x"},
+                    )
+                ]
+            )
+        )
+    recs = recommend_traces(traces, n_min=30)
+    assert recs[0].action is Action.ABSTAIN
+    assert "workload" in recs[0].reasons[0]
+
+
+def test_interaction_hypotheses_on_adjacent_failures() -> None:
+    traces = [
+        Trace(
+            spans=[
+                Span(
+                    name="execute_tool a",
+                    attributes={
+                        "gen_ai.operation.name": "execute_tool",
+                        "gen_ai.tool.name": "parse_a",
+                    },
+                    span_id="a",
+                    output="nope",
+                    error=True,
+                ),
+                Span(
+                    name="execute_tool b",
+                    attributes={
+                        "gen_ai.operation.name": "execute_tool",
+                        "gen_ai.tool.name": "parse_b",
+                    },
+                    span_id="b",
+                    parent_span_id="a",
+                    output="nope",
+                    error=True,
+                ),
+            ]
+        )
+        for _ in range(40)
+    ]
+    recs = recommend_traces(traces, n_min=30)
+    assert any(r.interaction_hypotheses for r in recs)

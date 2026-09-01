@@ -25,7 +25,8 @@ node_kind ∈ {
   subagent,
   router,
   retriever,
-  workflow
+  workflow,
+  unknown
 }
 ```
 

@@ -2,8 +2,7 @@
 
 **Status:** implemented.  
 **Depends on:** P0 core (`src/superdeterminism/`).  
-**Normative for:** the next implementation PR. Do not start P1 code until this spec is the source of truth.  
-**Index:** [roadmap.md](roadmap.md). Adjacent: [adapters.md](adapters.md), [refactor.md](refactor.md), [0003-no-auto-apply.md](decisions/0003-no-auto-apply.md), [0004-agnostic-core.md](decisions/0004-agnostic-core.md).
+**Index:** [roadmap.md](roadmap.md).
 
 P1 is the easy drop-in for teams already on LangGraph / LangChain 1.x. Agents and humans run the same CLI. P1 only teaches the core how to read Lang traces and how to emit a **scaffold**. It never auto-applies a patch.
 
@@ -160,11 +159,11 @@ One recommender. No decision-rule fork.
 
 ## Exit criteria
 
-- [ ] `pip install -e ".[dev,langgraph]"` ; core tests still pass without the extra
-- [ ] `--adapter langgraph` maps both graph shapes on fixtures
-- [ ] `scaffold` writes REPORT + illustrative diff; never touches user source
-- [ ] Agent docs: one command, JSON schema, no interactive prompts
-- [ ] No `import langchain` / `import langgraph` under `src/superdeterminism/` except `adapters/langgraph.py`
+- [x] `pip install -e ".[dev,langgraph]"` ; core tests still pass without the extra
+- [x] `--adapter langgraph` maps both graph shapes on fixtures
+- [x] `scaffold` writes REPORT + illustrative diff; never touches user source
+- [x] Agent docs: one command, JSON schema, no interactive prompts
+- [x] No `import langchain` / `import langgraph` under `src/superdeterminism/` except `adapters/langgraph.py`
 
 ## After P1
 

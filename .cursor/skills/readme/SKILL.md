@@ -15,9 +15,9 @@ Three README skills exist. This skill **chooses**; it does not author the prose.
 
 | Skill | What it writes | Typical file |
 |-------|----------------|--------------|
-| `product-readme` | Public product landing (logo, tagline, demo, tiny install) | `README.md` |
+| `product-readme` | Informative product landing: logo, tagline, demo, named techniques that **teach**, tiny install | `README.md` |
 | `readable-readme` | Long human overview people actually finish | `README.md` |
-| `extensive-readme` | Package-by-package internals, file maps, how the repo runs | `docs/EXTENSIVE.md` |
+| `extensive-readme` | Package-by-package internals, file maps, how the repo runs, ideology + engineering | `docs/EXTENSIVE.md` |
 
 **`README.md` is never the extensive dump** unless the user explicitly overrides.
 The extensive file is a companion. If it is requested, the main README gets a
@@ -66,6 +66,8 @@ target exists.
 
 ## Do not
 
-- Invent a fourth README genre
+- Invent a fourth README genre (there is no separate “informative README” type)
 - Write all three unsolicited
 - Put the extensive dump into `README.md` because "they asked for a README"
+
+**Product landings teach.** `product-readme` is the place that names the era’s ideas this repo actually uses (mechanism, analogy, honest limit, verified link). File maps and package catalogs stay in `extensive-readme`.
