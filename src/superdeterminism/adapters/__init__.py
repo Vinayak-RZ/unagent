@@ -5,15 +5,24 @@ from __future__ import annotations
 import importlib
 import importlib.util
 from collections.abc import Callable
-from typing import Any
+from typing import Any, Protocol
 
-# ponytail: name → module path; never import langgraph.py at package load
+from superdeterminism.models import Trace
+
 _MODULES = {
     "langgraph": "superdeterminism.adapters.langgraph",
+    "custom": "superdeterminism.adapters.custom",
+    "atif": "superdeterminism.adapters.atif",
 }
 _EXTRAS = {
     "langgraph": ("langgraph", "langchain"),
+    "custom": (),
+    "atif": (),
 }
+
+
+class Adapter(Protocol):
+    def load(self, path_or_bytes: Any) -> list[Trace]: ...
 
 
 class AdapterError(ValueError):
@@ -22,8 +31,10 @@ class AdapterError(ValueError):
 
 def extra_installed(name: str) -> bool:
     pkgs = _EXTRAS.get(name)
-    if not pkgs:
+    if pkgs is None:
         return False
+    if not pkgs:
+        return True
     return all(importlib.util.find_spec(pkg) is not None for pkg in pkgs)
 
 
