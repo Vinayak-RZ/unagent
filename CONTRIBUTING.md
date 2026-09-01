@@ -1,50 +1,32 @@
-# Contributing to Superdeterminism
+# Contributing to Unagent
 
-This repository is **docs-first**. There is no simulator or adapter code yet. The useful contribution is making the research contract sharper: landscape claims, ingest mapping, methodology limitations, and ADRs.
+Package name: `superdeterminism`. Product: Unagent. Repo: [Vinayak-RZ/unagent](https://github.com/Vinayak-RZ/unagent).
+
+P0/P1 plus fail-closed L0 hardening are in `src/superdeterminism/`. Useful contributions: planted fixtures, producer mappings, docs that keep claim hygiene, adapter examples. Do not auto-apply refactors.
 
 ## Cursor config
 
-Rules and skills come from the vendored [cursor-config-coding](https://github.com/Vinayak-RZ/cursor-config-coding) tree under `.cursor/`. Read [AGENTS.md](AGENTS.md) first. Prefer updating the upstream config repo, then re-vendor and bump [`.cursor/VENDOR.md`](.cursor/VENDOR.md), over editing a one-off copy here.
-
-Vendor guides live in [docs/cursor-config/](docs/cursor-config/), not in `docs/` root.
+Rules and skills come from the vendored [cursor-config-coding](https://github.com/Vinayak-RZ/cursor-config-coding) tree under `.cursor/`. Read [AGENTS.md](AGENTS.md) first.
 
 ## Before you write
 
 1. Read [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md), [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md), and [AGENTS.md](AGENTS.md).
 2. Read [docs/overview.md](docs/overview.md) and [docs/landscape.md](docs/landscape.md).
-3. Do not claim whitespace that landscape (or AGENTS.md) marks as **unsafe**.
-4. Differentiation must stay: counterfactual *re-typing* of nodes on ingested production graphs — not “score the path you already ran,” and not “search a new workflow from scratch.”
+3. Differentiation: counterfactual *re-typing* on ingested production graphs — not scoring the path you already ran, not searching a new workflow, not generic trace-driven determinization.
 
 ## Docs
 
-- Keep each research doc under ~400 lines. Put citations in [docs/references.md](docs/references.md).
-- Date any landscape or spec claim. OpenTelemetry GenAI conventions are **Development**; pin a commit, not a tag.
-- Advisor-owned fields live in `advisor.*` / `det.*`. Never invent `gen_ai.*` keys.
-- Methodology docs must label estimators as interventional, observational, or proxy, and must say **simulation ≠ production**.
-- Do not add README links to files that are not in the tree yet.
-
-## Decisions
-
-Record significant choices in [DECISIONS.md](DECISIONS.md). Formal ADRs go in [docs/decisions/](docs/decisions/):
-
-- Context
-- Decision
-- Consequences
-- Alternatives
-
-Do not silently override an existing ADR. Propose a new one or amend the old one in the same PR.
-
-## Plans
-
-Non-trivial work uses [nawab-plans](.cursor/skills/nawab-plans/SKILL.md). Do not invent a thinner plan format. Do not start product code without a separate approved project-mode plan.
+- Keep research docs under ~400 lines. Citations in [docs/references.md](docs/references.md).
+- OpenTelemetry GenAI is **Development**; pin a commit.
+- Never invent `gen_ai.*` keys.
 
 ## Code
 
-- Core lives in `src/superdeterminism/`. **No LangChain / LangGraph / CrewAI imports in core.**
-- `python -m pytest -q` must pass.
-- CLI stays non-interactive (JSON in/out) so agents can drive it.
-- Do not auto-apply refactors.
+- Core: no LangChain / LangGraph / CrewAI imports except `adapters/langgraph.py`.
+- `python -m pytest -q` and `scripts/validate.ps1` must pass.
+- CLI stays non-interactive.
+- FlipToDet requires cassette-tier L0 evidence. Unknown/mixed/failing nodes ABSTAIN.
 
 ## License
 
-Contributions are under the Apache License 2.0. See [LICENSE](LICENSE).
+Apache License 2.0. See [LICENSE](LICENSE).

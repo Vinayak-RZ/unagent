@@ -1,6 +1,6 @@
-# Superdeterminism documentation
+# Unagent documentation
 
-Project: **Superdeterminism**. Capability: **Determinism Advisor**.
+Project: **Unagent**. Capability: **Determinism Advisor**. Package: `superdeterminism`.
 
 Execution contract: [IMPLEMENTATION_PLAN.md](../IMPLEMENTATION_PLAN.md). Status: [PROGRESS.md](../PROGRESS.md). Overview: [PROJECT_OVERVIEW.md](../PROJECT_OVERVIEW.md).
 
@@ -21,8 +21,9 @@ Read in this order if you are new:
 7. [roadmap.md](roadmap.md) — P0 / P1 / P2 index
 8. [p1-langgraph.md](p1-langgraph.md) — P1 spec (implemented)
 9. [p2-ecosystem.md](p2-ecosystem.md) — P2 spec (not built)
-10. [usage.md](usage.md) — P0 CLI
-11. [references.md](references.md) — sources (dated 2026-08-15)
+10. [usage.md](usage.md) — CLI
+11. [troubleshooting.md](troubleshooting.md)
+12. [references.md](references.md) — sources (dated 2026-09-01)
 
 ## Research docs
 
@@ -49,13 +50,18 @@ Read in this order if you are new:
 | [0001-otel-ingest.md](decisions/0001-otel-ingest.md) | Ingest OTLP; keep Advisor fields out of `gen_ai.*` |
 | [0002-v0-offline-first.md](decisions/0002-v0-offline-first.md) | Offline L0 / historical estimators before live L2 replay |
 | [0003-no-auto-apply.md](decisions/0003-no-auto-apply.md) | Report + optional scaffold; never auto-apply |
-| [0004-agnostic-core.md](decisions/0004-agnostic-core.md) | Core has zero framework deps; adapters later |
+| [0004-agnostic-core.md](decisions/0004-agnostic-core.md) | Core has no framework imports |
+| [0005-evidence-tiers.md](decisions/0005-evidence-tiers.md) | Observational cannot certify a flip |
+| [0006-schema-versioning.md](decisions/0006-schema-versioning.md) | report_version 1.0 |
+| [0007-otel-pin.md](decisions/0007-otel-pin.md) | GenAI commit pin + aliases |
+| [0008-research-first-release.md](decisions/0008-research-first-release.md) | No public release until L0+graph |
+| [0009-outcome-contract.md](decisions/0009-outcome-contract.md) | User-supplied task success |
 
 Index: [DECISIONS.md](../DECISIONS.md).
 
 ## Cursor coding-config guides
 
-Vendored from [cursor-config-coding](https://github.com/Vinayak-RZ/cursor-config-coding). Not Superdeterminism product docs.
+Vendored from [cursor-config-coding](https://github.com/Vinayak-RZ/cursor-config-coding). Not Unagent product docs.
 
 | Doc | What it covers |
 |---|---|

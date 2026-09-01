@@ -16,7 +16,8 @@ Package any agent or human can run on exported traces.
 
 - Ingest OTLP JSON **or** a flat advisor trace list
 - Map spans → `node_kind` + `det.class`
-- L0 recommend: Wilson intervals, FlipToDet / FlipToNondet / STRENGTHEN_SDB / ABSTAIN
+- L0 recommend: Wilson intervals, FlipToDet / STRENGTHEN_SDB / ABSTAIN (FlipToNondet needs L1)
+- Graph reconstruction + hash-verified cassette
 - Hard override for commit / spend / PII / auth names
 - CLI JSON (agents) + Markdown (humans)
 - Stdlib only. No live LLM. No auto-apply
@@ -44,16 +45,11 @@ Full spec: **[p1-langgraph.md](p1-langgraph.md)**. Usage: [usage.md](usage.md).
 - Scaffold (keep node name). Never auto-apply
 - No LangChain types in `superdeterminism.models`
 
-## P2 — Lang ecosystem + other agent systems (specified)
-
-When the repo is actually pluggable. **Not implemented yet.**
+## P2 — Lang ecosystem and other agent systems
 
 Full spec: **[p2-ecosystem.md](p2-ecosystem.md)**
 
-- Track A: LangSmith / Langfuse / MLflow + batch + more of LangChain than graphs
-- Track B: CrewAI, MAF, raw/custom via one adapter contract
-- Opt-in L1 only; L0 remains default
-- A third party can add `--adapter custom` from the contract + example
+Pluggability proofs shipped: `--adapter custom`, `--adapter atif`, `--traces-dir`. Remaining: Langfuse/MLflow native pull, CrewAI/MAF extras, opt-in L1.
 
 ## Shared rules (all tiers)
 

@@ -1,6 +1,6 @@
 # Adapters
 
-P0 has **no** adapter package. P1 is LangGraph / LangChain. P2 is every other stack plus the rest of the Lang ecosystem.
+P0 generic ingest lives in `src/superdeterminism/ingest.py`. P1 is LangGraph / LangChain. Extra adapters: `custom`, `atif`. P2 remaining sinks: [p2-ecosystem.md](p2-ecosystem.md).
 
 **Normative specs (implement from these, not from this file):** [p1-langgraph.md](p1-langgraph.md), [p2-ecosystem.md](p2-ecosystem.md).
 

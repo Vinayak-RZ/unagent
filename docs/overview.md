@@ -1,6 +1,6 @@
 # Overview
 
-**Superdeterminism** / **Determinism Advisor** is a design-time advisor for existing agentic architectures.
+**Unagent** / **Determinism Advisor** is a design-time advisor for existing agentic architectures.
 
 It will take production traces, reconstruct the graph, and estimate what would happen if a step flipped from stochastic (LLM / subagent) to deterministic (tool / function), or the reverse — then recommend a refactor with evidence.
 
@@ -49,4 +49,4 @@ Details: [roadmap.md](roadmap.md), [adapters.md](adapters.md).
 
 ## Status
 
-This repository is the research contract. There is no simulator code yet. Product implementation needs a separate approved project-mode plan.
+P0 core, P1 LangGraph adapter, and the 2026-09-01 hardening pass (fail-closed policy, graph reconstruction, L0 cassette) are implemented. Observational pooling alone cannot certify a flip. See [roadmap.md](roadmap.md) and [IMPLEMENTATION_PLAN.md](../IMPLEMENTATION_PLAN.md).

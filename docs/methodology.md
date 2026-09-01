@@ -1,8 +1,8 @@
 # Methodology
 
-How Superdeterminism estimates a **determinism flip**. This is a citable design, not a guarantee.
+How Unagent estimates a **determinism flip**. This is a citable design. Implementation: `src/superdeterminism/` (fail-closed `_decide`, L0 cassette in `replay.py`). Observational pooling is labeled `observational_l0_proxy` and cannot certify FlipToDet.
 
-**Simulation ≠ production.** The only confirmatory estimator is a canary with the same outcome vector. Every number in a v0 report is an estimate with a confidence interval, or we **ABSTAIN**.
+**Simulation ≠ production.** The only confirmatory estimator is a canary with the same outcome vector. Every number in a report is an estimate with a confidence interval, or we **ABSTAIN**.
 
 ## What a flip is
 
