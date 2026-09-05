@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import argparse
+import http.server
 import json
+import socketserver
 import sys
+import webbrowser
 from pathlib import Path
 
 from superdeterminism.adapters import AdapterError, resolve
@@ -93,11 +96,28 @@ def build_parser() -> argparse.ArgumentParser:
     scaf = sub.add_parser("scaffold", help="write illustrative scaffold; never edits user source")
     scaf.add_argument("report", type=Path, help="recommend JSON report")
     scaf.add_argument("--out", type=Path, required=True, help="directory to write (created)")
+    sr = sub.add_parser(
+        "studio-report",
+        help="emit Studio-ready report JSON (recommend + simulate + graph)",
+    )
+    sr.add_argument("traces", type=Path)
+    sr.add_argument("--out", type=Path, default=Path("examples/studio_report.json"))
+    sr.add_argument("--n-min", type=int, default=N_MIN_DEFAULT)
+    sr.add_argument("--adapter", default=None)
+    ui = sub.add_parser("ui", help="open Unagent Studio (Vite dev or static dist)")
+    ui.add_argument("--report", type=Path, default=None, help="report JSON path for ?report= query")
+    ui.add_argument("--port", type=int, default=5173)
+    ui.add_argument("--no-open", action="store_true", help="print URL only; do not open browser")
+    ui.add_argument("--serve-dist", action="store_true", help="serve ui/dist with http.server if present")
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    if args.cmd == "ui":
+        return _ui(args)
+    if args.cmd == "studio-report":
+        return _studio_report(args)
     if args.cmd == "scaffold":
         return _scaffold(args)
     if args.cmd == "validate":
@@ -188,6 +208,76 @@ def _scaffold(args: argparse.Namespace) -> int:
     except _BOUNDARY as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2
+    return 0
+
+
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[2]
+
+
+def _ui_dir() -> Path:
+    return _repo_root() / "ui"
+
+
+def _studio_report(args: argparse.Namespace) -> int:
+    try:
+        if args.adapter:
+            traces = resolve(args.adapter)(args.traces)
+        else:
+            traces = load_traces_path(args.traces)
+        payload = simulate_report(traces, n_min=args.n_min)
+        inspected = inspect_traces(traces)
+        payload["graph"] = {
+            "nodes": inspected["nodes"],
+            "edges": inspected["edges"],
+            "identity": inspected["graph_identity"],
+            "completeness": inspected["completeness"],
+            "trust": inspected["trust"],
+        }
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        args.out.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    except _BOUNDARY as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
+    print(f"wrote {args.out}", file=sys.stderr)
+    return 0
+
+
+def _ui(args: argparse.Namespace) -> int:
+    ui_dir = _ui_dir()
+    dist = ui_dir / "dist"
+    report_q = f"?report={args.report.resolve()}" if args.report else ""
+    if args.serve_dist and dist.is_dir():
+        port = args.port
+        suffix = f"index.html{report_q}" if report_q else ""
+        url = f"http://127.0.0.1:{port}/{suffix}"
+        print(f"Serving {dist} at http://127.0.0.1:{port}/", file=sys.stderr)
+        print("Proposal edits export only; never auto-applied.", file=sys.stderr)
+        if not args.no_open:
+            webbrowser.open(url)
+
+        class _DistHandler(http.server.SimpleHTTPRequestHandler):
+            def __init__(self, *a, **kw):
+                super().__init__(*a, directory=str(dist), **kw)
+
+        with socketserver.TCPServer(("127.0.0.1", port), _DistHandler) as httpd:
+            try:
+                httpd.serve_forever()
+            except KeyboardInterrupt:
+                pass
+        return 0
+    dev_cmd = f"cd {ui_dir} && npm install && npm run dev -- --port {args.port}"
+    url = f"http://127.0.0.1:{args.port}/{report_q}"
+    print("Unagent Studio (dev mode)", file=sys.stderr)
+    print(f"  1. {dev_cmd}", file=sys.stderr)
+    print(f"  2. Open {url}", file=sys.stderr)
+    if args.report:
+        print(f"     Or load report via file picker: {args.report.resolve()}", file=sys.stderr)
+    print("Build static UI: cd ui && npm run build", file=sys.stderr)
+    print("Then: python -m superdeterminism ui --serve-dist --port PORT", file=sys.stderr)
+    print("Proposal edits export only; never auto-applied.", file=sys.stderr)
+    if not args.no_open and (ui_dir / "node_modules").is_dir():
+        webbrowser.open(url)
     return 0
 
 
