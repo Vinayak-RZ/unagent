@@ -1,0 +1,104 @@
+{
+  "disclaimer": "simulation != production; canary is confirmatory",
+  "report_version": "1.0",
+  "advisor.schema_version": "1.0",
+  "estimator": "l0_tape_splice",
+  "evidence_ceiling": "cassette",
+  "graph_identity": "4f28fb840506e757",
+  "graph_completeness": 1.0,
+  "graph_trust": "high",
+  "tape_version": "1.0",
+  "input_hash": "7008da0076ec3ce7",
+  "recommendations": [
+    {
+      "node_id": "calculator",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 40,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.9124,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "no rule fired with a CI that excludes the threshold"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 5.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "guard_input",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "FlipToDet",
+      "n": 40,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.9124,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "schema_ok=1.00 >= 0.8",
+        "p_mode=1.00 (wilson_lower=0.91) >= 0.7",
+        "L0 splice tail_stable"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 24.0,
+      "latency_ms": 40.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [
+        "auditability: llm logs -> deterministic function",
+        "cost_tokens estimated -24.0 per call",
+        "latency_ms estimated -40.0 model wait"
+      ],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "model",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "ABSTAIN",
+      "n": 40,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.9124,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "observational/cassette incomplete (tier=observational, replay=diverged); FlipToDet requires L0 tail-stable splice"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 140.0,
+      "latency_ms": 220.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    }
+  ],
+  "canary": [
+    "shadow the candidate function on the same traffic",
+    "compare outcome vector: failure, cost, latency, variance, policy",
+    "promote only if intervals and safety gates pass; else ABSTAIN/demote",
+    "simulation != production"
+  ]
+}
