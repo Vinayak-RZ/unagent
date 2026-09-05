@@ -36,6 +36,22 @@ python -m superdeterminism recommend tests/fixtures/sinks/langfuse_export.json -
 
 Unagent reconstructs your agent graph from traces, **simulates** determinism-class flips, and either recommends a change or **ABSTAINs**. Simulation ≠ production.
 
+## See it in Studio
+
+End-to-end run against a real LangGraph topology (mirror of [JoshuaC215/agent-service-toolkit](https://github.com/JoshuaC215/agent-service-toolkit) `research_assistant`): harness emits 40 traces → `studio-report` → Unagent Studio.
+
+Architecture graph — `guard_input` certified **FlipToDet**; `model` and `calculator` **ABSTAIN**:
+
+![Unagent Studio architecture graph](docs/assets/e2e/studio_graph_architecture.png)
+
+L0 simulation playback (cassette splice on `guard_input`):
+
+![Unagent Studio simulation playback](docs/assets/e2e/studio_simulation_playback.png)
+
+<video src="docs/assets/e2e/studio_simulation_playback.mp4" controls width="720"></video>
+
+Full write-up (method, recommendations, how to improve that architecture): [docs/reports/E2E_LANGGRAPH_STUDIO.md](docs/reports/E2E_LANGGRAPH_STUDIO.md). Regen: [demos/e2e-langgraph/](demos/e2e-langgraph/).
+
 ## See it running
 
 One recorded `classify` span can look perfectly stable (`p_mode` 1.00) and even pass an L0 cassette splice. With `n=1` the advisor still **ABSTAINs**: the [Wilson](https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval) lower bound is 0.21, so a flip is not justified.
