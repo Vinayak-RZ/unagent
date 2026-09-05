@@ -7,6 +7,7 @@ from pathlib import Path
 
 from superdeterminism.adapters import AdapterError, resolve
 from superdeterminism.ingest import IngestError, load_traces_dir, load_traces_path
+from superdeterminism.sinks import load_sink
 from superdeterminism.pipeline import (
     N_MIN_DEFAULT,
     inspect_traces,
@@ -60,6 +61,17 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="optional ingest adapter (e.g. langgraph). omitted = P0 generic ingest",
     )
+    rec.add_argument(
+        "--sink",
+        choices=("langfuse", "langsmith", "mlflow"),
+        default=None,
+        help="load traces via observability sink (file or --live)",
+    )
+    rec.add_argument(
+        "--live",
+        action="store_true",
+        help="with --sink, pull from live API using env credentials",
+    )
     val = sub.add_parser("validate", help="check payload shape; no recommendations")
     val.add_argument("traces", type=Path)
     ins = sub.add_parser("inspect", help="print node map without recommending")
@@ -69,6 +81,8 @@ def build_parser() -> argparse.ArgumentParser:
     sim.add_argument("traces", type=Path, nargs="?", default=None)
     sim.add_argument("--traces-dir", type=Path, default=None)
     sim.add_argument("--adapter", default=None)
+    sim.add_argument("--sink", choices=("langfuse", "langsmith", "mlflow"), default=None)
+    sim.add_argument("--live", action="store_true")
     sim.add_argument("--mode", choices=("what-if", "design", "report"), default="report")
     sim.add_argument("--node", default=None, help="node id for what-if")
     sim.add_argument("--n-min", type=int, default=N_MIN_DEFAULT)
@@ -123,10 +137,14 @@ def main(argv: list[str] | None = None) -> int:
 
 def _load(args: argparse.Namespace):
     outcome = getattr(args, "outcome_attr", None)
+    sink = getattr(args, "sink", None)
+    live = bool(getattr(args, "live", False))
+    if sink:
+        return load_sink(sink, path=args.traces, live=live)
     if getattr(args, "traces_dir", None):
         return load_traces_dir(args.traces_dir, outcome_attr=outcome)
     if args.traces is None:
-        raise IngestError("traces path or --traces-dir required")
+        raise IngestError("traces path, --traces-dir, or --sink required")
     if args.adapter:
         return resolve(args.adapter)(args.traces)
     return load_traces_path(args.traces, outcome_attr=outcome)
