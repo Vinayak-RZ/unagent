@@ -36,6 +36,7 @@ describe("studioReducer", () => {
     expect(next.status).toBe("ready");
     expect(next.breadcrumbs).toHaveLength(1);
     expect(next.proposalEdits.classify).toBe("FlipToDet");
+    expect(next.selectedNodeId).toBe("classify");
     expect(next.playbackIndex).toBe(0);
   });
 

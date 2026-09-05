@@ -126,6 +126,7 @@ export function studioReducer(state: StudioState, action: StudioAction): StudioS
         fileName: action.fileName,
         breadcrumbs: [rootFrame(action.report)],
         proposalEdits: edits,
+        selectedNodeId: action.report.recommendations[0]?.node_id,
         playbackIndex: action.report.simulation_events?.length ? 0 : -1,
       };
     }
