@@ -22,6 +22,7 @@ from superdeterminism.simulate import (
     what_if_to_dict,
 )
 from superdeterminism.scaffold import write_scaffold
+from superdeterminism.narrative import recommendations_to_narrative
 
 _BOUNDARY = (
     AdapterError,
@@ -52,7 +53,7 @@ def build_parser() -> argparse.ArgumentParser:
     rec.add_argument("--outcome-attr", default=None)
     rec.add_argument(
         "--stdout",
-        choices=("json", "md"),
+        choices=("json", "md", "narrative"),
         default="json",
         help="print this format to stdout (agents: json)",
     )
@@ -128,6 +129,10 @@ def main(argv: list[str] | None = None) -> int:
     if args.stdout == "json":
         json.dump(payload, sys.stdout, indent=2)
         sys.stdout.write("\n")
+    elif args.stdout == "narrative":
+        sys.stdout.write(recommendations_to_narrative(recs))
+        if not recommendations_to_narrative(recs).endswith("\n"):
+            sys.stdout.write("\n")
     else:
         sys.stdout.write(markdown)
         if not markdown.endswith("\n"):
