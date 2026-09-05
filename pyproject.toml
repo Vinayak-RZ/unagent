@@ -29,6 +29,7 @@ langgraph = [
 
 [project.scripts]
 superdeterminism = "superdeterminism.cli:main"
+unagent-mcp = "superdeterminism.mcp_server:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
