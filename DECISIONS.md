@@ -81,3 +81,9 @@ Written as ADRs in `docs/decisions/`. Do not silently override them.
 - **Alternatives:** Scaffold now; implement v0 in the same plan.
 - **Selected:** Docs-only. Simulator needs a new approved project-mode plan.
 - **Rationale:** nawab + ponytail: do not invent a package without an ADR and an approved plan.
+
+| D16 | Simulate is a first-class product surface | accepted | [0010-simulate-as-core.md](docs/decisions/0010-simulate-as-core.md) |
+| D17 | CLI preferred; Python + MCP wrap same library | accepted | [0011-mcp-cli-dual-surface.md](docs/decisions/0011-mcp-cli-dual-surface.md) |
+| D18 | Sinks dual-mode file + live (Langfuse/LangSmith/MLflow) | accepted | [0012-sinks-dual-mode.md](docs/decisions/0012-sinks-dual-mode.md) |
+| D19 | Studio UI: React Flow viewer + playback + proposal edit only | accepted | [0013-ui-studio-react-flow.md](docs/decisions/0013-ui-studio-react-flow.md) |
+| D20 | Narrative stdout for non-technical readers | accepted | [0014-narrative-stdout.md](docs/decisions/0014-narrative-stdout.md) |

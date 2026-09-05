@@ -1,14 +1,16 @@
-# Progress
+# Progress — viral product hardening
 
-Last updated: 2026-09-01
+Branch: `cursor/unagent-viral-hardening-c4f0`
 
 | Phase | Status | Notes |
 |-------|--------|-------|
-| Research docs (nawab v2) | done | PR #2 |
-| P0 — Agnostic core | done | PR #3 |
-| P1 — LangGraph adapter | done | PR #4 |
-| Product README + EXTENSIVE | done | pin `5ecaca9` |
-| Product hardening 0–N | done | fail-closed, graph, L0 cassette, CI, examples |
-| P2 — remaining ecosystem sinks | specified | Langfuse/MLflow/CrewAI/MAF still specified |
+| 0 Design + ADRs | in progress | DESIGN-meta, PRODUCT, DESIGN, ADRs 0010–0014 |
+| S Simulate API | pending | |
+| I Sinks | pending | |
+| A MCP + Python API | pending | |
+| R Narrative + README | pending | |
+| U Studio UI | pending | |
+| B Track B adapter | pending | |
+| H Hardening | pending | |
 
-See [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). Phase reports: `PHASE_0_COMPLETION.md` … `PHASE_I_COMPLETION.md`, `PHASE_N_COMPLETION.md`. P0 exit: fail-closed recommend, reconstructed graphs, L0 replay vs resample, report v1, extras-free pytest, `scripts/validate.ps1` twice.
+Authority: viral product hardening master plan (nawab). Do not edit the plan file in artifacts.
