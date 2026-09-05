@@ -14,6 +14,12 @@ from superdeterminism.pipeline import (
     recommendations_to_dict,
     recommendations_to_markdown,
 )
+from superdeterminism.simulate import (
+    simulate_design,
+    simulate_report,
+    simulate_what_if,
+    what_if_to_dict,
+)
 from superdeterminism.scaffold import write_scaffold
 
 _BOUNDARY = (
@@ -59,6 +65,16 @@ def build_parser() -> argparse.ArgumentParser:
     ins = sub.add_parser("inspect", help="print node map without recommending")
     ins.add_argument("traces", type=Path)
     ins.add_argument("--adapter", default=None)
+    sim = sub.add_parser("simulate", help="design/run L0 architecture simulations")
+    sim.add_argument("traces", type=Path, nargs="?", default=None)
+    sim.add_argument("--traces-dir", type=Path, default=None)
+    sim.add_argument("--adapter", default=None)
+    sim.add_argument("--mode", choices=("what-if", "design", "report"), default="report")
+    sim.add_argument("--node", default=None, help="node id for what-if")
+    sim.add_argument("--n-min", type=int, default=N_MIN_DEFAULT)
+    sim.add_argument("--opt-in-l1", action="store_true", help="acknowledge L1 hybrid path (no live calls in this build)")
+    sim.add_argument("--stdout", choices=("json", "md"), default="json")
+    sim.add_argument("--json", dest="json_out", type=Path, default=None)
     scaf = sub.add_parser("scaffold", help="write illustrative scaffold; never edits user source")
     scaf.add_argument("report", type=Path, help="recommend JSON report")
     scaf.add_argument("--out", type=Path, required=True, help="directory to write (created)")
@@ -73,6 +89,8 @@ def main(argv: list[str] | None = None) -> int:
         return _validate(args)
     if args.cmd == "inspect":
         return _inspect(args)
+    if args.cmd == "simulate":
+        return _simulate(args)
     if args.cmd != "recommend":
         return 2
     try:
@@ -147,6 +165,41 @@ def _scaffold(args: argparse.Namespace) -> int:
     except _BOUNDARY as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2
+    return 0
+
+
+def _simulate(args: argparse.Namespace) -> int:
+    try:
+        traces = _load(args)
+        if args.opt_in_l1:
+            print("warning: --opt-in-l1 set; live L1 tail is not executed in this build", file=sys.stderr)
+        if args.mode == "what-if":
+            if not args.node:
+                raise ValueError("--node is required for --mode what-if")
+            payload = what_if_to_dict(
+                simulate_what_if(traces, args.node, n_min=args.n_min, opt_in_l1=args.opt_in_l1)
+            )
+        elif args.mode == "design":
+            from dataclasses import asdict
+
+            payload = {
+                "disclaimer": "simulation != production; canary is confirmatory",
+                "design": [asdict(c) for c in simulate_design(traces, n_min=args.n_min)],
+            }
+        else:
+            payload = simulate_report(traces, n_min=args.n_min, opt_in_l1=args.opt_in_l1)
+    except _BOUNDARY as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
+    try:
+        if args.json_out:
+            args.json_out.parent.mkdir(parents=True, exist_ok=True)
+            args.json_out.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    except OSError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
+    json.dump(payload, sys.stdout, indent=2)
+    sys.stdout.write("\n")
     return 0
 
 
