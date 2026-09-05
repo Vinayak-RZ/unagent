@@ -1,0 +1,3964 @@
+{
+  "traces": [
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "ba5d3e6a5b5a4cc2"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "89df6152e04d4dca",
+          "parent_span_id": "ba5d3e6a5b5a4cc2"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "1bfaeb8a963f47f3",
+          "parent_span_id": "89df6152e04d4dca"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "b317f318f1684138",
+          "parent_span_id": "1bfaeb8a963f47f3"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "e36dff9b4e344b77"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "2e5901df8d824145",
+          "parent_span_id": "e36dff9b4e344b77"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "d8dc263a549e41ca",
+          "parent_span_id": "2e5901df8d824145"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "da4897752a2549a7",
+          "parent_span_id": "d8dc263a549e41ca"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "dc29b52b433d45c8"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "b6807698a26c4c81",
+          "parent_span_id": "dc29b52b433d45c8"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "d0940e060dc54b5d",
+          "parent_span_id": "b6807698a26c4c81"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "3b409be6b7554d6f",
+          "parent_span_id": "d0940e060dc54b5d"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "369aafaf3c894b72"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "998cbc8160314c7e",
+          "parent_span_id": "369aafaf3c894b72"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "7884afb20c574b7b",
+          "parent_span_id": "998cbc8160314c7e"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "677b9cad83af4d10",
+          "parent_span_id": "7884afb20c574b7b"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "a0c410f8ee2847b8"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "a267dfef65bd458a",
+          "parent_span_id": "a0c410f8ee2847b8"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "88fe7ebca44e4e09",
+          "parent_span_id": "a267dfef65bd458a"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "581f702245ab49c1",
+          "parent_span_id": "88fe7ebca44e4e09"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "52a6e04beb8b4478"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "0df142fd1c1b426e",
+          "parent_span_id": "52a6e04beb8b4478"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "dd65f87f79fb4d83",
+          "parent_span_id": "0df142fd1c1b426e"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "552a5d64c02c40b3",
+          "parent_span_id": "dd65f87f79fb4d83"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "47fd29e43e2e41d8"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "236144c501554ee6",
+          "parent_span_id": "47fd29e43e2e41d8"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "8451d795394e4d29",
+          "parent_span_id": "236144c501554ee6"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "9d0aa8d50b514062",
+          "parent_span_id": "8451d795394e4d29"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "775e4e0484c947f7"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "6439196490954f4e",
+          "parent_span_id": "775e4e0484c947f7"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "aa8fe590bef14786",
+          "parent_span_id": "6439196490954f4e"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "dcdc833c82094841",
+          "parent_span_id": "aa8fe590bef14786"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "0432c01b3dba4ae3"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "01fab47d665f402e",
+          "parent_span_id": "0432c01b3dba4ae3"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "362bbc8d8da54f9f",
+          "parent_span_id": "01fab47d665f402e"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "6a3f86c59a504a8e",
+          "parent_span_id": "362bbc8d8da54f9f"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "8f58e654d0bc4a49"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "575ff4f4eb3940d2",
+          "parent_span_id": "8f58e654d0bc4a49"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "a27032d49cd04648",
+          "parent_span_id": "575ff4f4eb3940d2"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "43f17289b1b84d8f",
+          "parent_span_id": "a27032d49cd04648"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "5429f90d9a794bf5"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "50ad53767791463a",
+          "parent_span_id": "5429f90d9a794bf5"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "6bd0a1deb195493d",
+          "parent_span_id": "50ad53767791463a"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "bcdf189699044c39",
+          "parent_span_id": "6bd0a1deb195493d"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "9ff090035503456f"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "afbd7128c7bd4668",
+          "parent_span_id": "9ff090035503456f"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "91d84cf62dd54c51",
+          "parent_span_id": "afbd7128c7bd4668"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "01a885277ac44936",
+          "parent_span_id": "91d84cf62dd54c51"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "877b77b8969d4384"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "bde13067230a4c94",
+          "parent_span_id": "877b77b8969d4384"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "a58839194e9a4f11",
+          "parent_span_id": "bde13067230a4c94"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "92e8b1596e7849be",
+          "parent_span_id": "a58839194e9a4f11"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "a2d65bde4e7b48de"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "06bf9dc63026401e",
+          "parent_span_id": "a2d65bde4e7b48de"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "e6bb5d083cf24fd7",
+          "parent_span_id": "06bf9dc63026401e"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "016e2a0c7c7e4ac6",
+          "parent_span_id": "e6bb5d083cf24fd7"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "a5ba44546aa545cf"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "c73dbf5d34634f4c",
+          "parent_span_id": "a5ba44546aa545cf"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "899c26fd3c224d38",
+          "parent_span_id": "c73dbf5d34634f4c"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "21e52f140643481b",
+          "parent_span_id": "899c26fd3c224d38"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "17fa61772a1540d8"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "0302d3ba2588440c",
+          "parent_span_id": "17fa61772a1540d8"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "689515a58d6f43a1",
+          "parent_span_id": "0302d3ba2588440c"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "7e972f0381ec4ac9",
+          "parent_span_id": "689515a58d6f43a1"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "9f9e0f6426f04eda"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "37794a63fc954081",
+          "parent_span_id": "9f9e0f6426f04eda"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "41d114185bf5409f",
+          "parent_span_id": "37794a63fc954081"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "d935252ac4cd4d90",
+          "parent_span_id": "41d114185bf5409f"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "f62c7a4ed81c40b9"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "5fe9cce013f74629",
+          "parent_span_id": "f62c7a4ed81c40b9"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "9c74206cbae34bd1",
+          "parent_span_id": "5fe9cce013f74629"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "c940f6ee16b74884",
+          "parent_span_id": "9c74206cbae34bd1"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "e54ec21a3ceb48da"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "eaf12381bf154e52",
+          "parent_span_id": "e54ec21a3ceb48da"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "8e170e17b8ec4efc",
+          "parent_span_id": "eaf12381bf154e52"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "da3ee68a01aa452d",
+          "parent_span_id": "8e170e17b8ec4efc"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "dbf8f27ad26546df"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "db6fa2b57af8493c",
+          "parent_span_id": "dbf8f27ad26546df"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "8fc1e07cb4d24b50",
+          "parent_span_id": "db6fa2b57af8493c"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "d77f708d66b6402c",
+          "parent_span_id": "8fc1e07cb4d24b50"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "be07752d6011435c"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "335f3e5f12df4f40",
+          "parent_span_id": "be07752d6011435c"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "a3da846cede94614",
+          "parent_span_id": "335f3e5f12df4f40"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "3c294ed40edf4070",
+          "parent_span_id": "a3da846cede94614"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "69aaaba9104043f4"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "d1be2f8518004f45",
+          "parent_span_id": "69aaaba9104043f4"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "a96a2eea8552423b",
+          "parent_span_id": "d1be2f8518004f45"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "513eb34dbfad42e9",
+          "parent_span_id": "a96a2eea8552423b"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "abfa4edaf2ce4294"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "61325425f44f4140",
+          "parent_span_id": "abfa4edaf2ce4294"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "df971b9d52a84420",
+          "parent_span_id": "61325425f44f4140"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "69c61df20b784e26",
+          "parent_span_id": "df971b9d52a84420"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "10476eb76bcb4b32"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "c45a41b626774a1f",
+          "parent_span_id": "10476eb76bcb4b32"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "1f7d55195e40456e",
+          "parent_span_id": "c45a41b626774a1f"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "4f7063d8dc344ccc",
+          "parent_span_id": "1f7d55195e40456e"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "9915a0bc861c45b0"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "c9c30ddf1a3d4cb1",
+          "parent_span_id": "9915a0bc861c45b0"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "10aece0fec2b40f5",
+          "parent_span_id": "c9c30ddf1a3d4cb1"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "9c52741673fd4285",
+          "parent_span_id": "10aece0fec2b40f5"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "843d5204ad41468f"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "5c6e000d7252467b",
+          "parent_span_id": "843d5204ad41468f"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "da349912d81945da",
+          "parent_span_id": "5c6e000d7252467b"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "e2e0e43cd82146e6",
+          "parent_span_id": "da349912d81945da"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "181db03e1fd3437a"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "f7dac751d244469f",
+          "parent_span_id": "181db03e1fd3437a"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "90f5f7cba9f848f8",
+          "parent_span_id": "f7dac751d244469f"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "aff852c57eff456a",
+          "parent_span_id": "90f5f7cba9f848f8"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "f961cfb8887e4e3d"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "1b33afcd565b4450",
+          "parent_span_id": "f961cfb8887e4e3d"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "177b42cd3940468b",
+          "parent_span_id": "1b33afcd565b4450"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "4dcf9e6921c84ae2",
+          "parent_span_id": "177b42cd3940468b"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "9697fd3ad82248d9"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "4ee4344a636f4900",
+          "parent_span_id": "9697fd3ad82248d9"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "ce72ff19a5184a0d",
+          "parent_span_id": "4ee4344a636f4900"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "e3c179dfdd424984",
+          "parent_span_id": "ce72ff19a5184a0d"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "ae17719d992c4c65"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "b12dfe6be05a4657",
+          "parent_span_id": "ae17719d992c4c65"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "78b0adbd8a974832",
+          "parent_span_id": "b12dfe6be05a4657"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "aa6dcc3e3fd74e40",
+          "parent_span_id": "78b0adbd8a974832"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "a616138f7c1643a7"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "7fd05d22a1dd433d",
+          "parent_span_id": "a616138f7c1643a7"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "704a1a9efa3a4682",
+          "parent_span_id": "7fd05d22a1dd433d"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "479d4f1e3a1b429b",
+          "parent_span_id": "704a1a9efa3a4682"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "3abc405c315c4c9f"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "d1fb1f1f62a341f8",
+          "parent_span_id": "3abc405c315c4c9f"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "70b77af43d9e43b2",
+          "parent_span_id": "d1fb1f1f62a341f8"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "5f0b0af7fede47ee",
+          "parent_span_id": "70b77af43d9e43b2"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "2284e420bfec4caf"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "ee1bc361da6846b1",
+          "parent_span_id": "2284e420bfec4caf"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "30e9ff2b03d34867",
+          "parent_span_id": "ee1bc361da6846b1"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "78faf37ee56b49e5",
+          "parent_span_id": "30e9ff2b03d34867"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "52d7e4405d724d07"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "562cfb1ace8c4eb3",
+          "parent_span_id": "52d7e4405d724d07"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "b1b08538cd6f40d9",
+          "parent_span_id": "562cfb1ace8c4eb3"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "9626576b184441a7",
+          "parent_span_id": "b1b08538cd6f40d9"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "e00afe442c9642a0"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "978e360c62e14d83",
+          "parent_span_id": "e00afe442c9642a0"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "1ff04c9471764c31",
+          "parent_span_id": "978e360c62e14d83"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "05b84da6dd9d401b",
+          "parent_span_id": "1ff04c9471764c31"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "43b181d1416a4471"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "96f1af8e925c4bfe",
+          "parent_span_id": "43b181d1416a4471"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "89e5eac0ac25434e",
+          "parent_span_id": "96f1af8e925c4bfe"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "13d72c0a93964f50",
+          "parent_span_id": "89e5eac0ac25434e"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "a084fd745cf74e97"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "0c4753f8a0fc45ba",
+          "parent_span_id": "a084fd745cf74e97"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "144de5c3cab945ef",
+          "parent_span_id": "0c4753f8a0fc45ba"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "c5a9aa35a369430d",
+          "parent_span_id": "144de5c3cab945ef"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "2bc8b459feb142b0"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "503bbb19185048e6",
+          "parent_span_id": "2bc8b459feb142b0"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "48d4b11268594b08",
+          "parent_span_id": "503bbb19185048e6"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "d7b632cf09244146",
+          "parent_span_id": "48d4b11268594b08"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "2f56eaa0126247cf"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "65151e52c0d54af4",
+          "parent_span_id": "2f56eaa0126247cf"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "2fa13c38f1eb483b",
+          "parent_span_id": "65151e52c0d54af4"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "5f44ecb985f74fac",
+          "parent_span_id": "2fa13c38f1eb483b"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "guard_input",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "guard_input",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "model",
+              "block_unsafe_content"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "safety": "safe",
+            "categories": []
+          },
+          "tokens": 24,
+          "latency_ms": 40,
+          "error": false,
+          "span_id": "e6f5bb03fe3a43a5"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "tools",
+              "__end__"
+            ]
+          },
+          "input": {
+            "text": "What is 300 * 200?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "calculator",
+                "args": {
+                  "expression": "300 * 200"
+                }
+              }
+            ]
+          },
+          "tokens": 80,
+          "latency_ms": 120,
+          "error": false,
+          "span_id": "d59148e699d1406c",
+          "parent_span_id": "e6f5bb03fe3a43a5"
+        },
+        {
+          "name": "execute_tool calculator",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "tools",
+            "gen_ai.request.model": "fake-list",
+            "gen_ai.tool.name": "calculator"
+          },
+          "input": {
+            "expression": "300 * 200"
+          },
+          "output": {
+            "result": "60000"
+          },
+          "tokens": 0,
+          "latency_ms": 5,
+          "error": false,
+          "span_id": "e948f6297c1c4f09",
+          "parent_span_id": "d59148e699d1406c"
+        },
+        {
+          "name": "chat fake-list",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "model",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "60000"
+          },
+          "output": {
+            "text": "The result of 300 * 200 is 60000."
+          },
+          "tokens": 60,
+          "latency_ms": 100,
+          "error": false,
+          "span_id": "da1f854ab37b486f",
+          "parent_span_id": "e948f6297c1c4f09"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+- builder.add_node("guard_input", llm_guard_input)
++ builder.add_node("guard_input", guard_input)  # generated/nodes/guard_input.py

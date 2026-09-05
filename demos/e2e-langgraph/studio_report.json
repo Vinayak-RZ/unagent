@@ -1,0 +1,295 @@
+{
+  "disclaimer": "simulation != production; canary is confirmatory",
+  "report_version": "1.0",
+  "advisor.schema_version": "1.0",
+  "estimator": "l0_tape_splice",
+  "evidence_ceiling": "cassette",
+  "graph_identity": "4f28fb840506e757",
+  "graph_completeness": 1.0,
+  "graph_trust": "high",
+  "tape_version": "1.0",
+  "input_hash": "7008da0076ec3ce7",
+  "recommendations": [
+    {
+      "node_id": "calculator",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 40,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.9124,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "no rule fired with a CI that excludes the threshold"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 5.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "guard_input",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "FlipToDet",
+      "n": 40,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.9124,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "schema_ok=1.00 >= 0.8",
+        "p_mode=1.00 (wilson_lower=0.91) >= 0.7",
+        "L0 splice tail_stable"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 24.0,
+      "latency_ms": 40.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [
+        "auditability: llm logs -> deterministic function",
+        "cost_tokens estimated -24.0 per call",
+        "latency_ms estimated -40.0 model wait"
+      ],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "model",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "ABSTAIN",
+      "n": 40,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.9124,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "observational/cassette incomplete (tier=observational, replay=diverged); FlipToDet requires L0 tail-stable splice"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 140.0,
+      "latency_ms": 220.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    }
+  ],
+  "canary": [
+    "shadow the candidate function on the same traffic",
+    "compare outcome vector: failure, cost, latency, variance, policy",
+    "promote only if intervals and safety gates pass; else ABSTAIN/demote",
+    "simulation != production"
+  ],
+  "simulation": {
+    "disclaimer": "simulation != production; canary is confirmatory",
+    "opt_in_l1": false,
+    "l1_executed": false,
+    "design": [
+      {
+        "node_id": "guard_input",
+        "score": 2.1624,
+        "n": 40,
+        "p_mode_lower": 0.9123754607496077,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "schema_ok=1.00 >= 0.8"
+      },
+      {
+        "node_id": "model",
+        "score": 1.1624,
+        "n": 40,
+        "p_mode_lower": 0.9123754607496077,
+        "evidence_tier": "observational",
+        "replay_status": "diverged",
+        "why": "observational/cassette incomplete (tier=observational, replay=diverged); FlipToDet requires L0 tail-stable splice"
+      },
+      {
+        "node_id": "calculator",
+        "score": 0.9124,
+        "n": 40,
+        "p_mode_lower": 0.9123754607496077,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "no rule fired with a CI that excludes the threshold"
+      }
+    ]
+  },
+  "simulation_events": [
+    {
+      "t": 0,
+      "kind": "load",
+      "node_id": "calculator",
+      "detail": "traces=40",
+      "status": ""
+    },
+    {
+      "t": 2,
+      "kind": "graph",
+      "node_id": "calculator",
+      "detail": "identity=4f28fb840506e757",
+      "status": ""
+    },
+    {
+      "t": 3,
+      "kind": "cassette",
+      "node_id": "calculator",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 4,
+      "kind": "splice",
+      "node_id": "calculator",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 5,
+      "kind": "decide",
+      "node_id": "calculator",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 10,
+      "kind": "load",
+      "node_id": "guard_input",
+      "detail": "traces=40",
+      "status": ""
+    },
+    {
+      "t": 12,
+      "kind": "graph",
+      "node_id": "guard_input",
+      "detail": "identity=4f28fb840506e757",
+      "status": ""
+    },
+    {
+      "t": 13,
+      "kind": "cassette",
+      "node_id": "guard_input",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 14,
+      "kind": "splice",
+      "node_id": "guard_input",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 15,
+      "kind": "decide",
+      "node_id": "guard_input",
+      "detail": "FlipToDet",
+      "status": "FlipToDet"
+    },
+    {
+      "t": 20,
+      "kind": "load",
+      "node_id": "model",
+      "detail": "traces=40",
+      "status": ""
+    },
+    {
+      "t": 22,
+      "kind": "graph",
+      "node_id": "model",
+      "detail": "identity=4f28fb840506e757",
+      "status": ""
+    },
+    {
+      "t": 23,
+      "kind": "cassette",
+      "node_id": "model",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 24,
+      "kind": "splice",
+      "node_id": "model",
+      "detail": "diverged",
+      "status": "diverged"
+    },
+    {
+      "t": 25,
+      "kind": "decide",
+      "node_id": "model",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    }
+  ],
+  "graph": {
+    "nodes": [
+      {
+        "node_id": "calculator",
+        "node_kind": "deterministic_tool",
+        "mixed": false,
+        "side_effects": false,
+        "is_decision": false
+      },
+      {
+        "node_id": "guard_input",
+        "node_kind": "llm_reasoner",
+        "mixed": false,
+        "side_effects": false,
+        "is_decision": true
+      },
+      {
+        "node_id": "model",
+        "node_kind": "llm_reasoner",
+        "mixed": false,
+        "side_effects": false,
+        "is_decision": true
+      }
+    ],
+    "edges": [
+      {
+        "src": "calculator",
+        "dst": "model",
+        "kind": "parent"
+      },
+      {
+        "src": "guard_input",
+        "dst": "model",
+        "kind": "control"
+      },
+      {
+        "src": "guard_input",
+        "dst": "model",
+        "kind": "parent"
+      },
+      {
+        "src": "model",
+        "dst": "calculator",
+        "kind": "parent"
+      }
+    ],
+    "identity": "4f28fb840506e757",
+    "completeness": 1.0,
+    "trust": "high"
+  }
+}
