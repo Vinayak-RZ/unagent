@@ -1,0 +1,19 @@
+{
+  "framework": "crewai",
+  "run_id": "crew-1",
+  "tasks": [
+    {
+      "agent": "researcher",
+      "description": "research topic",
+      "output": {"summary": "ok"},
+      "tools": [
+        {"name": "search", "input": {"q": "x"}, "output": {"hits": 1}}
+      ]
+    },
+    {
+      "agent": "writer",
+      "description": "write brief",
+      "output": {"draft": "hello"}
+    }
+  ]
+}

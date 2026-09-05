@@ -13,11 +13,13 @@ _MODULES = {
     "langgraph": "superdeterminism.adapters.langgraph",
     "custom": "superdeterminism.adapters.custom",
     "atif": "superdeterminism.adapters.atif",
+    "crewai": "superdeterminism.adapters.crewai",
 }
 _EXTRAS = {
     "langgraph": ("langgraph", "langchain"),
     "custom": (),
     "atif": (),
+    "crewai": (),  # export mapper; no hard crewai import
 }
 
 

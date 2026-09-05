@@ -1,0 +1,120 @@
+{
+  "disclaimer": "simulation != production; canary is confirmatory",
+  "report_version": "1.0",
+  "advisor.schema_version": "1.0",
+  "estimator": "l0_tape_splice",
+  "evidence_ceiling": "cassette",
+  "graph_identity": "0e3c0788226f2764",
+  "graph_completeness": 1.0,
+  "graph_trust": "high",
+  "tape_version": "1.0",
+  "input_hash": "ccc14ede0d465fbd",
+  "recommendations": [
+    {
+      "node_id": "classify",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "FlipToDet",
+      "n": 40,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.9124,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "schema_ok=1.00 >= 0.8",
+        "p_mode=1.00 (wilson_lower=0.91) >= 0.7",
+        "L0 splice tail_stable"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 80.0,
+      "latency_ms": 200.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [
+        "auditability: llm logs -> deterministic function",
+        "cost_tokens estimated -80.0 per call",
+        "latency_ms estimated -200.0 model wait"
+      ],
+      "interaction_hypotheses": []
+    }
+  ],
+  "canary": [
+    "shadow the candidate function on the same traffic",
+    "compare outcome vector: failure, cost, latency, variance, policy",
+    "promote only if intervals and safety gates pass; else ABSTAIN/demote",
+    "simulation != production"
+  ],
+  "simulation": {
+    "disclaimer": "simulation != production; canary is confirmatory",
+    "opt_in_l1": false,
+    "l1_executed": false,
+    "design": [
+      {
+        "node_id": "classify",
+        "score": 2.1624,
+        "n": 40,
+        "p_mode_lower": 0.9123754607496077,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "schema_ok=1.00 >= 0.8"
+      }
+    ]
+  },
+  "simulation_events": [
+    {
+      "t": 0,
+      "kind": "load",
+      "node_id": "classify",
+      "detail": "traces=40",
+      "status": ""
+    },
+    {
+      "t": 2,
+      "kind": "graph",
+      "node_id": "classify",
+      "detail": "identity=0e3c0788226f2764",
+      "status": ""
+    },
+    {
+      "t": 3,
+      "kind": "cassette",
+      "node_id": "classify",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 4,
+      "kind": "splice",
+      "node_id": "classify",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 5,
+      "kind": "decide",
+      "node_id": "classify",
+      "detail": "FlipToDet",
+      "status": "FlipToDet"
+    }
+  ],
+  "graph": {
+    "nodes": [
+      {
+        "node_id": "classify",
+        "node_kind": "llm_reasoner",
+        "mixed": false,
+        "side_effects": false,
+        "is_decision": true
+      }
+    ],
+    "edges": [],
+    "identity": "0e3c0788226f2764",
+    "completeness": 1.0,
+    "trust": "high"
+  }
+}

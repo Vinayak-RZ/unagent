@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased — viral product hardening
+
+- First-class `simulate` (what-if / design / report) with L0 cassette events; L1 opt-in gated
+- Sinks: Langfuse, LangSmith, MLflow (file export + live env-gated)
+- MCP server (`unagent-mcp`) + Python API parity with CLI
+- Narrative stdout for non-technical readers
+- Unagent Studio (`ui/`): React Flow viewer, sim playback, in-graph **proposal draft** export only
+- CrewAI adapter with refuse-with-reason for LangGraph-shaped payloads
+- CI: extras matrix + UI job; `scripts/validate.sh`; security review notes; PyPI checklist (publish human-gated)
+
 ## 0.1.0
 
 - Agnostic CLI `recommend` / `validate` / `inspect` / `scaffold`

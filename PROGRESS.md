@@ -1,14 +1,21 @@
-# Progress
+# Progress — viral product hardening
 
-Last updated: 2026-09-01
+Branch: `cursor/unagent-viral-hardening-c4f0`
 
 | Phase | Status | Notes |
 |-------|--------|-------|
-| Research docs (nawab v2) | done | PR #2 |
-| P0 — Agnostic core | done | PR #3 |
-| P1 — LangGraph adapter | done | PR #4 |
-| Product README + EXTENSIVE | done | pin `5ecaca9` |
-| Product hardening 0–N | done | fail-closed, graph, L0 cassette, CI, examples |
-| P2 — remaining ecosystem sinks | specified | Langfuse/MLflow/CrewAI/MAF still specified |
+| 0 Design + ADRs | done | DESIGN-meta, PRODUCT, DESIGN, ADRs |
+| S Simulate API | done | `simulate` CLI + L0 events + tests |
+| I Sinks | done | Langfuse/LangSmith/MLflow file+live |
+| A MCP + Python API | done | `unagent-mcp` stdio server |
+| R Narrative + README | done | `--stdout narrative` + viral quickstart |
+| U Studio UI | done | React Flow viewer + playback + proposal export |
+| B Track B adapter | done | CrewAI + refuse-with-reason |
+| H Hardening | done | CI extras+UI, `scripts/validate.sh`, security notes, PyPI checklist |
 
-See [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). Phase reports: `PHASE_0_COMPLETION.md` … `PHASE_I_COMPLETION.md`, `PHASE_N_COMPLETION.md`. P0 exit: fail-closed recommend, reconstructed graphs, L0 replay vs resample, report v1, extras-free pytest, `scripts/validate.ps1` twice.
+Authority: viral product hardening master plan (nawab). Do not edit the plan file in artifacts.
+
+## Cutover
+
+- PyPI publish remains **human-gated** — see `docs/pypi-checklist.md`
+- Production GIFs/videos remain user-owned

@@ -24,6 +24,18 @@ The GitHub repository is [`Vinayak-RZ/unagent`](https://github.com/Vinayak-RZ/un
 > **Unagent is an offline OSS CLI and Python library you can run today.** It is not a hosted eval platform, a workflow searcher, or a LangChain-only plugin.
 > Primary interface: `python -m superdeterminism recommend`. It never auto-applies a refactor. **Simulation ≠ production.**
 
+
+## Viral quickstart
+
+```bash
+pip install -e .
+python -m superdeterminism recommend examples/advisor_flip_to_det.json --stdout narrative
+python -m superdeterminism simulate examples/advisor_flip_to_det.json --mode what-if --node classify
+python -m superdeterminism recommend tests/fixtures/sinks/langfuse_export.json --sink langfuse --stdout json
+```
+
+Unagent reconstructs your agent graph from traces, **simulates** determinism-class flips, and either recommends a change or **ABSTAINs**. Simulation ≠ production.
+
 ## See it running
 
 One recorded `classify` span can look perfectly stable (`p_mode` 1.00) and even pass an L0 cassette splice. With `n=1` the advisor still **ABSTAINs**: the [Wilson](https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval) lower bound is 0.21, so a flip is not justified.

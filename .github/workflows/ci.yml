@@ -26,6 +26,41 @@ jobs:
       - name: Import hygiene
         run: python -m pytest -q tests/test_import_hygiene.py
 
+  extras:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        extra: [crewai, langgraph]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install with extra
+        run: pip install -e ".[dev,${{ matrix.extra }}]"
+      - name: Test with extra installed
+        run: python -m pytest -q
+
+  ui:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ui
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: ui/package-lock.json
+      - name: Install
+        run: npm ci
+      - name: Unit tests
+        run: npm test
+      - name: Build
+        run: npm run build
+
   package:
     runs-on: ubuntu-latest
     steps:

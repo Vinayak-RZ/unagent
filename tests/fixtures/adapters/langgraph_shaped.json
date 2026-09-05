@@ -1,0 +1,12 @@
+{
+  "traces": [{
+    "spans": [{
+      "name": "model",
+      "attributes": {
+        "langgraph_node": "model",
+        "gen_ai.operation.name": "chat"
+      },
+      "output": {"x": 1}
+    }]
+  }]
+}

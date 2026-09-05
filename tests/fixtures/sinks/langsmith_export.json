@@ -1,0 +1,964 @@
+{
+  "runs": [
+    {
+      "id": "s0",
+      "trace_id": "t0",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t1",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t2",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t3",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t4",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t5",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t6",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t7",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t8",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t9",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t10",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t11",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t12",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t13",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t14",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t15",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t16",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t17",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t18",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t19",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t20",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t21",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t22",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t23",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t24",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t25",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t26",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t27",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t28",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t29",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t30",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t31",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t32",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t33",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t34",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t35",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t36",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t37",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t38",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    },
+    {
+      "id": "s0",
+      "trace_id": "t39",
+      "name": "chat gpt-4.1-mini",
+      "inputs": {
+        "text": "order status"
+      },
+      "outputs": {
+        "intent": "status"
+      },
+      "extra": {
+        "metadata": {
+          "gen_ai.operation.name": "chat",
+          "gen_ai.request.model": "gpt-4.1-mini",
+          "langgraph_node": "classify",
+          "advisor.schema_version": "1.0"
+        }
+      },
+      "start_time": 0,
+      "end_time": 0,
+      "total_tokens": 80,
+      "error": null,
+      "run_type": "llm"
+    }
+  ]
+}
