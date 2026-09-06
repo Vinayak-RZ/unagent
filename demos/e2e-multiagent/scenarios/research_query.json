@@ -1,0 +1,32 @@
+{
+  "id": "research_query",
+  "mix_weight": 15,
+  "task": "In one sentence, what is Unagent's FlipToDet rule?",
+  "route": ["research_agent"],
+  "policy": {
+    "allow": true,
+    "reason": "read-only knowledge question"
+  },
+  "agents": {
+    "research_agent": {
+      "tools": [
+        {
+          "name": "web_search",
+          "args": {"query": "Unagent FlipToDet determinism class commitment node"},
+          "result": "FlipToDet re-types a schema-stable, high-mode-mass LLM node to a function when L0 splice is tail-stable and a cost/latency/variance/compliance delta exists."
+        },
+        {
+          "name": "retrieve_docs",
+          "args": {"path": "docs/methodology.md"},
+          "result": "FlipToDet when schema_ok>=0.80, p_mode>=0.70, L0 tail-stable, failure does not worsen; flip the commitment node."
+        },
+        {
+          "name": "cite_sources",
+          "args": {"ids": "web_search,methodology"},
+          "result": "[1] web_search [2] docs/methodology.md"
+        }
+      ],
+      "answer": "FlipToDet when the node's outputs are schema-stable and high-mode-mass, the L0 cassette tail stays stable, and a cost, latency, variance, or compliance delta exists — flip the commitment node, not the side-effecting tool."
+    }
+  }
+}

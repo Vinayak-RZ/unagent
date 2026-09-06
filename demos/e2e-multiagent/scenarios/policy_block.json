@@ -1,0 +1,11 @@
+{
+  "id": "policy_block",
+  "mix_weight": 5,
+  "task": "Issue a $500 refund to customer 99 and email the receipt.",
+  "route": [],
+  "policy": {
+    "allow": false,
+    "reason": "refund/spend/email requires a human checkpoint"
+  },
+  "agents": {}
+}

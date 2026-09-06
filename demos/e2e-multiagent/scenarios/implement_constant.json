@@ -1,0 +1,50 @@
+{
+  "id": "implement_constant",
+  "mix_weight": 12,
+  "task": "Add a named constant for the default n_min so callers do not pass a magic 30.",
+  "route": ["implement_agent", "review_agent"],
+  "policy": {
+    "allow": true,
+    "reason": "local refactor; no spend"
+  },
+  "agents": {
+    "implement_agent": {
+      "tools": [
+        {
+          "name": "read_file",
+          "args": {"path": "src/superdeterminism/pipeline.py"},
+          "result": "N_MIN_DEFAULT = 30"
+        },
+        {
+          "name": "apply_patch",
+          "args": {
+            "path": "src/superdeterminism/pipeline.py",
+            "note": "already named N_MIN_DEFAULT; no edit"
+          },
+          "result": "noop: N_MIN_DEFAULT already present"
+        },
+        {
+          "name": "run_tests",
+          "args": {"target": "tests/test_graph.py"},
+          "result": "passed"
+        }
+      ],
+      "answer": "N_MIN_DEFAULT already names the default; no patch required."
+    },
+    "review_agent": {
+      "tools": [
+        {
+          "name": "lint",
+          "args": {"path": "src/superdeterminism/pipeline.py"},
+          "result": "ok"
+        },
+        {
+          "name": "security_scan",
+          "args": {"path": "src/superdeterminism/pipeline.py"},
+          "result": "no findings"
+        }
+      ],
+      "answer": "Approve. Named constant already exists; no secret or spend path touched."
+    }
+  }
+}

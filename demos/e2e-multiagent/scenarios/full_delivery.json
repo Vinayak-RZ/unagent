@@ -1,0 +1,70 @@
+{
+  "id": "full_delivery",
+  "mix_weight": 10,
+  "task": "Should the classify node be a function? If the advisor would FlipToDet, draft only the helper name.",
+  "route": ["research_agent", "implement_agent", "review_agent"],
+  "policy": {
+    "allow": true,
+    "reason": "read-only research plus naming artifact; no spend"
+  },
+  "agents": {
+    "research_agent": {
+      "tools": [
+        {
+          "name": "web_search",
+          "args": {"query": "Unagent FlipToDet classify node cassette"},
+          "result": "Sample studio_report classify node: FlipToDet, n=40, cassette tail_stable."
+        },
+        {
+          "name": "retrieve_docs",
+          "args": {"path": "docs/methodology.md"},
+          "result": "Flip the commitment node when schema_ok and p_mode gates pass and L0 is tail_stable."
+        },
+        {
+          "name": "cite_sources",
+          "args": {"ids": "web_search,methodology"},
+          "result": "[1] examples/studio_report.json [2] docs/methodology.md"
+        }
+      ],
+      "answer": "Yes — classify is a FlipToDet candidate under those traces. Helper name should stay classify-shaped."
+    },
+    "implement_agent": {
+      "tools": [
+        {
+          "name": "read_file",
+          "args": {"path": "src/superdeterminism/classify.py"},
+          "result": "def classify_span(span) -> tuple[str, NodeKind, DetClass]"
+        },
+        {
+          "name": "apply_patch",
+          "args": {
+            "path": "docs/refactor.md",
+            "note": "propose helper name classify_as_function"
+          },
+          "result": "drafted name classify_as_function"
+        },
+        {
+          "name": "run_tests",
+          "args": {"target": "tests/test_graph.py"},
+          "result": "passed"
+        }
+      ],
+      "answer": "Draft helper name: classify_as_function. Scaffold only; do not patch graph.py."
+    },
+    "review_agent": {
+      "tools": [
+        {
+          "name": "lint",
+          "args": {"path": "src/superdeterminism/classify.py"},
+          "result": "ok"
+        },
+        {
+          "name": "security_scan",
+          "args": {"path": "src/superdeterminism/classify.py"},
+          "result": "no findings"
+        }
+      ],
+      "answer": "Approve name classify_as_function. No auto-apply."
+    }
+  }
+}
