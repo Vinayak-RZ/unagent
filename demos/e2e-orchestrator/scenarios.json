@@ -1,0 +1,53 @@
+{
+  "scenarios": [
+    {
+      "id": "research_paper",
+      "intent": "research",
+      "route": "research_agent",
+      "query": "Summarize recent papers on agent routing",
+      "tool": "mcp_arxiv"
+    },
+    {
+      "id": "research_web",
+      "intent": "research",
+      "route": "research_agent",
+      "query": "What is the latest on multi-agent orchestration?",
+      "tool": "web_search"
+    },
+    {
+      "id": "code_fix",
+      "intent": "code",
+      "route": "code_agent",
+      "query": "Fix the lint error in utils.py",
+      "tool": "skill_lint"
+    },
+    {
+      "id": "code_run",
+      "intent": "code",
+      "route": "code_agent",
+      "query": "Run tests for the auth module",
+      "tool": "code_exec"
+    },
+    {
+      "id": "data_query",
+      "intent": "data",
+      "route": "data_agent",
+      "query": "How many active users last week?",
+      "tool": "sql_query"
+    },
+    {
+      "id": "data_warehouse",
+      "intent": "data",
+      "route": "data_agent",
+      "query": "Export cohort metrics from warehouse",
+      "tool": "mcp_warehouse"
+    },
+    {
+      "id": "ambiguous",
+      "intent": "research",
+      "route": "code_agent",
+      "query": "Research best practices for SQL indexing",
+      "misroute": true
+    }
+  ]
+}

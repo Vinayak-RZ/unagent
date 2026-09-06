@@ -1,0 +1,821 @@
+{
+  "disclaimer": "simulation != production; canary is confirmatory",
+  "report_version": "1.0",
+  "advisor.schema_version": "1.0",
+  "estimator": "l0_tape_splice",
+  "evidence_ceiling": "cassette",
+  "graph_identity": "70a594e1ab69bf53",
+  "graph_completeness": 1.0,
+  "graph_trust": "high",
+  "tape_version": "1.0",
+  "input_hash": "4a5779ec35280013",
+  "recommendations": [
+    {
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "ABSTAIN",
+      "n": 14,
+      "p_mode": 0.4286,
+      "p_mode_lower": 0.2138,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "n=14 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 118.0,
+      "latency_ms": 195.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "code_exec",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 8,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.6756,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=8 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 8.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "ABSTAIN",
+      "n": 8,
+      "p_mode": 0.5,
+      "p_mode_lower": 0.2152,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "n=8 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 118.0,
+      "latency_ms": 195.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "mcp_arxiv",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 7,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.6457,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=7 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 25.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "mcp_warehouse",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 4,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.5101,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=4 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 25.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "ABSTAIN",
+      "n": 18,
+      "p_mode": 0.3889,
+      "p_mode_lower": 0.203,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "n=18 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 100.5,
+      "latency_ms": 165.8333,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "skill_lint",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 6,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.6097,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=6 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 25.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "sql_query",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 4,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.5101,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=4 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 8.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "FlipToDet",
+      "n": 40,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.9124,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "schema_ok=1.00 >= 0.8",
+        "p_mode=1.00 (wilson_lower=0.91) >= 0.7",
+        "L0 splice tail_stable"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 12.0,
+      "latency_ms": 8.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [
+        "auditability: llm logs -> deterministic function",
+        "cost_tokens estimated -12.0 per call",
+        "latency_ms estimated -8.0 model wait"
+      ],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "ABSTAIN",
+      "n": 40,
+      "p_mode": 0.225,
+      "p_mode_lower": 0.1232,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "no rule fired with a CI that excludes the threshold"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 32.0,
+      "latency_ms": 35.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "web_search",
+      "node_kind": "retriever",
+      "det_class": "stochastic_index",
+      "action": "ABSTAIN",
+      "n": 6,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.6097,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=6 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 8.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    }
+  ],
+  "canary": [
+    "shadow the candidate function on the same traffic",
+    "compare outcome vector: failure, cost, latency, variance, policy",
+    "promote only if intervals and safety gates pass; else ABSTAIN/demote",
+    "simulation != production"
+  ],
+  "simulation": {
+    "disclaimer": "simulation != production; canary is confirmatory",
+    "opt_in_l1": false,
+    "l1_executed": false,
+    "design": [
+      {
+        "node_id": "supervisor_gate",
+        "score": 2.1624,
+        "n": 40,
+        "p_mode_lower": 0.9123754607496077,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "schema_ok=1.00 >= 0.8"
+      },
+      {
+        "node_id": "task_router",
+        "score": 0.3732,
+        "n": 40,
+        "p_mode_lower": 0.12315953254678531,
+        "evidence_tier": "observational",
+        "replay_status": "diverged",
+        "why": "no rule fired with a CI that excludes the threshold"
+      },
+      {
+        "node_id": "research_agent",
+        "score": 0.3718,
+        "n": 18,
+        "p_mode_lower": 0.2030499192693116,
+        "evidence_tier": "observational",
+        "replay_status": "diverged",
+        "why": "n=18 < n_min=30"
+      },
+      {
+        "node_id": "code_agent",
+        "score": 0.3498,
+        "n": 14,
+        "p_mode_lower": 0.21380509930400526,
+        "evidence_tier": "observational",
+        "replay_status": "diverged",
+        "why": "n=14 < n_min=30"
+      },
+      {
+        "node_id": "data_agent",
+        "score": 0.3074,
+        "n": 8,
+        "p_mode_lower": 0.2152125268244419,
+        "evidence_tier": "observational",
+        "replay_status": "diverged",
+        "why": "n=8 < n_min=30"
+      },
+      {
+        "node_id": "code_exec",
+        "score": 0.1802,
+        "n": 8,
+        "p_mode_lower": 0.6755843804891231,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=8 < n_min=30"
+      },
+      {
+        "node_id": "mcp_arxiv",
+        "score": 0.1507,
+        "n": 7,
+        "p_mode_lower": 0.6456611570247934,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=7 < n_min=30"
+      },
+      {
+        "node_id": "web_search",
+        "score": 0.1219,
+        "n": 6,
+        "p_mode_lower": 0.6096569663469354,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=6 < n_min=30"
+      },
+      {
+        "node_id": "skill_lint",
+        "score": 0.1219,
+        "n": 6,
+        "p_mode_lower": 0.6096569663469354,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=6 < n_min=30"
+      },
+      {
+        "node_id": "sql_query",
+        "score": 0.068,
+        "n": 4,
+        "p_mode_lower": 0.5100999795960008,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=4 < n_min=30"
+      }
+    ]
+  },
+  "simulation_events": [
+    {
+      "t": -3,
+      "kind": "layer_enter",
+      "node_id": "supervisor_gate",
+      "detail": "L0 orchestrator",
+      "status": "orchestration",
+      "phase": "orchestration"
+    },
+    {
+      "t": -2,
+      "kind": "assign_task",
+      "node_id": "task_router",
+      "detail": "route \u2192 code_agent",
+      "status": "assigned",
+      "phase": "assign"
+    },
+    {
+      "t": -1,
+      "kind": "layer_enter",
+      "node_id": "code_agent",
+      "detail": "L1 specialist agent",
+      "status": "in_agent",
+      "phase": "in_agent"
+    },
+    {
+      "t": 0,
+      "kind": "load",
+      "node_id": "code_agent",
+      "detail": "traces=40",
+      "status": "",
+      "phase": "in_agent"
+    },
+    {
+      "t": 2,
+      "kind": "graph",
+      "node_id": "code_agent",
+      "detail": "identity=70a594e1ab69bf53",
+      "status": ""
+    },
+    {
+      "t": 3,
+      "kind": "cassette",
+      "node_id": "code_agent",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 4,
+      "kind": "splice",
+      "node_id": "code_agent",
+      "detail": "diverged",
+      "status": "diverged"
+    },
+    {
+      "t": 5,
+      "kind": "decide",
+      "node_id": "code_agent",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 10,
+      "kind": "load",
+      "node_id": "code_exec",
+      "detail": "traces=40",
+      "status": ""
+    },
+    {
+      "t": 12,
+      "kind": "graph",
+      "node_id": "code_exec",
+      "detail": "identity=70a594e1ab69bf53",
+      "status": ""
+    },
+    {
+      "t": 13,
+      "kind": "cassette",
+      "node_id": "code_exec",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 14,
+      "kind": "splice",
+      "node_id": "code_exec",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 15,
+      "kind": "decide",
+      "node_id": "code_exec",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 20,
+      "kind": "load",
+      "node_id": "data_agent",
+      "detail": "traces=40",
+      "status": ""
+    },
+    {
+      "t": 22,
+      "kind": "graph",
+      "node_id": "data_agent",
+      "detail": "identity=70a594e1ab69bf53",
+      "status": ""
+    },
+    {
+      "t": 23,
+      "kind": "cassette",
+      "node_id": "data_agent",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 24,
+      "kind": "splice",
+      "node_id": "data_agent",
+      "detail": "diverged",
+      "status": "diverged"
+    },
+    {
+      "t": 25,
+      "kind": "decide",
+      "node_id": "data_agent",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 30,
+      "kind": "load",
+      "node_id": "mcp_arxiv",
+      "detail": "traces=40",
+      "status": ""
+    },
+    {
+      "t": 32,
+      "kind": "graph",
+      "node_id": "mcp_arxiv",
+      "detail": "identity=70a594e1ab69bf53",
+      "status": ""
+    },
+    {
+      "t": 33,
+      "kind": "cassette",
+      "node_id": "mcp_arxiv",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 34,
+      "kind": "splice",
+      "node_id": "mcp_arxiv",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 35,
+      "kind": "decide",
+      "node_id": "mcp_arxiv",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 40,
+      "kind": "load",
+      "node_id": "mcp_warehouse",
+      "detail": "traces=40",
+      "status": ""
+    },
+    {
+      "t": 42,
+      "kind": "graph",
+      "node_id": "mcp_warehouse",
+      "detail": "identity=70a594e1ab69bf53",
+      "status": ""
+    },
+    {
+      "t": 43,
+      "kind": "cassette",
+      "node_id": "mcp_warehouse",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 44,
+      "kind": "splice",
+      "node_id": "mcp_warehouse",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 45,
+      "kind": "decide",
+      "node_id": "mcp_warehouse",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 50,
+      "kind": "load",
+      "node_id": "research_agent",
+      "detail": "traces=40",
+      "status": ""
+    },
+    {
+      "t": 52,
+      "kind": "graph",
+      "node_id": "research_agent",
+      "detail": "identity=70a594e1ab69bf53",
+      "status": ""
+    },
+    {
+      "t": 53,
+      "kind": "cassette",
+      "node_id": "research_agent",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 54,
+      "kind": "splice",
+      "node_id": "research_agent",
+      "detail": "diverged",
+      "status": "diverged"
+    },
+    {
+      "t": 55,
+      "kind": "decide",
+      "node_id": "research_agent",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 60,
+      "kind": "load",
+      "node_id": "skill_lint",
+      "detail": "traces=40",
+      "status": ""
+    },
+    {
+      "t": 62,
+      "kind": "graph",
+      "node_id": "skill_lint",
+      "detail": "identity=70a594e1ab69bf53",
+      "status": ""
+    },
+    {
+      "t": 63,
+      "kind": "cassette",
+      "node_id": "skill_lint",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 64,
+      "kind": "splice",
+      "node_id": "skill_lint",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 65,
+      "kind": "decide",
+      "node_id": "skill_lint",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 70,
+      "kind": "load",
+      "node_id": "sql_query",
+      "detail": "traces=40",
+      "status": ""
+    },
+    {
+      "t": 72,
+      "kind": "graph",
+      "node_id": "sql_query",
+      "detail": "identity=70a594e1ab69bf53",
+      "status": ""
+    },
+    {
+      "t": 73,
+      "kind": "cassette",
+      "node_id": "sql_query",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 74,
+      "kind": "splice",
+      "node_id": "sql_query",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 75,
+      "kind": "decide",
+      "node_id": "sql_query",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 80,
+      "kind": "load",
+      "node_id": "supervisor_gate",
+      "detail": "traces=40",
+      "status": ""
+    },
+    {
+      "t": 82,
+      "kind": "graph",
+      "node_id": "supervisor_gate",
+      "detail": "identity=70a594e1ab69bf53",
+      "status": ""
+    },
+    {
+      "t": 83,
+      "kind": "cassette",
+      "node_id": "supervisor_gate",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 84,
+      "kind": "splice",
+      "node_id": "supervisor_gate",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 85,
+      "kind": "decide",
+      "node_id": "supervisor_gate",
+      "detail": "FlipToDet",
+      "status": "FlipToDet"
+    },
+    {
+      "t": 90,
+      "kind": "load",
+      "node_id": "task_router",
+      "detail": "traces=40",
+      "status": ""
+    },
+    {
+      "t": 92,
+      "kind": "graph",
+      "node_id": "task_router",
+      "detail": "identity=70a594e1ab69bf53",
+      "status": ""
+    },
+    {
+      "t": 93,
+      "kind": "cassette",
+      "node_id": "task_router",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 94,
+      "kind": "splice",
+      "node_id": "task_router",
+      "detail": "diverged",
+      "status": "diverged"
+    },
+    {
+      "t": 95,
+      "kind": "decide",
+      "node_id": "task_router",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 100,
+      "kind": "load",
+      "node_id": "web_search",
+      "detail": "traces=40",
+      "status": ""
+    },
+    {
+      "t": 102,
+      "kind": "graph",
+      "node_id": "web_search",
+      "detail": "identity=70a594e1ab69bf53",
+      "status": ""
+    },
+    {
+      "t": 103,
+      "kind": "cassette",
+      "node_id": "web_search",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 104,
+      "kind": "splice",
+      "node_id": "web_search",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 105,
+      "kind": "decide",
+      "node_id": "web_search",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    }
+  ]
+}

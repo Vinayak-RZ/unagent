@@ -1,0 +1,2 @@
+- builder.add_node("supervisor_gate", llm_supervisor_gate)
++ builder.add_node("supervisor_gate", supervisor_gate)  # generated/nodes/supervisor_gate.py

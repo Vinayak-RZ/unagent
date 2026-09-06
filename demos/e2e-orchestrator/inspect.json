@@ -1,0 +1,1930 @@
+{
+  "advisor.schema_version": "1.0",
+  "graph_identity": "70a594e1ab69bf53",
+  "completeness": 1.0,
+  "trust": "high",
+  "warnings": [],
+  "nodes": [
+    {
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "mixed": false,
+      "side_effects": false,
+      "is_decision": true
+    },
+    {
+      "node_id": "code_exec",
+      "node_kind": "deterministic_tool",
+      "mixed": false,
+      "side_effects": false,
+      "is_decision": false
+    },
+    {
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "mixed": false,
+      "side_effects": false,
+      "is_decision": true
+    },
+    {
+      "node_id": "mcp_arxiv",
+      "node_kind": "deterministic_tool",
+      "mixed": false,
+      "side_effects": false,
+      "is_decision": false
+    },
+    {
+      "node_id": "mcp_warehouse",
+      "node_kind": "deterministic_tool",
+      "mixed": false,
+      "side_effects": false,
+      "is_decision": false
+    },
+    {
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "mixed": false,
+      "side_effects": false,
+      "is_decision": true
+    },
+    {
+      "node_id": "skill_lint",
+      "node_kind": "deterministic_tool",
+      "mixed": false,
+      "side_effects": false,
+      "is_decision": false
+    },
+    {
+      "node_id": "sql_query",
+      "node_kind": "deterministic_tool",
+      "mixed": false,
+      "side_effects": false,
+      "is_decision": false
+    },
+    {
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "mixed": false,
+      "side_effects": false,
+      "is_decision": true
+    },
+    {
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "mixed": false,
+      "side_effects": false,
+      "is_decision": true
+    },
+    {
+      "node_id": "web_search",
+      "node_kind": "retriever",
+      "mixed": false,
+      "side_effects": false,
+      "is_decision": false
+    }
+  ],
+  "edges": [
+    {
+      "src": "code_agent",
+      "dst": "code_exec",
+      "kind": "control"
+    },
+    {
+      "src": "code_agent",
+      "dst": "code_exec",
+      "kind": "parent"
+    },
+    {
+      "src": "code_agent",
+      "dst": "skill_lint",
+      "kind": "control"
+    },
+    {
+      "src": "code_agent",
+      "dst": "skill_lint",
+      "kind": "parent"
+    },
+    {
+      "src": "code_exec",
+      "dst": "code_agent",
+      "kind": "parent"
+    },
+    {
+      "src": "data_agent",
+      "dst": "mcp_warehouse",
+      "kind": "control"
+    },
+    {
+      "src": "data_agent",
+      "dst": "mcp_warehouse",
+      "kind": "parent"
+    },
+    {
+      "src": "data_agent",
+      "dst": "sql_query",
+      "kind": "control"
+    },
+    {
+      "src": "data_agent",
+      "dst": "sql_query",
+      "kind": "parent"
+    },
+    {
+      "src": "mcp_arxiv",
+      "dst": "research_agent",
+      "kind": "parent"
+    },
+    {
+      "src": "mcp_warehouse",
+      "dst": "data_agent",
+      "kind": "parent"
+    },
+    {
+      "src": "research_agent",
+      "dst": "mcp_arxiv",
+      "kind": "control"
+    },
+    {
+      "src": "research_agent",
+      "dst": "mcp_arxiv",
+      "kind": "parent"
+    },
+    {
+      "src": "research_agent",
+      "dst": "web_search",
+      "kind": "control"
+    },
+    {
+      "src": "research_agent",
+      "dst": "web_search",
+      "kind": "parent"
+    },
+    {
+      "src": "skill_lint",
+      "dst": "code_agent",
+      "kind": "parent"
+    },
+    {
+      "src": "sql_query",
+      "dst": "data_agent",
+      "kind": "parent"
+    },
+    {
+      "src": "supervisor_gate",
+      "dst": "task_router",
+      "kind": "control"
+    },
+    {
+      "src": "supervisor_gate",
+      "dst": "task_router",
+      "kind": "parent"
+    },
+    {
+      "src": "task_router",
+      "dst": "code_agent",
+      "kind": "control"
+    },
+    {
+      "src": "task_router",
+      "dst": "code_agent",
+      "kind": "parent"
+    },
+    {
+      "src": "task_router",
+      "dst": "data_agent",
+      "kind": "control"
+    },
+    {
+      "src": "task_router",
+      "dst": "data_agent",
+      "kind": "parent"
+    },
+    {
+      "src": "task_router",
+      "dst": "research_agent",
+      "kind": "control"
+    },
+    {
+      "src": "task_router",
+      "dst": "research_agent",
+      "kind": "parent"
+    },
+    {
+      "src": "web_search",
+      "dst": "research_agent",
+      "kind": "parent"
+    }
+  ],
+  "spans": [
+    {
+      "trace_id": "t0",
+      "span_id": "48c39d1204704ad0",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t0",
+      "span_id": "388ad73f1e4e4615",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t0",
+      "span_id": "6d19f89d6d79428c",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t0",
+      "span_id": "9eaa95f19ec94dc3",
+      "node_id": "mcp_arxiv",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t0",
+      "span_id": "efa4da6aa01b4e15",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t1",
+      "span_id": "f4d9f57af1e04be0",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t1",
+      "span_id": "ea9b055379d5436a",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t1",
+      "span_id": "7fb4a5f414444bd9",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t1",
+      "span_id": "64aa52c8c76c4e0a",
+      "node_id": "mcp_arxiv",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t1",
+      "span_id": "9112e115c82a4065",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t2",
+      "span_id": "2aeafa91f2274f1d",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t2",
+      "span_id": "956c4e5680c941ca",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t2",
+      "span_id": "41a6e5e9303f4a4b",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t2",
+      "span_id": "0e8c0e3f0d1347e1",
+      "node_id": "mcp_arxiv",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t2",
+      "span_id": "531a63223e99477a",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t3",
+      "span_id": "8ce158a97c674c16",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t3",
+      "span_id": "b5f2f06d825848b2",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t3",
+      "span_id": "b1b7b65ac4284fd1",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t4",
+      "span_id": "ab98b15ed5f541c8",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t4",
+      "span_id": "d14b11593d2f40ff",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t4",
+      "span_id": "9a0eae16db854278",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t4",
+      "span_id": "54d73c45bdb34559",
+      "node_id": "web_search",
+      "node_kind": "retriever",
+      "det_class": "stochastic_index",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t4",
+      "span_id": "0b227da2c5a4415c",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t5",
+      "span_id": "c8d4c83d56974e50",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t5",
+      "span_id": "007d655b70bc4514",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t5",
+      "span_id": "9b0822dd9bba4d85",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t5",
+      "span_id": "ae376a1ced3145a1",
+      "node_id": "web_search",
+      "node_kind": "retriever",
+      "det_class": "stochastic_index",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t5",
+      "span_id": "66a2202a00f24a05",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t6",
+      "span_id": "c09dcc9366be40c7",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t6",
+      "span_id": "bcf83c80590542fe",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t6",
+      "span_id": "b4f11b073315460a",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t6",
+      "span_id": "2c3bf52da9974fcf",
+      "node_id": "skill_lint",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t6",
+      "span_id": "88801c982f8e4a04",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t7",
+      "span_id": "284c6231a6f94838",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t7",
+      "span_id": "f2a007ba93604379",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t7",
+      "span_id": "a6b399e00bb04cfb",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t7",
+      "span_id": "fda177f21daa4aba",
+      "node_id": "skill_lint",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t7",
+      "span_id": "770541501d184394",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t8",
+      "span_id": "5ec5b79c77024718",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t8",
+      "span_id": "831f61f362a44685",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t8",
+      "span_id": "fb68cb247c8b4149",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t8",
+      "span_id": "9f7b08e361d14238",
+      "node_id": "code_exec",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t8",
+      "span_id": "bfee5e7c6b1d4fc0",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t9",
+      "span_id": "527bc770ee1a48f1",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t9",
+      "span_id": "6253f83b15984a32",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t9",
+      "span_id": "7b6731ec493b4136",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t9",
+      "span_id": "55a87da867e94235",
+      "node_id": "code_exec",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t9",
+      "span_id": "cfbcbb7b02c048ed",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t10",
+      "span_id": "71fdcaeff1434dab",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t10",
+      "span_id": "9ee41f234abd40b1",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t10",
+      "span_id": "6c71a8c2d1904484",
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t10",
+      "span_id": "71310dbec9c147ce",
+      "node_id": "sql_query",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t10",
+      "span_id": "a72f6e1716194a58",
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t11",
+      "span_id": "bebfabe5873c40fc",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t11",
+      "span_id": "15449bafdc834d8e",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t11",
+      "span_id": "b20561243f574c32",
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t11",
+      "span_id": "25adc5b9a8d64545",
+      "node_id": "sql_query",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t11",
+      "span_id": "722da97a08804eb7",
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t12",
+      "span_id": "4ecde9c6c4eb4360",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t12",
+      "span_id": "675f230e86904506",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t12",
+      "span_id": "3d56a0cee55b4f5c",
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t12",
+      "span_id": "cc56328d12264bcc",
+      "node_id": "mcp_warehouse",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t12",
+      "span_id": "daec3335855449ec",
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t13",
+      "span_id": "a3957903d5be4260",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t13",
+      "span_id": "6f69ca24ed034f5d",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t13",
+      "span_id": "cb9f470f8d204860",
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t13",
+      "span_id": "439ad3ed0bde4473",
+      "node_id": "mcp_warehouse",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t13",
+      "span_id": "30098e0a16704c07",
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t14",
+      "span_id": "0f9672484d1a440d",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t14",
+      "span_id": "a1b02b881b714fef",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t14",
+      "span_id": "0a5fbf5c71ac4be3",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t14",
+      "span_id": "15da32b5bc8b422f",
+      "node_id": "code_exec",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t14",
+      "span_id": "8e4c704646a04f90",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t15",
+      "span_id": "ec119129ed584eda",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t15",
+      "span_id": "20671045ac23402a",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t15",
+      "span_id": "d145808fb6b84b03",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t16",
+      "span_id": "1234516a009047f5",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t16",
+      "span_id": "168f565db63340f3",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t16",
+      "span_id": "3b4b4fe653574f10",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t16",
+      "span_id": "b318894d3c6e4aef",
+      "node_id": "mcp_arxiv",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t16",
+      "span_id": "def6633e11f748f0",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t17",
+      "span_id": "0db26f67479f48f0",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t17",
+      "span_id": "307af62d1ddd4a6a",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t17",
+      "span_id": "cbcea30b172449be",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t17",
+      "span_id": "3952348a96984bad",
+      "node_id": "mcp_arxiv",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t17",
+      "span_id": "7a70b7c3f3b6436b",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t18",
+      "span_id": "d88a22744ac64473",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t18",
+      "span_id": "1df663f4f8544055",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t18",
+      "span_id": "6537baf2cb084aad",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t18",
+      "span_id": "95aa0dc432ce4c44",
+      "node_id": "web_search",
+      "node_kind": "retriever",
+      "det_class": "stochastic_index",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t18",
+      "span_id": "202b364fffb742e7",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t19",
+      "span_id": "17022efcd0bc4e94",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t19",
+      "span_id": "674de54de42d4d36",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t19",
+      "span_id": "3d2c7ffd01794664",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t20",
+      "span_id": "b2aa293ad5f4429b",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t20",
+      "span_id": "08e0730c692745e7",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t20",
+      "span_id": "9ed277afc71546c3",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t20",
+      "span_id": "aa91624c76894035",
+      "node_id": "web_search",
+      "node_kind": "retriever",
+      "det_class": "stochastic_index",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t20",
+      "span_id": "53a013bc1180411b",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t21",
+      "span_id": "6fd67064ae114631",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t21",
+      "span_id": "0d7b4ad69fcc4169",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t21",
+      "span_id": "d4905366abbf420e",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t21",
+      "span_id": "153e9135dcd244cc",
+      "node_id": "skill_lint",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t21",
+      "span_id": "c517aae0de7443dc",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t22",
+      "span_id": "02223811b295442f",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t22",
+      "span_id": "3f0e098743cd4d6f",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t22",
+      "span_id": "7741be0f3f504c5d",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t22",
+      "span_id": "f65cc9dfd96c4aad",
+      "node_id": "skill_lint",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t22",
+      "span_id": "8801a20c32364305",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t23",
+      "span_id": "95d8e26c64bb4726",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t23",
+      "span_id": "ca47a0cb11384a2a",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t23",
+      "span_id": "88021ff40d404a39",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t23",
+      "span_id": "ef97956193b94fe0",
+      "node_id": "code_exec",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t23",
+      "span_id": "f4e2f1d7dc8a40c9",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t24",
+      "span_id": "d716f77409e94fee",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t24",
+      "span_id": "d136f90b4e574580",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t24",
+      "span_id": "037ccfde616b41ed",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t24",
+      "span_id": "1b14e31c8b534288",
+      "node_id": "code_exec",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t24",
+      "span_id": "fb93f5dbea454d46",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t25",
+      "span_id": "7948b821c7a44bbd",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t25",
+      "span_id": "837d634f1ce9476e",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t25",
+      "span_id": "733fe10281634c9f",
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t25",
+      "span_id": "f6cf1b67ac764933",
+      "node_id": "sql_query",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t25",
+      "span_id": "09ab7030cdef4004",
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t26",
+      "span_id": "bb02bd5bac5c4c06",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t26",
+      "span_id": "6b7afb9e7f3d4f20",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t26",
+      "span_id": "f96208253fb74f23",
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t26",
+      "span_id": "ca56055390244c3f",
+      "node_id": "sql_query",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t26",
+      "span_id": "670786a149264083",
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t27",
+      "span_id": "eded062f6c984e5f",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t27",
+      "span_id": "34708c4a5f554332",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t27",
+      "span_id": "6bdecd91ff054bfb",
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t27",
+      "span_id": "8c94c38a671f495d",
+      "node_id": "mcp_warehouse",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t27",
+      "span_id": "d2fa1929c40e4294",
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t28",
+      "span_id": "8d079ede9fa24f88",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t28",
+      "span_id": "c76549e9deb84905",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t28",
+      "span_id": "d264bf30218b4d23",
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t28",
+      "span_id": "efd38a176cc142e0",
+      "node_id": "mcp_warehouse",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t28",
+      "span_id": "52b7e702d97e4591",
+      "node_id": "data_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t29",
+      "span_id": "1ff4e766bedd4ff2",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t29",
+      "span_id": "2374626ede5a4c21",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t29",
+      "span_id": "a76a2a3ba13d4f23",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t29",
+      "span_id": "c64dc479922f4b23",
+      "node_id": "code_exec",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t29",
+      "span_id": "92233bcd3cd84a54",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t30",
+      "span_id": "e661855e76374291",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t30",
+      "span_id": "19662c2a3bf14bc1",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t30",
+      "span_id": "bce62ac041c4464f",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t30",
+      "span_id": "ee11a59c16a34e90",
+      "node_id": "mcp_arxiv",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t30",
+      "span_id": "a4ae3f873bb243a6",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t31",
+      "span_id": "4e1ad494afd5489f",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t31",
+      "span_id": "575c33fcf6b44cda",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t31",
+      "span_id": "99bb75a3859a4bef",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t32",
+      "span_id": "44ee46381b4247ed",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t32",
+      "span_id": "a5c47cc2736b40f3",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t32",
+      "span_id": "d3941318ed2b4146",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t32",
+      "span_id": "ab760ef2f7ad48c7",
+      "node_id": "mcp_arxiv",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t32",
+      "span_id": "c95e4fcef5c84965",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t33",
+      "span_id": "578ee5a98dfa46a9",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t33",
+      "span_id": "d836bf039f5d483e",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t33",
+      "span_id": "e5731997a2d84dae",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t33",
+      "span_id": "06b0f4bddccb4258",
+      "node_id": "web_search",
+      "node_kind": "retriever",
+      "det_class": "stochastic_index",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t33",
+      "span_id": "03baf1800d7549c7",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t34",
+      "span_id": "9302255c373041cc",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t34",
+      "span_id": "67baa64b07c542a8",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t34",
+      "span_id": "ffc0bf00be664a64",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t34",
+      "span_id": "bb022ea65ccc4929",
+      "node_id": "web_search",
+      "node_kind": "retriever",
+      "det_class": "stochastic_index",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t34",
+      "span_id": "e806762e73384a68",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t35",
+      "span_id": "31bb7a7656b6471f",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t35",
+      "span_id": "9f933fc36f124ba2",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t35",
+      "span_id": "69dedc422d22452e",
+      "node_id": "research_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t36",
+      "span_id": "ebf0724f3224450f",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t36",
+      "span_id": "32bd4fc468e24726",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t36",
+      "span_id": "13ced4ff0efd4909",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t36",
+      "span_id": "60d6905728a9434c",
+      "node_id": "skill_lint",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t36",
+      "span_id": "43f93f689aed4002",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t37",
+      "span_id": "762b2c3a0a494d00",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t37",
+      "span_id": "896605adc74b4639",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t37",
+      "span_id": "fef461d69b2e4889",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t37",
+      "span_id": "8d5cb27e6ad149f6",
+      "node_id": "skill_lint",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t37",
+      "span_id": "3379d9d069e54634",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t38",
+      "span_id": "49c14fc773e94aa4",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t38",
+      "span_id": "f91308c28ea94dba",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t38",
+      "span_id": "4802c8bcaecf4b04",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t38",
+      "span_id": "b1b1fe5dfe7b48ca",
+      "node_id": "code_exec",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t38",
+      "span_id": "4892ed7fd2b74a40",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t39",
+      "span_id": "32d838df1b874d0a",
+      "node_id": "supervisor_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t39",
+      "span_id": "962efc4efbdb433d",
+      "node_id": "task_router",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t39",
+      "span_id": "f00a75b9767e4abb",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t39",
+      "span_id": "6c5a9301eeac4bf1",
+      "node_id": "code_exec",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "error": false,
+      "producer": "unknown"
+    },
+    {
+      "trace_id": "t39",
+      "span_id": "737f6a52c72043d9",
+      "node_id": "code_agent",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "error": false,
+      "producer": "unknown"
+    }
+  ]
+}
