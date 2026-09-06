@@ -9,6 +9,7 @@ export interface GraphNodeSpec {
   is_decision?: boolean;
   children?: GraphNodeSpec[];
   subgraph?: StudioSubgraph;
+  surface?: string;
 }
 
 export interface GraphEdgeSpec {

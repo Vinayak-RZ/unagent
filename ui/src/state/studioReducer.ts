@@ -200,6 +200,51 @@ export function currentFrame(state: StudioState): BreadcrumbFrame | undefined {
   return state.breadcrumbs[state.breadcrumbs.length - 1];
 }
 
+export function nodeInFrame(frame: BreadcrumbFrame, nodeId: string): boolean {
+  return frame.nodes.some((n) => n.node_id === nodeId);
+}
+
+export function findChildFrameForNode(
+  frame: BreadcrumbFrame,
+  nodeId: string,
+): BreadcrumbFrame | null {
+  for (const n of frame.nodes) {
+    const sub = subgraphFrame(n);
+    if (!sub) continue;
+    if (sub.nodes.some((c) => c.node_id === nodeId)) return sub;
+    if (findChildFrameForNode(sub, nodeId)) return sub;
+  }
+  return null;
+}
+
+export function playbackLayerAction(
+  breadcrumbs: BreadcrumbFrame[],
+  nodeId: string | undefined,
+): StudioAction | null {
+  if (!nodeId || breadcrumbs.length === 0) return null;
+  const current = breadcrumbs[breadcrumbs.length - 1];
+  if (!current) return null;
+  if (nodeInFrame(current, nodeId)) return null;
+  for (let i = breadcrumbs.length - 2; i >= 0; i--) {
+    const frame = breadcrumbs[i];
+    if (frame && nodeInFrame(frame, nodeId)) {
+      return { type: "POP_TO_BREADCRUMB", index: i };
+    }
+  }
+  const child = findChildFrameForNode(current, nodeId);
+  if (child) return { type: "ENTER_SUBGRAPH", frame: child };
+  const root = breadcrumbs[0];
+  if (root && nodeInFrame(root, nodeId)) return { type: "POP_TO_BREADCRUMB", index: 0 };
+  if (root) {
+    const fromRoot = findChildFrameForNode(root, nodeId);
+    if (fromRoot) {
+      if (breadcrumbs.length > 1) return { type: "POP_TO_BREADCRUMB", index: 0 };
+      return { type: "ENTER_SUBGRAPH", frame: fromRoot };
+    }
+  }
+  return null;
+}
+
 export function recommendationForNode(
   report: StudioReport | undefined,
   nodeId: string | undefined,

@@ -14,6 +14,7 @@ import {
   currentFrame,
   initialStudioState,
   nodeHasChildren,
+  playbackLayerAction,
   recommendationForNode,
   studioReducer,
   subgraphFrame,
@@ -52,6 +53,12 @@ export default function App() {
     );
     return () => window.clearInterval(id);
   }, [state.playbackPlaying]);
+
+  useEffect(() => {
+    if (!state.playbackPlaying) return;
+    const action = playbackLayerAction(state.breadcrumbs, activeNodeId);
+    if (action) dispatch(action);
+  }, [state.playbackPlaying, state.breadcrumbs, activeNodeId]);
 
   useEffect(() => {
     const reportUrl = new URLSearchParams(window.location.search).get("report");

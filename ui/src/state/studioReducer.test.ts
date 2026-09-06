@@ -3,6 +3,7 @@ import {
   buildExportProposal,
   initialStudioState,
   nodeHasChildren,
+  playbackLayerAction,
   studioReducer,
   subgraphFrame,
   synthesizeGraph,
@@ -76,6 +77,40 @@ describe("studioReducer", () => {
     });
     const entered = studioReducer(loaded, { type: "ENTER_SUBGRAPH", frame: frame! });
     expect(entered.breadcrumbs).toHaveLength(2);
+  });
+
+  it("playback layer-follow enters agent subgraph then pops back", () => {
+    const loaded = studioReducer(initialStudioState, {
+      type: "LOAD_SUCCESS",
+      report: {
+        ...sampleReport,
+        graph: {
+          nodes: [
+            {
+              node_id: "research_agent",
+              node_kind: "subagent",
+              subgraph: {
+                nodes: [
+                  { node_id: "researcher" },
+                  { node_id: "web_search", surface: "mcp" },
+                ],
+                edges: [{ src: "researcher", dst: "web_search" }],
+              },
+            },
+            { node_id: "supervisor" },
+          ],
+          edges: [{ src: "supervisor", dst: "research_agent", kind: "handoff" }],
+        },
+      },
+      fileName: "layered.json",
+    });
+    const enter = playbackLayerAction(loaded.breadcrumbs, "web_search");
+    expect(enter?.type).toBe("ENTER_SUBGRAPH");
+    const entered = studioReducer(loaded, enter!);
+    expect(entered.breadcrumbs).toHaveLength(2);
+    expect(playbackLayerAction(entered.breadcrumbs, "web_search")).toBeNull();
+    const pop = playbackLayerAction(entered.breadcrumbs, "supervisor");
+    expect(pop).toEqual({ type: "POP_TO_BREADCRUMB", index: 0 });
   });
 
   it("export payload includes disclaimer and never implies auto-apply", () => {

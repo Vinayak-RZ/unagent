@@ -12,6 +12,7 @@ export interface FlowNodeData extends Record<string, unknown> {
   hasChildren: boolean;
   active: boolean;
   selected: boolean;
+  surface?: string;
 }
 
 const NODE_W = 180;
@@ -75,6 +76,7 @@ export async function layoutGraph(
         label: n.node_id,
         nodeKind: n.node_kind,
         detClass: n.det_class,
+        surface: n.surface,
         action: opts.proposalEdits[n.node_id] ?? opts.recommendations.get(n.node_id),
         hasChildren,
         active: n.node_id === opts.activeNodeId,

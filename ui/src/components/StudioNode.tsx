@@ -29,7 +29,7 @@ function StudioNodeComponent({ data }: NodeProps) {
       <div className={classes}>
         <div className="studio-node-title">{d.label}</div>
         <div className="studio-node-meta">
-          {[d.nodeKind, d.detClass].filter(Boolean).join(" · ") || "node"}
+          {[d.nodeKind, d.detClass, d.surface].filter(Boolean).join(" · ") || "node"}
         </div>
         {d.action ? <div style={{ marginTop: 6 }}>{actionBadge(d.action)}</div> : null}
         {d.hasChildren ? <div className="studio-node-drill">Enter subgraph →</div> : null}
