@@ -19,14 +19,18 @@ PYTHONPATH=src "$PY" -m superdeterminism --help >/dev/null
 PYTHONPATH=src "$PY" -m superdeterminism studio-report examples/advisor_flip_to_det.json \
   --out /tmp/unagent_studio_validate.json --n-min 1
 
-echo "==> [5/6] UI unit tests + build"
+echo "==> [4b/7] orchestrator studio-report smoke"
+PYTHONPATH=src "$PY" -m superdeterminism studio-report demos/e2e-orchestrator/traces.json \
+  --out /tmp/unagent_orchestrator_validate.json --n-min 30
+
+echo "==> [5/7] UI unit tests + build"
 if [[ -d ui ]]; then
   (cd ui && npm ci --prefer-offline --no-audit --no-fund && npm test && npm run build)
 else
   echo "skip: no ui/"
 fi
 
-echo "==> [6/6] playwright smoke (optional)"
+echo "==> [6/7] playwright smoke (optional)"
 if [[ -d ui ]] && command -v npx >/dev/null 2>&1 && [[ "${RUN_PLAYWRIGHT:-0}" == "1" ]]; then
   (cd ui && npx playwright test)
 else
