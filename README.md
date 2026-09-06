@@ -52,6 +52,8 @@ L0 simulation playback (cassette splice on `guard_input`):
 
 Full write-up (method, recommendations, how to improve that architecture): [docs/reports/E2E_LANGGRAPH_STUDIO.md](docs/reports/E2E_LANGGRAPH_STUDIO.md). Regen: [demos/e2e-langgraph/](demos/e2e-langgraph/).
 
+Layered orchestrator (supervisor + three agents + MCP/skills), layer photos, and a simulation that enters agents: [docs/reports/E2E_MULTIAGENT_STUDIO.md](docs/reports/E2E_MULTIAGENT_STUDIO.md) · [demos/e2e-multiagent/](demos/e2e-multiagent/).
+
 ## See it running
 
 One recorded `classify` span can look perfectly stable (`p_mode` 1.00) and even pass an L0 cassette splice. With `n=1` the advisor still **ABSTAINs**: the [Wilson](https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval) lower bound is 0.21, so a flip is not justified.

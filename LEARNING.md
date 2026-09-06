@@ -2,6 +2,13 @@
 
 Phase notes per [learn-while-building](.cursor/skills/learn-while-building/SKILL.md). Two to four bullets each.
 
+## Layered multi-agent Studio E2E (2026-09-06)
+
+- A mixed orchestrator log is the wrong sampling unit for inner agents: research n=25 and implement n=22 both ABSTAIN at `n_min=30` even when the envelope is cassette-stable.
+- Free-text policy reasons fragmented `policy_gate` to p_mode 0.36; `{allow, reason_code}` lifted it to 0.88 and Wilson lo 0.75 — still ABSTAIN because spend-denies make L0 diverge. Codes are necessary, not sufficient.
+- Studio already had subgraph drill-down; the missing piece was `nest_for_studio` plus *not* hoisting recommendation ids onto the root. Without that guard, Layer 0 looked like a flat tool pile.
+- `transfer_to_research_agent` was classified as a retriever because `"search" in tool`. Handoff must win before the substring check.
+
 ## Product hardening (2026-09-01)
 
 - Observational `p_mode` is not a counterfactual. Cassette-stable L0 splice is the lowest tier that may FlipToDet.

@@ -29,10 +29,10 @@ Authority: [docs/plans/layered-multiagent-e2e.md](docs/plans/layered-multiagent-
 
 | Phase | Status | Notes |
 |-------|--------|-------|
-| 0 Plan | in_progress | Nawab plan + D21/D22 |
-| A Subject + agent-as-model | pending | supervisor + 3 agents |
-| B Nest + layer-follow | pending | Studio-only hierarchy |
-| C Traces + recommend | pending | ≥30 mixed runs |
-| D Media | pending | layer photos + video |
-| E Improvements | pending | human-legible, evidence-tied |
-| N Harden | pending | tests + PR |
+| 0 Plan | done | Nawab plan + D21/D22 |
+| A Subject + agent-as-model | done | supervisor + 3 agents + 4 scenarios |
+| B Nest + layer-follow | done | nest_for_studio + playback follow; no root hoist |
+| C Traces + recommend | done | 42 mixed runs; all ABSTAIN (correct) |
+| D Media | done | 4 layer photos + orchestration→agent video |
+| E Improvements | done | IMPROVEMENTS.md from this report |
+| N Harden | done | nest + e2e + UI tests green |
