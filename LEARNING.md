@@ -50,6 +50,13 @@ Phase notes per [learn-while-building](.cursor/skills/learn-while-building/SKILL
 - P1 must not fork the recommender. If the mapper cannot produce P0 `Trace`s, the adapter is wrong — not the decision rules.
 - P2 “done” is pluggability (custom example + at least one non-Lang path), not “we ingested one more Lang sink.”
 
+## P3 — Multi-layer orchestration demo (2026-09-06)
+
+- Studio drill-down UI existed before the backend contract; emitting `subgraph` from `studio-report` was the missing wire, not new React Flow work.
+- FlipToDet on a router requires a **stable-output** node (`supervisor_gate`); varying `task_router` targets correctly ABSTAIN with diverged cassette.
+- Cinematic playback is event-kind extension (`layer_enter`, `assign_task`) plus UI phase labels — no new simulation tier.
+- Agent-as-model for P0 is scripted scenario traces, not live OTLP; same ingest path proves pluggability without API keys.
+
 ## Phase N — Validate (2026-08-15)
 
 - S2 found zero FIX-class claim-hygiene hits and no broken relative links. The “do not say” sentences are easy to grep as false positives; keep them in dedicated sections.

@@ -87,3 +87,4 @@ Written as ADRs in `docs/decisions/`. Do not silently override them.
 | D18 | Sinks dual-mode file + live (Langfuse/LangSmith/MLflow) | accepted | [0012-sinks-dual-mode.md](docs/decisions/0012-sinks-dual-mode.md) |
 | D19 | Studio UI: React Flow viewer + playback + proposal edit only | accepted | [0013-ui-studio-react-flow.md](docs/decisions/0013-ui-studio-react-flow.md) |
 | D20 | Narrative stdout for non-technical readers | accepted | [0014-narrative-stdout.md](docs/decisions/0014-narrative-stdout.md) |
+| D21 | Hierarchical Studio graph (L0/L1/L2 subgraph) | accepted | [0014-hierarchical-studio-graph.md](docs/decisions/0014-hierarchical-studio-graph.md) |
