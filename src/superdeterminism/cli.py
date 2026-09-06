@@ -221,19 +221,28 @@ def _ui_dir() -> Path:
 
 def _studio_report(args: argparse.Namespace) -> int:
     try:
+        from superdeterminism.graph_hierarchy import nest_for_studio
+        from superdeterminism.narrative import build_narrative
+
         if args.adapter:
             traces = resolve(args.adapter)(args.traces)
         else:
             traces = load_traces_path(args.traces)
         payload = simulate_report(traces, n_min=args.n_min)
         inspected = inspect_traces(traces)
+        root_nodes, root_edges = nest_for_studio(
+            inspected["nodes"], inspected["edges"], traces
+        )
         payload["graph"] = {
-            "nodes": inspected["nodes"],
-            "edges": inspected["edges"],
+            "nodes": root_nodes,
+            "edges": root_edges,
             "identity": inspected["graph_identity"],
             "completeness": inspected["completeness"],
             "trust": inspected["trust"],
+            "flat_nodes": inspected["nodes"],
+            "flat_edges": inspected["edges"],
         }
+        payload["narrative"] = build_narrative(payload)
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     except _BOUNDARY as exc:

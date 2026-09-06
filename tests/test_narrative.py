@@ -1,13 +1,30 @@
-from pathlib import Path
+"""Tests for architecture improvement narrative."""
 
-from superdeterminism.ingest import load_traces_path
-from superdeterminism.narrative import recommendations_to_narrative
-from superdeterminism.pipeline import recommend_traces
+from __future__ import annotations
+
+from superdeterminism.narrative import build_narrative
 
 
-def test_narrative_mentions_flip_and_disclaimer() -> None:
-    recs = recommend_traces(load_traces_path(Path("examples/advisor_flip_to_det.json")))
-    text = recommendations_to_narrative(recs)
-    assert "simulation-based estimate" in text
-    assert "classify" in text
-    assert "deterministic" in text.lower()
+def test_build_narrative_includes_flip_and_diverged() -> None:
+    md = build_narrative(
+        {
+            "recommendations": [
+                {
+                    "node_id": "task_router",
+                    "action": "FlipToDet",
+                    "n": 40,
+                    "p_mode_lower": 0.91,
+                    "replay_status": "tail_stable",
+                },
+                {
+                    "node_id": "research_agent",
+                    "action": "ABSTAIN",
+                    "replay_status": "diverged",
+                },
+            ]
+        }
+    )
+    assert "task_router" in md
+    assert "FlipToDet" in md or "deterministic" in md
+    assert "research_agent" in md
+    assert "diverged" in md
