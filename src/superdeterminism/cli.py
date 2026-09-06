@@ -237,11 +237,10 @@ def _studio_report(args: argparse.Namespace) -> int:
             "trust": inspected["trust"],
         }
         story = story_events_from_traces(traces)
-        l0 = list(payload.get("simulation_events") or [])
-        offset = (story[-1]["t"] + 1) if story else 0
-        for ev in l0:
-            ev["t"] = int(ev.get("t") or 0) + offset
-        payload["simulation_events"] = story + l0
+        # Story walk is the Studio playback (orchestration → agents).
+        # Full L0 splice stream stays on payload["simulation"].
+        if story:
+            payload["simulation_events"] = story
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     except _BOUNDARY as exc:

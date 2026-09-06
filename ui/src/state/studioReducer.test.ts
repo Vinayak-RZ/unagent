@@ -47,6 +47,23 @@ describe("studioReducer", () => {
     expect(edges).toHaveLength(0);
   });
 
+  it("does not hoist nested recommendation ids onto a provided graph", () => {
+    const { nodes } = synthesizeGraph(
+      [
+        { node_id: "research_agent", action: "ABSTAIN" },
+        { node_id: "web_search", action: "ABSTAIN" },
+      ],
+      [
+        {
+          node_id: "research_agent",
+          subgraph: { nodes: [{ node_id: "web_search" }] },
+        },
+      ],
+      [],
+    );
+    expect(nodes.map((n) => n.node_id)).toEqual(["research_agent"]);
+  });
+
   it("updates proposal edits without mutating prior state", () => {
     const loaded = studioReducer(initialStudioState, {
       type: "LOAD_SUCCESS",

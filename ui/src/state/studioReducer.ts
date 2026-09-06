@@ -24,13 +24,17 @@ export function synthesizeGraph(
 ): { nodes: GraphNodeSpec[]; edges: GraphEdgeSpec[] } {
   const byId = new Map<string, GraphNodeSpec>();
   for (const n of graphNodes) byId.set(n.node_id, n);
-  for (const rec of recommendations) {
-    if (!byId.has(rec.node_id)) {
-      byId.set(rec.node_id, {
-        node_id: rec.node_id,
-        node_kind: rec.node_kind,
-        det_class: rec.det_class,
-      });
+  // When the report already shipped a graph (possibly nested), do not
+  // hoist recommendation-only ids onto the root — they live in subgraphs.
+  if (!graphNodes.length) {
+    for (const rec of recommendations) {
+      if (!byId.has(rec.node_id)) {
+        byId.set(rec.node_id, {
+          node_id: rec.node_id,
+          node_kind: rec.node_kind,
+          det_class: rec.det_class,
+        });
+      }
     }
   }
   return { nodes: [...byId.values()], edges: graphEdges.length ? graphEdges : [] };
@@ -126,7 +130,8 @@ export function studioReducer(state: StudioState, action: StudioAction): StudioS
         fileName: action.fileName,
         breadcrumbs: [rootFrame(action.report)],
         proposalEdits: edits,
-        selectedNodeId: action.report.recommendations[0]?.node_id,
+        selectedNodeId:
+          action.report.graph?.nodes?.[0]?.node_id ?? action.report.recommendations[0]?.node_id,
         playbackIndex: action.report.simulation_events?.length ? 0 : -1,
       };
     }
