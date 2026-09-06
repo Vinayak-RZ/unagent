@@ -1,0 +1,1217 @@
+{
+  "disclaimer": "simulation != production; canary is confirmatory",
+  "report_version": "1.0",
+  "advisor.schema_version": "1.0",
+  "estimator": "l0_tape_splice",
+  "evidence_ceiling": "cassette",
+  "graph_identity": "aab80198a5936034",
+  "graph_completeness": 1.0,
+  "graph_trust": "high",
+  "tape_version": "1.0",
+  "input_hash": "586fe3259b83181f",
+  "recommendations": [
+    {
+      "node_id": "apply_patch",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 0.5455,
+      "p_mode_lower": 0.3466,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 15.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "cite_sources",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 25,
+      "p_mode": 0.6,
+      "p_mode_lower": 0.4074,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=25 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 15.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "delivery_orchestrator",
+      "node_kind": "workflow",
+      "det_class": "composite",
+      "action": "ABSTAIN",
+      "n": 42,
+      "p_mode": 0.3571,
+      "p_mode_lower": 0.2299,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "no rule fired with a CI that excludes the threshold"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 8.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "handoff",
+      "node_kind": "router",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 37,
+      "p_mode": 0.6757,
+      "p_mode_lower": 0.5146,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "no rule fired with a CI that excludes the threshold"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 7.4595,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "implement_agent",
+      "node_kind": "subagent",
+      "det_class": "composite",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.8513,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 12.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "implementer",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 0.5455,
+      "p_mode_lower": 0.3466,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 272.0,
+      "latency_ms": 430.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "lint",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.8513,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 15.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "policy_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "ABSTAIN",
+      "n": 42,
+      "p_mode": 0.881,
+      "p_mode_lower": 0.75,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "observational/cassette incomplete (tier=observational, replay=diverged); FlipToDet requires L0 tail-stable splice"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 20.0,
+      "latency_ms": 35.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "read_file",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 0.5455,
+      "p_mode_lower": 0.3466,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 15.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "research_agent",
+      "node_kind": "subagent",
+      "det_class": "composite",
+      "action": "ABSTAIN",
+      "n": 25,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.8668,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=25 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 12.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "researcher",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "ABSTAIN",
+      "n": 25,
+      "p_mode": 0.6,
+      "p_mode_lower": 0.4074,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "n=25 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 272.0,
+      "latency_ms": 430.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "retrieve_docs",
+      "node_kind": "retriever",
+      "det_class": "stochastic_index",
+      "action": "ABSTAIN",
+      "n": 25,
+      "p_mode": 0.6,
+      "p_mode_lower": 0.4074,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=25 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 15.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "review_agent",
+      "node_kind": "subagent",
+      "det_class": "composite",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.8513,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 12.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "reviewer",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 0.5455,
+      "p_mode_lower": 0.3466,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 208.0,
+      "latency_ms": 320.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "run_tests",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.8513,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 15.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "security_scan",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.8513,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 15.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "supervisor",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "ABSTAIN",
+      "n": 42,
+      "p_mode": 0.3571,
+      "p_mode_lower": 0.2299,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "no rule fired with a CI that excludes the threshold"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 48.0,
+      "latency_ms": 90.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "web_search",
+      "node_kind": "retriever",
+      "det_class": "stochastic_index",
+      "action": "ABSTAIN",
+      "n": 25,
+      "p_mode": 0.6,
+      "p_mode_lower": 0.4074,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "n=25 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 15.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    }
+  ],
+  "canary": [
+    "shadow the candidate function on the same traffic",
+    "compare outcome vector: failure, cost, latency, variance, policy",
+    "promote only if intervals and safety gates pass; else ABSTAIN/demote",
+    "simulation != production"
+  ],
+  "simulation": {
+    "disclaimer": "simulation != production; canary is confirmatory",
+    "opt_in_l1": false,
+    "l1_executed": false,
+    "design": [
+      {
+        "node_id": "policy_gate",
+        "score": 1.0,
+        "n": 42,
+        "p_mode_lower": 0.7499931819289246,
+        "evidence_tier": "observational",
+        "replay_status": "diverged",
+        "why": "observational/cassette incomplete (tier=observational, replay=diverged); FlipToDet requires L0 tail-stable splice"
+      },
+      {
+        "node_id": "research_agent",
+        "score": 0.9723,
+        "n": 25,
+        "p_mode_lower": 0.8668035060468212,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=25 < n_min=30"
+      },
+      {
+        "node_id": "implement_agent",
+        "score": 0.8743,
+        "n": 22,
+        "p_mode_lower": 0.8513404742740388,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=22 < n_min=30"
+      },
+      {
+        "node_id": "review_agent",
+        "score": 0.8743,
+        "n": 22,
+        "p_mode_lower": 0.8513404742740388,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=22 < n_min=30"
+      },
+      {
+        "node_id": "handoff",
+        "score": 0.7646,
+        "n": 37,
+        "p_mode_lower": 0.5146336850482394,
+        "evidence_tier": "observational",
+        "replay_status": "diverged",
+        "why": "no rule fired with a CI that excludes the threshold"
+      },
+      {
+        "node_id": "run_tests",
+        "score": 0.6243,
+        "n": 22,
+        "p_mode_lower": 0.8513404742740388,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=22 < n_min=30"
+      },
+      {
+        "node_id": "lint",
+        "score": 0.6243,
+        "n": 22,
+        "p_mode_lower": 0.8513404742740388,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=22 < n_min=30"
+      },
+      {
+        "node_id": "security_scan",
+        "score": 0.6243,
+        "n": 22,
+        "p_mode_lower": 0.8513404742740388,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=22 < n_min=30"
+      },
+      {
+        "node_id": "researcher",
+        "score": 0.5895,
+        "n": 25,
+        "p_mode_lower": 0.4073912778512734,
+        "evidence_tier": "observational",
+        "replay_status": "diverged",
+        "why": "n=25 < n_min=30"
+      },
+      {
+        "node_id": "implementer",
+        "score": 0.5042,
+        "n": 22,
+        "p_mode_lower": 0.3465947328904156,
+        "evidence_tier": "observational",
+        "replay_status": "diverged",
+        "why": "n=22 < n_min=30"
+      }
+    ]
+  },
+  "simulation_events": [
+    {
+      "t": 0,
+      "kind": "load",
+      "node_id": "apply_patch",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 2,
+      "kind": "graph",
+      "node_id": "apply_patch",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 3,
+      "kind": "cassette",
+      "node_id": "apply_patch",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 4,
+      "kind": "splice",
+      "node_id": "apply_patch",
+      "detail": "diverged",
+      "status": "diverged"
+    },
+    {
+      "t": 5,
+      "kind": "decide",
+      "node_id": "apply_patch",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 10,
+      "kind": "load",
+      "node_id": "cite_sources",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 12,
+      "kind": "graph",
+      "node_id": "cite_sources",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 13,
+      "kind": "cassette",
+      "node_id": "cite_sources",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 14,
+      "kind": "splice",
+      "node_id": "cite_sources",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 15,
+      "kind": "decide",
+      "node_id": "cite_sources",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 20,
+      "kind": "load",
+      "node_id": "delivery_orchestrator",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 22,
+      "kind": "graph",
+      "node_id": "delivery_orchestrator",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 23,
+      "kind": "cassette",
+      "node_id": "delivery_orchestrator",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 24,
+      "kind": "splice",
+      "node_id": "delivery_orchestrator",
+      "detail": "diverged",
+      "status": "diverged"
+    },
+    {
+      "t": 25,
+      "kind": "decide",
+      "node_id": "delivery_orchestrator",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 30,
+      "kind": "load",
+      "node_id": "handoff",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 32,
+      "kind": "graph",
+      "node_id": "handoff",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 33,
+      "kind": "cassette",
+      "node_id": "handoff",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 34,
+      "kind": "splice",
+      "node_id": "handoff",
+      "detail": "diverged",
+      "status": "diverged"
+    },
+    {
+      "t": 35,
+      "kind": "decide",
+      "node_id": "handoff",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 40,
+      "kind": "load",
+      "node_id": "implement_agent",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 42,
+      "kind": "graph",
+      "node_id": "implement_agent",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 43,
+      "kind": "cassette",
+      "node_id": "implement_agent",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 44,
+      "kind": "splice",
+      "node_id": "implement_agent",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 45,
+      "kind": "decide",
+      "node_id": "implement_agent",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 50,
+      "kind": "load",
+      "node_id": "implementer",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 52,
+      "kind": "graph",
+      "node_id": "implementer",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 53,
+      "kind": "cassette",
+      "node_id": "implementer",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 54,
+      "kind": "splice",
+      "node_id": "implementer",
+      "detail": "diverged",
+      "status": "diverged"
+    },
+    {
+      "t": 55,
+      "kind": "decide",
+      "node_id": "implementer",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 60,
+      "kind": "load",
+      "node_id": "lint",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 62,
+      "kind": "graph",
+      "node_id": "lint",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 63,
+      "kind": "cassette",
+      "node_id": "lint",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 64,
+      "kind": "splice",
+      "node_id": "lint",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 65,
+      "kind": "decide",
+      "node_id": "lint",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 70,
+      "kind": "load",
+      "node_id": "policy_gate",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 72,
+      "kind": "graph",
+      "node_id": "policy_gate",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 73,
+      "kind": "cassette",
+      "node_id": "policy_gate",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 74,
+      "kind": "splice",
+      "node_id": "policy_gate",
+      "detail": "diverged",
+      "status": "diverged"
+    },
+    {
+      "t": 75,
+      "kind": "decide",
+      "node_id": "policy_gate",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 80,
+      "kind": "load",
+      "node_id": "read_file",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 82,
+      "kind": "graph",
+      "node_id": "read_file",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 83,
+      "kind": "cassette",
+      "node_id": "read_file",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 84,
+      "kind": "splice",
+      "node_id": "read_file",
+      "detail": "diverged",
+      "status": "diverged"
+    },
+    {
+      "t": 85,
+      "kind": "decide",
+      "node_id": "read_file",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 90,
+      "kind": "load",
+      "node_id": "research_agent",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 92,
+      "kind": "graph",
+      "node_id": "research_agent",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 93,
+      "kind": "cassette",
+      "node_id": "research_agent",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 94,
+      "kind": "splice",
+      "node_id": "research_agent",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 95,
+      "kind": "decide",
+      "node_id": "research_agent",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 100,
+      "kind": "load",
+      "node_id": "researcher",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 102,
+      "kind": "graph",
+      "node_id": "researcher",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 103,
+      "kind": "cassette",
+      "node_id": "researcher",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 104,
+      "kind": "splice",
+      "node_id": "researcher",
+      "detail": "diverged",
+      "status": "diverged"
+    },
+    {
+      "t": 105,
+      "kind": "decide",
+      "node_id": "researcher",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 110,
+      "kind": "load",
+      "node_id": "retrieve_docs",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 112,
+      "kind": "graph",
+      "node_id": "retrieve_docs",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 113,
+      "kind": "cassette",
+      "node_id": "retrieve_docs",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 114,
+      "kind": "splice",
+      "node_id": "retrieve_docs",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 115,
+      "kind": "decide",
+      "node_id": "retrieve_docs",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 120,
+      "kind": "load",
+      "node_id": "review_agent",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 122,
+      "kind": "graph",
+      "node_id": "review_agent",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 123,
+      "kind": "cassette",
+      "node_id": "review_agent",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 124,
+      "kind": "splice",
+      "node_id": "review_agent",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 125,
+      "kind": "decide",
+      "node_id": "review_agent",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 130,
+      "kind": "load",
+      "node_id": "reviewer",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 132,
+      "kind": "graph",
+      "node_id": "reviewer",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 133,
+      "kind": "cassette",
+      "node_id": "reviewer",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 134,
+      "kind": "splice",
+      "node_id": "reviewer",
+      "detail": "diverged",
+      "status": "diverged"
+    },
+    {
+      "t": 135,
+      "kind": "decide",
+      "node_id": "reviewer",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 140,
+      "kind": "load",
+      "node_id": "run_tests",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 142,
+      "kind": "graph",
+      "node_id": "run_tests",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 143,
+      "kind": "cassette",
+      "node_id": "run_tests",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 144,
+      "kind": "splice",
+      "node_id": "run_tests",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 145,
+      "kind": "decide",
+      "node_id": "run_tests",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 150,
+      "kind": "load",
+      "node_id": "security_scan",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 152,
+      "kind": "graph",
+      "node_id": "security_scan",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 153,
+      "kind": "cassette",
+      "node_id": "security_scan",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 154,
+      "kind": "splice",
+      "node_id": "security_scan",
+      "detail": "tail_stable",
+      "status": "tail_stable"
+    },
+    {
+      "t": 155,
+      "kind": "decide",
+      "node_id": "security_scan",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 160,
+      "kind": "load",
+      "node_id": "supervisor",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 162,
+      "kind": "graph",
+      "node_id": "supervisor",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 163,
+      "kind": "cassette",
+      "node_id": "supervisor",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 164,
+      "kind": "splice",
+      "node_id": "supervisor",
+      "detail": "diverged",
+      "status": "diverged"
+    },
+    {
+      "t": 165,
+      "kind": "decide",
+      "node_id": "supervisor",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    },
+    {
+      "t": 170,
+      "kind": "load",
+      "node_id": "web_search",
+      "detail": "traces=42",
+      "status": ""
+    },
+    {
+      "t": 172,
+      "kind": "graph",
+      "node_id": "web_search",
+      "detail": "identity=aab80198a5936034",
+      "status": ""
+    },
+    {
+      "t": 173,
+      "kind": "cassette",
+      "node_id": "web_search",
+      "detail": "verified",
+      "status": "ok"
+    },
+    {
+      "t": 174,
+      "kind": "splice",
+      "node_id": "web_search",
+      "detail": "diverged",
+      "status": "diverged"
+    },
+    {
+      "t": 175,
+      "kind": "decide",
+      "node_id": "web_search",
+      "detail": "ABSTAIN",
+      "status": "ABSTAIN"
+    }
+  ]
+}

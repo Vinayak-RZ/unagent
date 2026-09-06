@@ -5,7 +5,7 @@
   "route": ["research_agent"],
   "policy": {
     "allow": true,
-    "reason": "read-only knowledge question"
+    "reason_code": "readonly"
   },
   "agents": {
     "research_agent": {

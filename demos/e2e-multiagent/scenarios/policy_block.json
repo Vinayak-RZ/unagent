@@ -5,7 +5,7 @@
   "route": [],
   "policy": {
     "allow": false,
-    "reason": "refund/spend/email requires a human checkpoint"
+    "reason_code": "spend_hitl"
   },
   "agents": {}
 }

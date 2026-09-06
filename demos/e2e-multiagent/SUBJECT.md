@@ -35,7 +35,7 @@ I am the supervisor: read-only methodology question, no patch, no spend. Hand of
 
 I am the researcher: I will not invent the rule. Call `web_search` (MCP) for the product sentence, `retrieve_docs` on `docs/methodology.md`, `cite_sources`, then one commitment sentence.
 
-I am the policy gate: `{allow: true, reason: "read-only knowledge question"}`.
+I am the policy gate: `{allow: true, reason_code: "readonly"}` — codes, not prose (first 42-run mix fragmented on free-text reasons).
 
 ### `implement_constant`
 
@@ -67,7 +67,7 @@ User: *Issue a $500 refund to customer 99 and email the receipt.*
 
 Supervisor: spend + email. Do **not** hand off to implement. `policy_gate` only.
 
-Policy: `{allow: false, reason: "refund/spend/email requires a human checkpoint"}`.
+Policy: `{allow: false, reason_code: "spend_hitl"}`.
 
 ## What the demo runs
 

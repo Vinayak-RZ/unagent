@@ -1,0 +1,1107 @@
+{
+  "disclaimer": "simulation != production; canary is confirmatory",
+  "report_version": "1.0",
+  "advisor.schema_version": "1.0",
+  "estimator": "l0_tape_splice",
+  "evidence_ceiling": "cassette",
+  "graph_identity": "aab80198a5936034",
+  "graph_completeness": 1.0,
+  "graph_trust": "high",
+  "tape_version": "1.0",
+  "input_hash": "586fe3259b83181f",
+  "recommendations": [
+    {
+      "node_id": "apply_patch",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 0.5455,
+      "p_mode_lower": 0.3466,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 15.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "cite_sources",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 25,
+      "p_mode": 0.6,
+      "p_mode_lower": 0.4074,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=25 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 15.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "delivery_orchestrator",
+      "node_kind": "workflow",
+      "det_class": "composite",
+      "action": "ABSTAIN",
+      "n": 42,
+      "p_mode": 0.3571,
+      "p_mode_lower": 0.2299,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "no rule fired with a CI that excludes the threshold"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 8.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "handoff",
+      "node_kind": "router",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 37,
+      "p_mode": 0.6757,
+      "p_mode_lower": 0.5146,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "no rule fired with a CI that excludes the threshold"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 7.4595,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "implement_agent",
+      "node_kind": "subagent",
+      "det_class": "composite",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.8513,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 12.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "implementer",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 0.5455,
+      "p_mode_lower": 0.3466,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 272.0,
+      "latency_ms": 430.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "lint",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.8513,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 15.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "policy_gate",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "ABSTAIN",
+      "n": 42,
+      "p_mode": 0.881,
+      "p_mode_lower": 0.75,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "observational/cassette incomplete (tier=observational, replay=diverged); FlipToDet requires L0 tail-stable splice"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 20.0,
+      "latency_ms": 35.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "read_file",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 0.5455,
+      "p_mode_lower": 0.3466,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 15.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "research_agent",
+      "node_kind": "subagent",
+      "det_class": "composite",
+      "action": "ABSTAIN",
+      "n": 25,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.8668,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=25 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 12.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "researcher",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "ABSTAIN",
+      "n": 25,
+      "p_mode": 0.6,
+      "p_mode_lower": 0.4074,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "n=25 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 272.0,
+      "latency_ms": 430.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "retrieve_docs",
+      "node_kind": "retriever",
+      "det_class": "stochastic_index",
+      "action": "ABSTAIN",
+      "n": 25,
+      "p_mode": 0.6,
+      "p_mode_lower": 0.4074,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=25 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 15.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "review_agent",
+      "node_kind": "subagent",
+      "det_class": "composite",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.8513,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 12.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "reviewer",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 0.5455,
+      "p_mode_lower": 0.3466,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 208.0,
+      "latency_ms": 320.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "run_tests",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.8513,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 15.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "security_scan",
+      "node_kind": "deterministic_tool",
+      "det_class": "deterministic",
+      "action": "ABSTAIN",
+      "n": 22,
+      "p_mode": 1.0,
+      "p_mode_lower": 0.8513,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "l0_tape_splice",
+      "reasons": [
+        "n=22 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "cassette",
+      "replay_status": "tail_stable",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 15.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "supervisor",
+      "node_kind": "llm_reasoner",
+      "det_class": "llm",
+      "action": "ABSTAIN",
+      "n": 42,
+      "p_mode": 0.3571,
+      "p_mode_lower": 0.2299,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "no rule fired with a CI that excludes the threshold"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 48.0,
+      "latency_ms": 90.0,
+      "auditability": 0.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    },
+    {
+      "node_id": "web_search",
+      "node_kind": "retriever",
+      "det_class": "stochastic_index",
+      "action": "ABSTAIN",
+      "n": 25,
+      "p_mode": 0.6,
+      "p_mode_lower": 0.4074,
+      "schema_ok": 1.0,
+      "failure_rate": 0.0,
+      "estimator": "observational_l0_proxy",
+      "reasons": [
+        "n=25 < n_min=30"
+      ],
+      "disclaimer": "simulation != production; canary is confirmatory",
+      "evidence_tier": "observational",
+      "replay_status": "diverged",
+      "mixed": false,
+      "cost_tokens": 0.0,
+      "latency_ms": 15.0,
+      "auditability": 1.0,
+      "task_success": null,
+      "policy_ok": null,
+      "deltas": [],
+      "interaction_hypotheses": []
+    }
+  ],
+  "canary": [
+    "shadow the candidate function on the same traffic",
+    "compare outcome vector: failure, cost, latency, variance, policy",
+    "promote only if intervals and safety gates pass; else ABSTAIN/demote",
+    "simulation != production"
+  ],
+  "simulation": {
+    "disclaimer": "simulation != production; canary is confirmatory",
+    "opt_in_l1": false,
+    "l1_executed": false,
+    "design": [
+      {
+        "node_id": "policy_gate",
+        "score": 1.0,
+        "n": 42,
+        "p_mode_lower": 0.7499931819289246,
+        "evidence_tier": "observational",
+        "replay_status": "diverged",
+        "why": "observational/cassette incomplete (tier=observational, replay=diverged); FlipToDet requires L0 tail-stable splice"
+      },
+      {
+        "node_id": "research_agent",
+        "score": 0.9723,
+        "n": 25,
+        "p_mode_lower": 0.8668035060468212,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=25 < n_min=30"
+      },
+      {
+        "node_id": "implement_agent",
+        "score": 0.8743,
+        "n": 22,
+        "p_mode_lower": 0.8513404742740388,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=22 < n_min=30"
+      },
+      {
+        "node_id": "review_agent",
+        "score": 0.8743,
+        "n": 22,
+        "p_mode_lower": 0.8513404742740388,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=22 < n_min=30"
+      },
+      {
+        "node_id": "handoff",
+        "score": 0.7646,
+        "n": 37,
+        "p_mode_lower": 0.5146336850482394,
+        "evidence_tier": "observational",
+        "replay_status": "diverged",
+        "why": "no rule fired with a CI that excludes the threshold"
+      },
+      {
+        "node_id": "run_tests",
+        "score": 0.6243,
+        "n": 22,
+        "p_mode_lower": 0.8513404742740388,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=22 < n_min=30"
+      },
+      {
+        "node_id": "lint",
+        "score": 0.6243,
+        "n": 22,
+        "p_mode_lower": 0.8513404742740388,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=22 < n_min=30"
+      },
+      {
+        "node_id": "security_scan",
+        "score": 0.6243,
+        "n": 22,
+        "p_mode_lower": 0.8513404742740388,
+        "evidence_tier": "cassette",
+        "replay_status": "tail_stable",
+        "why": "n=22 < n_min=30"
+      },
+      {
+        "node_id": "researcher",
+        "score": 0.5895,
+        "n": 25,
+        "p_mode_lower": 0.4073912778512734,
+        "evidence_tier": "observational",
+        "replay_status": "diverged",
+        "why": "n=25 < n_min=30"
+      },
+      {
+        "node_id": "implementer",
+        "score": 0.5042,
+        "n": 22,
+        "p_mode_lower": 0.3465947328904156,
+        "evidence_tier": "observational",
+        "replay_status": "diverged",
+        "why": "n=22 < n_min=30"
+      }
+    ]
+  },
+  "simulation_events": [
+    {
+      "t": 0,
+      "kind": "workflow",
+      "node_id": "delivery_orchestrator",
+      "detail": "delivery_orchestrator",
+      "status": ""
+    },
+    {
+      "t": 1,
+      "kind": "llm_reasoner",
+      "node_id": "supervisor",
+      "detail": "chat supervisor",
+      "status": ""
+    },
+    {
+      "t": 2,
+      "kind": "router",
+      "node_id": "handoff",
+      "detail": "handoff transfer_to_research_agent",
+      "status": ""
+    },
+    {
+      "t": 3,
+      "kind": "subagent",
+      "node_id": "research_agent",
+      "detail": "invoke_agent research_agent",
+      "status": ""
+    },
+    {
+      "t": 4,
+      "kind": "llm_reasoner",
+      "node_id": "researcher",
+      "detail": "chat researcher",
+      "status": ""
+    },
+    {
+      "t": 5,
+      "kind": "retriever",
+      "node_id": "web_search",
+      "detail": "retrieval web_search",
+      "status": ""
+    },
+    {
+      "t": 6,
+      "kind": "llm_reasoner",
+      "node_id": "researcher",
+      "detail": "chat researcher",
+      "status": ""
+    },
+    {
+      "t": 7,
+      "kind": "retriever",
+      "node_id": "retrieve_docs",
+      "detail": "retrieval retrieve_docs",
+      "status": ""
+    },
+    {
+      "t": 8,
+      "kind": "llm_reasoner",
+      "node_id": "researcher",
+      "detail": "chat researcher",
+      "status": ""
+    },
+    {
+      "t": 9,
+      "kind": "deterministic_tool",
+      "node_id": "cite_sources",
+      "detail": "execute_tool cite_sources",
+      "status": ""
+    },
+    {
+      "t": 10,
+      "kind": "llm_reasoner",
+      "node_id": "researcher",
+      "detail": "chat researcher",
+      "status": ""
+    },
+    {
+      "t": 11,
+      "kind": "router",
+      "node_id": "handoff",
+      "detail": "handoff transfer_to_implement_agent",
+      "status": ""
+    },
+    {
+      "t": 12,
+      "kind": "subagent",
+      "node_id": "implement_agent",
+      "detail": "invoke_agent implement_agent",
+      "status": ""
+    },
+    {
+      "t": 13,
+      "kind": "llm_reasoner",
+      "node_id": "implementer",
+      "detail": "chat implementer",
+      "status": ""
+    },
+    {
+      "t": 14,
+      "kind": "deterministic_tool",
+      "node_id": "read_file",
+      "detail": "execute_tool read_file",
+      "status": ""
+    },
+    {
+      "t": 15,
+      "kind": "llm_reasoner",
+      "node_id": "implementer",
+      "detail": "chat implementer",
+      "status": ""
+    },
+    {
+      "t": 16,
+      "kind": "deterministic_tool",
+      "node_id": "apply_patch",
+      "detail": "execute_tool apply_patch",
+      "status": ""
+    },
+    {
+      "t": 17,
+      "kind": "llm_reasoner",
+      "node_id": "implementer",
+      "detail": "chat implementer",
+      "status": ""
+    },
+    {
+      "t": 18,
+      "kind": "deterministic_tool",
+      "node_id": "run_tests",
+      "detail": "execute_tool run_tests",
+      "status": ""
+    },
+    {
+      "t": 19,
+      "kind": "llm_reasoner",
+      "node_id": "implementer",
+      "detail": "chat implementer",
+      "status": ""
+    },
+    {
+      "t": 20,
+      "kind": "router",
+      "node_id": "handoff",
+      "detail": "handoff transfer_to_review_agent",
+      "status": ""
+    },
+    {
+      "t": 21,
+      "kind": "subagent",
+      "node_id": "review_agent",
+      "detail": "invoke_agent review_agent",
+      "status": ""
+    },
+    {
+      "t": 22,
+      "kind": "llm_reasoner",
+      "node_id": "reviewer",
+      "detail": "chat reviewer",
+      "status": ""
+    },
+    {
+      "t": 23,
+      "kind": "deterministic_tool",
+      "node_id": "lint",
+      "detail": "execute_tool lint",
+      "status": ""
+    },
+    {
+      "t": 24,
+      "kind": "llm_reasoner",
+      "node_id": "reviewer",
+      "detail": "chat reviewer",
+      "status": ""
+    },
+    {
+      "t": 25,
+      "kind": "deterministic_tool",
+      "node_id": "security_scan",
+      "detail": "execute_tool security_scan",
+      "status": ""
+    },
+    {
+      "t": 26,
+      "kind": "llm_reasoner",
+      "node_id": "reviewer",
+      "detail": "chat reviewer",
+      "status": ""
+    },
+    {
+      "t": 27,
+      "kind": "llm_reasoner",
+      "node_id": "policy_gate",
+      "detail": "chat policy_gate",
+      "status": ""
+    }
+  ],
+  "graph": {
+    "nodes": [
+      {
+        "node_id": "delivery_orchestrator",
+        "node_kind": "workflow",
+        "det_class": "composite",
+        "mixed": false,
+        "side_effects": false,
+        "is_decision": true
+      },
+      {
+        "node_id": "handoff",
+        "node_kind": "router",
+        "det_class": "deterministic",
+        "mixed": false,
+        "side_effects": false,
+        "is_decision": true
+      },
+      {
+        "node_id": "implement_agent",
+        "node_kind": "subagent",
+        "det_class": "composite",
+        "mixed": false,
+        "side_effects": false,
+        "is_decision": true,
+        "subgraph": {
+          "nodes": [
+            {
+              "node_id": "apply_patch",
+              "node_kind": "deterministic_tool",
+              "det_class": "deterministic",
+              "mixed": false,
+              "side_effects": false,
+              "is_decision": false,
+              "surface": "skill"
+            },
+            {
+              "node_id": "implementer",
+              "node_kind": "llm_reasoner",
+              "det_class": "llm",
+              "mixed": false,
+              "side_effects": false,
+              "is_decision": true
+            },
+            {
+              "node_id": "read_file",
+              "node_kind": "deterministic_tool",
+              "det_class": "deterministic",
+              "mixed": false,
+              "side_effects": false,
+              "is_decision": false,
+              "surface": "skill"
+            },
+            {
+              "node_id": "run_tests",
+              "node_kind": "deterministic_tool",
+              "det_class": "deterministic",
+              "mixed": false,
+              "side_effects": false,
+              "is_decision": false,
+              "surface": "tool"
+            }
+          ],
+          "edges": [
+            {
+              "src": "apply_patch",
+              "dst": "implementer",
+              "kind": "parent"
+            },
+            {
+              "src": "implementer",
+              "dst": "apply_patch",
+              "kind": "parent"
+            },
+            {
+              "src": "implementer",
+              "dst": "read_file",
+              "kind": "parent"
+            },
+            {
+              "src": "implementer",
+              "dst": "run_tests",
+              "kind": "parent"
+            },
+            {
+              "src": "read_file",
+              "dst": "implementer",
+              "kind": "parent"
+            },
+            {
+              "src": "run_tests",
+              "dst": "implementer",
+              "kind": "parent"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "policy_gate",
+        "node_kind": "llm_reasoner",
+        "det_class": "llm",
+        "mixed": false,
+        "side_effects": false,
+        "is_decision": true
+      },
+      {
+        "node_id": "research_agent",
+        "node_kind": "subagent",
+        "det_class": "composite",
+        "mixed": false,
+        "side_effects": false,
+        "is_decision": true,
+        "subgraph": {
+          "nodes": [
+            {
+              "node_id": "cite_sources",
+              "node_kind": "deterministic_tool",
+              "det_class": "deterministic",
+              "mixed": false,
+              "side_effects": false,
+              "is_decision": false,
+              "surface": "tool"
+            },
+            {
+              "node_id": "researcher",
+              "node_kind": "llm_reasoner",
+              "det_class": "llm",
+              "mixed": false,
+              "side_effects": false,
+              "is_decision": true
+            },
+            {
+              "node_id": "retrieve_docs",
+              "node_kind": "retriever",
+              "det_class": "stochastic_index",
+              "mixed": false,
+              "side_effects": false,
+              "is_decision": false,
+              "surface": "mcp"
+            },
+            {
+              "node_id": "web_search",
+              "node_kind": "retriever",
+              "det_class": "stochastic_index",
+              "mixed": false,
+              "side_effects": false,
+              "is_decision": false,
+              "surface": "mcp"
+            }
+          ],
+          "edges": [
+            {
+              "src": "cite_sources",
+              "dst": "researcher",
+              "kind": "parent"
+            },
+            {
+              "src": "researcher",
+              "dst": "cite_sources",
+              "kind": "parent"
+            },
+            {
+              "src": "researcher",
+              "dst": "retrieve_docs",
+              "kind": "parent"
+            },
+            {
+              "src": "researcher",
+              "dst": "web_search",
+              "kind": "parent"
+            },
+            {
+              "src": "retrieve_docs",
+              "dst": "researcher",
+              "kind": "parent"
+            },
+            {
+              "src": "web_search",
+              "dst": "researcher",
+              "kind": "parent"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "review_agent",
+        "node_kind": "subagent",
+        "det_class": "composite",
+        "mixed": false,
+        "side_effects": false,
+        "is_decision": true,
+        "subgraph": {
+          "nodes": [
+            {
+              "node_id": "lint",
+              "node_kind": "deterministic_tool",
+              "det_class": "deterministic",
+              "mixed": false,
+              "side_effects": false,
+              "is_decision": false,
+              "surface": "tool"
+            },
+            {
+              "node_id": "reviewer",
+              "node_kind": "llm_reasoner",
+              "det_class": "llm",
+              "mixed": false,
+              "side_effects": false,
+              "is_decision": true
+            },
+            {
+              "node_id": "security_scan",
+              "node_kind": "deterministic_tool",
+              "det_class": "deterministic",
+              "mixed": false,
+              "side_effects": false,
+              "is_decision": false,
+              "surface": "tool"
+            }
+          ],
+          "edges": [
+            {
+              "src": "lint",
+              "dst": "reviewer",
+              "kind": "parent"
+            },
+            {
+              "src": "reviewer",
+              "dst": "lint",
+              "kind": "parent"
+            },
+            {
+              "src": "reviewer",
+              "dst": "security_scan",
+              "kind": "parent"
+            },
+            {
+              "src": "security_scan",
+              "dst": "reviewer",
+              "kind": "parent"
+            }
+          ]
+        }
+      },
+      {
+        "node_id": "supervisor",
+        "node_kind": "llm_reasoner",
+        "det_class": "llm",
+        "mixed": false,
+        "side_effects": false,
+        "is_decision": true
+      }
+    ],
+    "edges": [
+      {
+        "src": "delivery_orchestrator",
+        "dst": "policy_gate",
+        "kind": "parent"
+      },
+      {
+        "src": "delivery_orchestrator",
+        "dst": "supervisor",
+        "kind": "parent"
+      },
+      {
+        "src": "handoff",
+        "dst": "implement_agent",
+        "kind": "handoff"
+      },
+      {
+        "src": "handoff",
+        "dst": "implement_agent",
+        "kind": "parent"
+      },
+      {
+        "src": "handoff",
+        "dst": "research_agent",
+        "kind": "handoff"
+      },
+      {
+        "src": "handoff",
+        "dst": "research_agent",
+        "kind": "parent"
+      },
+      {
+        "src": "handoff",
+        "dst": "review_agent",
+        "kind": "handoff"
+      },
+      {
+        "src": "handoff",
+        "dst": "review_agent",
+        "kind": "parent"
+      },
+      {
+        "src": "supervisor",
+        "dst": "handoff",
+        "kind": "parent"
+      },
+      {
+        "src": "supervisor",
+        "dst": "implement_agent",
+        "kind": "control"
+      },
+      {
+        "src": "supervisor",
+        "dst": "policy_gate",
+        "kind": "control"
+      },
+      {
+        "src": "supervisor",
+        "dst": "research_agent",
+        "kind": "control"
+      },
+      {
+        "src": "supervisor",
+        "dst": "review_agent",
+        "kind": "control"
+      }
+    ],
+    "identity": "aab80198a5936034",
+    "completeness": 1.0,
+    "trust": "high"
+  }
+}

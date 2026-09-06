@@ -5,7 +5,7 @@
   "route": ["implement_agent", "review_agent"],
   "policy": {
     "allow": true,
-    "reason": "local refactor; no spend"
+    "reason_code": "readonly"
   },
   "agents": {
     "implement_agent": {
