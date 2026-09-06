@@ -2,8 +2,10 @@ import { useEffect, useMemo, useReducer, useRef } from "react";
 import Breadcrumbs from "./components/Breadcrumbs";
 import GraphCanvas from "./components/GraphCanvas";
 import Inspector, { ProposalRail } from "./components/Inspector";
+import LayerLens, { type LayerId } from "./components/LayerLens";
 import PlaybackStrip from "./components/PlaybackStrip";
 import { EmptyState, ErrorState, LoadingState } from "./components/States";
+import { navigateToLayer } from "./lib/layerNavigation";
 import {
   PLAYBACK_INTERVAL_MS,
   activeEventNodeId,
@@ -95,6 +97,12 @@ export default function App() {
     reader.readAsText(file);
   }
 
+  function onLayerSelect(layer: LayerId) {
+    if (!state.report) return;
+    const crumbs = navigateToLayer(state.report, layer);
+    dispatch({ type: "SET_LAYER", breadcrumbs: crumbs, layer });
+  }
+
   function onNodeClick(nodeId: string) {
     dispatch({ type: "SELECT_NODE", nodeId });
     const node = frame?.nodes.find((n) => n.node_id === nodeId);
@@ -164,6 +172,10 @@ export default function App() {
         <section className="canvas-panel">
           {state.status === "ready" && frame ? (
             <>
+              <LayerLens
+                activeLayer={state.activeLayer as LayerId}
+                onSelect={onLayerSelect}
+              />
               <Breadcrumbs
                 labels={state.breadcrumbs.map((b) => b.label)}
                 onNavigate={(index) => dispatch({ type: "POP_TO_BREADCRUMB", index })}
@@ -190,7 +202,11 @@ export default function App() {
         </section>
 
         <aside className="rail-panel">
-          <Inspector recommendation={selectedRec} selectedNodeId={state.selectedNodeId} />
+          <Inspector
+            recommendation={selectedRec}
+            selectedNodeId={state.selectedNodeId}
+            narrative={state.report?.narrative}
+          />
           <ProposalRail
             selectedNodeId={state.selectedNodeId}
             currentAction={
@@ -212,10 +228,12 @@ export default function App() {
         events={events}
         index={state.playbackIndex}
         playing={state.playbackPlaying}
+        cinematicMode={state.cinematicMode}
         onPlay={() => dispatch({ type: "PLAYBACK_PLAY" })}
         onPause={() => dispatch({ type: "PLAYBACK_PAUSE" })}
         onStep={(direction) => dispatch({ type: "PLAYBACK_STEP", direction })}
         onReset={() => dispatch({ type: "PLAYBACK_RESET" })}
+        onToggleCinematic={() => dispatch({ type: "TOGGLE_CINEMATIC" })}
       />
     </div>
   );

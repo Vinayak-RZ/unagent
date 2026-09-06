@@ -188,6 +188,48 @@ def simulate_design(
     return scored[:limit]
 
 
+def _cinematic_prefix_events(recs: list[Any], traces: list[Trace]) -> list[dict[str, Any]]:
+    """Phased events for Studio cinematic playback (orchestration → assign → in-agent)."""
+    prefix: list[dict[str, Any]] = []
+    if not recs:
+        return prefix
+    prefix.append(
+        {
+            "t": -3,
+            "kind": "layer_enter",
+            "node_id": "supervisor_gate",
+            "detail": "L0 orchestrator",
+            "status": "orchestration",
+            "phase": "orchestration",
+        }
+    )
+    assign_target = next(
+        (r.node_id for r in recs if r.node_id.endswith("_agent")),
+        recs[0].node_id,
+    )
+    prefix.append(
+        {
+            "t": -2,
+            "kind": "assign_task",
+            "node_id": "task_router",
+            "detail": f"route → {assign_target}",
+            "status": "assigned",
+            "phase": "assign",
+        }
+    )
+    prefix.append(
+        {
+            "t": -1,
+            "kind": "layer_enter",
+            "node_id": assign_target,
+            "detail": "L1 specialist agent",
+            "status": "in_agent",
+            "phase": "in_agent",
+        }
+    )
+    return prefix
+
+
 def simulate_report(
     traces: list[Trace],
     *,
@@ -197,12 +239,14 @@ def simulate_report(
     """Recommend + design ranking + event stream for Studio."""
     recs = recommend_traces(traces, n_min=n_min)
     design = simulate_design(traces, n_min=n_min)
-    events: list[dict[str, Any]] = []
+    events: list[dict[str, Any]] = _cinematic_prefix_events(recs, traces)
     for i, rec in enumerate(recs):
         what = simulate_what_if(traces, rec.node_id, n_min=n_min, opt_in_l1=opt_in_l1)
         for ev in what.events:
             payload = asdict(ev)
             payload["t"] = int(payload["t"]) + i * 10
+            if i == 0 and payload.get("kind") == "load":
+                payload["phase"] = "in_agent"
             events.append(payload)
     report = recommendations_to_dict(recs)
     report["simulation"] = {

@@ -1,4 +1,23 @@
-# Progress — viral product hardening
+# Progress — Unagent
+
+## P3 — Multi-layer orchestration demo (2026-09-06)
+
+Branch: `cursor/multi-layer-orchestration-demo-0e05`  
+Plan: [docs/plans/P3-multi-layer-orchestration-demo.md](docs/plans/P3-multi-layer-orchestration-demo.md)  
+Completion: [PHASE_P3_COMPLETION.md](PHASE_P3_COMPLETION.md)
+
+| Phase | Status | Notes |
+|-------|--------|-------|
+| 0 ADR | done | [0014-hierarchical-studio-graph.md](docs/decisions/0014-hierarchical-studio-graph.md) |
+| A Harness + traces | done | `demos/e2e-orchestrator/`, n=40 |
+| B Hierarchy core | done | `graph_hierarchy.py`, narrative, cinematic events |
+| C Studio UX | done | Layer lens, cinematic playback |
+| D/E Report + media | done | [E2E_ORCHESTRATOR_STUDIO.md](docs/reports/E2E_ORCHESTRATOR_STUDIO.md) |
+| N Validation | done | `validate.sh`, e2e test, UI tests |
+
+---
+
+## Viral product hardening (prior)
 
 Branch: `cursor/unagent-viral-hardening-c4f0`
 
@@ -18,4 +37,4 @@ Authority: viral product hardening master plan (nawab). Do not edit the plan fil
 ## Cutover
 
 - PyPI publish remains **human-gated** — see `docs/pypi-checklist.md`
-- Production GIFs/videos remain user-owned
+- Studio walkthrough media: `docs/assets/e2e-orchestrator/` (orchestrator demo)

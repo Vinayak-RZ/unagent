@@ -15,6 +15,8 @@ export const initialStudioState: StudioState = {
   proposalEdits: {},
   playbackIndex: -1,
   playbackPlaying: false,
+  activeLayer: "L0",
+  cinematicMode: false,
 };
 
 export function synthesizeGraph(
@@ -128,6 +130,8 @@ export function studioReducer(state: StudioState, action: StudioAction): StudioS
         proposalEdits: edits,
         selectedNodeId: action.report.recommendations[0]?.node_id,
         playbackIndex: action.report.simulation_events?.length ? 0 : -1,
+        activeLayer: "L0",
+        cinematicMode: Boolean(action.report.simulation_events?.some((e) => e.phase || e.kind === "layer_enter")),
       };
     }
     case "LOAD_ERROR":
@@ -191,6 +195,15 @@ export function studioReducer(state: StudioState, action: StudioAction): StudioS
       }
       return { ...state, playbackIndex: next };
     }
+    case "SET_LAYER":
+      return {
+        ...state,
+        breadcrumbs: action.breadcrumbs,
+        activeLayer: action.layer,
+        selectedNodeId: undefined,
+      };
+    case "TOGGLE_CINEMATIC":
+      return { ...state, cinematicMode: !state.cinematicMode };
     default:
       return state;
   }

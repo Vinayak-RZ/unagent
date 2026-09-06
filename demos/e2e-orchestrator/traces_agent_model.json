@@ -1,0 +1,915 @@
+{
+  "traces": [
+    {
+      "spans": [
+        {
+          "name": "supervisor_gate",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "supervisor_gate",
+            "advisor.layer": "L0",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "task_router"
+            ]
+          },
+          "input": {
+            "query": "Summarize recent papers on agent routing"
+          },
+          "output": {
+            "status": "ok",
+            "policy_version": 1,
+            "orchestration": "supervisor"
+          },
+          "tokens": 12,
+          "latency_ms": 8,
+          "error": false,
+          "span_id": "8398a4325516439c"
+        },
+        {
+          "name": "task_router",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "task_router",
+            "advisor.layer": "L0",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "research_agent"
+            ]
+          },
+          "input": {
+            "query": "Summarize recent papers on agent routing"
+          },
+          "output": {
+            "route": "research_agent",
+            "confidence": 0.95,
+            "intent_summary": "Summarize recent papers on agent routing"
+          },
+          "tokens": 32,
+          "latency_ms": 35,
+          "error": false,
+          "span_id": "7df3f5f53dc84a14",
+          "parent_span_id": "8398a4325516439c"
+        },
+        {
+          "name": "chat research_agent",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "research_agent",
+            "advisor.layer": "L1",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "research_agent",
+            "langgraph_triggers": [
+              "mcp_arxiv"
+            ]
+          },
+          "input": {
+            "query": "Summarize recent papers on agent routing"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "mcp_arxiv",
+                "args": {
+                  "query": "Summarize recent papers on agent routing"
+                }
+              }
+            ]
+          },
+          "tokens": 70,
+          "latency_ms": 110,
+          "error": false,
+          "span_id": "7a129395b7a04fc3",
+          "parent_span_id": "7df3f5f53dc84a14"
+        },
+        {
+          "name": "execute_tool mcp_arxiv",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "mcp_arxiv",
+            "advisor.layer": "L2",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "research_agent",
+            "advisor.mcp_namespace": "arxiv"
+          },
+          "input": {
+            "query": "Summarize recent papers on agent routing"
+          },
+          "output": {
+            "result": "stub result for mcp_arxiv"
+          },
+          "tokens": 0,
+          "latency_ms": 25,
+          "error": false,
+          "span_id": "b1dd8a47bdad4d53",
+          "parent_span_id": "7a129395b7a04fc3"
+        },
+        {
+          "name": "chat research_agent",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "research_agent",
+            "advisor.layer": "L1",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "research_agent",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "stub"
+          },
+          "output": {
+            "text": "Synthesized answer for: Summarize recent papers on agent routing"
+          },
+          "tokens": 48,
+          "latency_ms": 85,
+          "error": false,
+          "span_id": "93401ce0f7e54a48",
+          "parent_span_id": "b1dd8a47bdad4d53"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "supervisor_gate",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "supervisor_gate",
+            "advisor.layer": "L0",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "task_router"
+            ]
+          },
+          "input": {
+            "query": "What is the latest on multi-agent orchestration?"
+          },
+          "output": {
+            "status": "ok",
+            "policy_version": 1,
+            "orchestration": "supervisor"
+          },
+          "tokens": 12,
+          "latency_ms": 8,
+          "error": false,
+          "span_id": "c209121570a04e8f"
+        },
+        {
+          "name": "task_router",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "task_router",
+            "advisor.layer": "L0",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "research_agent"
+            ]
+          },
+          "input": {
+            "query": "What is the latest on multi-agent orchestration?"
+          },
+          "output": {
+            "route": "research_agent",
+            "confidence": 0.95,
+            "intent_summary": "What is the latest on multi-agent orchestration?"
+          },
+          "tokens": 32,
+          "latency_ms": 35,
+          "error": false,
+          "span_id": "98fdf3f6f3ae418b",
+          "parent_span_id": "c209121570a04e8f"
+        },
+        {
+          "name": "chat research_agent",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "research_agent",
+            "advisor.layer": "L1",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "research_agent",
+            "langgraph_triggers": [
+              "web_search"
+            ]
+          },
+          "input": {
+            "query": "What is the latest on multi-agent orchestration?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "web_search",
+                "args": {
+                  "query": "What is the latest on multi-agent orchestration?"
+                }
+              }
+            ]
+          },
+          "tokens": 70,
+          "latency_ms": 110,
+          "error": false,
+          "span_id": "ac688cf33bd6465a",
+          "parent_span_id": "98fdf3f6f3ae418b"
+        },
+        {
+          "name": "execute_tool web_search",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "web_search",
+            "advisor.layer": "L2",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "research_agent",
+            "gen_ai.tool.name": "web_search"
+          },
+          "input": {
+            "query": "What is the latest on multi-agent orchestration?"
+          },
+          "output": {
+            "result": "stub result for web_search"
+          },
+          "tokens": 0,
+          "latency_ms": 8,
+          "error": false,
+          "span_id": "0f73881282974ebb",
+          "parent_span_id": "ac688cf33bd6465a"
+        },
+        {
+          "name": "chat research_agent",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "research_agent",
+            "advisor.layer": "L1",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "research_agent",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "stub"
+          },
+          "output": {
+            "text": "Synthesized answer for: What is the latest on multi-agent orchestration?"
+          },
+          "tokens": 48,
+          "latency_ms": 85,
+          "error": false,
+          "span_id": "e61ac4eccf614add",
+          "parent_span_id": "0f73881282974ebb"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "supervisor_gate",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "supervisor_gate",
+            "advisor.layer": "L0",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "task_router"
+            ]
+          },
+          "input": {
+            "query": "Fix the lint error in utils.py"
+          },
+          "output": {
+            "status": "ok",
+            "policy_version": 1,
+            "orchestration": "supervisor"
+          },
+          "tokens": 12,
+          "latency_ms": 8,
+          "error": false,
+          "span_id": "cdac82d17846468b"
+        },
+        {
+          "name": "task_router",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "task_router",
+            "advisor.layer": "L0",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "code_agent"
+            ]
+          },
+          "input": {
+            "query": "Fix the lint error in utils.py"
+          },
+          "output": {
+            "route": "code_agent",
+            "confidence": 0.95,
+            "intent_summary": "Fix the lint error in utils.py"
+          },
+          "tokens": 32,
+          "latency_ms": 35,
+          "error": false,
+          "span_id": "2ed46f1daa404e05",
+          "parent_span_id": "cdac82d17846468b"
+        },
+        {
+          "name": "chat code_agent",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "code_agent",
+            "advisor.layer": "L1",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "code_agent",
+            "langgraph_triggers": [
+              "skill_lint"
+            ]
+          },
+          "input": {
+            "query": "Fix the lint error in utils.py"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "skill_lint",
+                "args": {
+                  "query": "Fix the lint error in utils.py"
+                }
+              }
+            ]
+          },
+          "tokens": 70,
+          "latency_ms": 110,
+          "error": false,
+          "span_id": "828c34f694cf4ade",
+          "parent_span_id": "2ed46f1daa404e05"
+        },
+        {
+          "name": "execute_tool skill_lint",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "skill_lint",
+            "advisor.layer": "L2",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "code_agent",
+            "advisor.skill_id": "skill_lint"
+          },
+          "input": {
+            "query": "Fix the lint error in utils.py"
+          },
+          "output": {
+            "result": "stub result for skill_lint"
+          },
+          "tokens": 0,
+          "latency_ms": 25,
+          "error": false,
+          "span_id": "ea49399474044f61",
+          "parent_span_id": "828c34f694cf4ade"
+        },
+        {
+          "name": "chat code_agent",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "code_agent",
+            "advisor.layer": "L1",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "code_agent",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "stub"
+          },
+          "output": {
+            "text": "Synthesized answer for: Fix the lint error in utils.py"
+          },
+          "tokens": 48,
+          "latency_ms": 85,
+          "error": false,
+          "span_id": "bafed412dce84c93",
+          "parent_span_id": "ea49399474044f61"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "supervisor_gate",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "supervisor_gate",
+            "advisor.layer": "L0",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "task_router"
+            ]
+          },
+          "input": {
+            "query": "Run tests for the auth module"
+          },
+          "output": {
+            "status": "ok",
+            "policy_version": 1,
+            "orchestration": "supervisor"
+          },
+          "tokens": 12,
+          "latency_ms": 8,
+          "error": false,
+          "span_id": "310854d8d1c34dd8"
+        },
+        {
+          "name": "task_router",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "task_router",
+            "advisor.layer": "L0",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "code_agent"
+            ]
+          },
+          "input": {
+            "query": "Run tests for the auth module"
+          },
+          "output": {
+            "route": "code_agent",
+            "confidence": 0.95,
+            "intent_summary": "Run tests for the auth module"
+          },
+          "tokens": 32,
+          "latency_ms": 35,
+          "error": false,
+          "span_id": "d2f1c0eacce149ba",
+          "parent_span_id": "310854d8d1c34dd8"
+        },
+        {
+          "name": "chat code_agent",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "code_agent",
+            "advisor.layer": "L1",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "code_agent",
+            "langgraph_triggers": [
+              "code_exec"
+            ]
+          },
+          "input": {
+            "query": "Run tests for the auth module"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "code_exec",
+                "args": {
+                  "query": "Run tests for the auth module"
+                }
+              }
+            ]
+          },
+          "tokens": 70,
+          "latency_ms": 110,
+          "error": false,
+          "span_id": "12682c70b95b44de",
+          "parent_span_id": "d2f1c0eacce149ba"
+        },
+        {
+          "name": "execute_tool code_exec",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "code_exec",
+            "advisor.layer": "L2",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "code_agent",
+            "gen_ai.tool.name": "code_exec"
+          },
+          "input": {
+            "query": "Run tests for the auth module"
+          },
+          "output": {
+            "result": "stub result for code_exec"
+          },
+          "tokens": 0,
+          "latency_ms": 8,
+          "error": false,
+          "span_id": "2b5ffac141c3482a",
+          "parent_span_id": "12682c70b95b44de"
+        },
+        {
+          "name": "chat code_agent",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "code_agent",
+            "advisor.layer": "L1",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "code_agent",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "stub"
+          },
+          "output": {
+            "text": "Synthesized answer for: Run tests for the auth module"
+          },
+          "tokens": 48,
+          "latency_ms": 85,
+          "error": false,
+          "span_id": "7a5d3a869c6f48b4",
+          "parent_span_id": "2b5ffac141c3482a"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "supervisor_gate",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "supervisor_gate",
+            "advisor.layer": "L0",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "task_router"
+            ]
+          },
+          "input": {
+            "query": "How many active users last week?"
+          },
+          "output": {
+            "status": "ok",
+            "policy_version": 1,
+            "orchestration": "supervisor"
+          },
+          "tokens": 12,
+          "latency_ms": 8,
+          "error": false,
+          "span_id": "5b1ac162b5fb4a5d"
+        },
+        {
+          "name": "task_router",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "task_router",
+            "advisor.layer": "L0",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "data_agent"
+            ]
+          },
+          "input": {
+            "query": "How many active users last week?"
+          },
+          "output": {
+            "route": "data_agent",
+            "confidence": 0.95,
+            "intent_summary": "How many active users last week?"
+          },
+          "tokens": 32,
+          "latency_ms": 35,
+          "error": false,
+          "span_id": "f1b3d044e35b482b",
+          "parent_span_id": "5b1ac162b5fb4a5d"
+        },
+        {
+          "name": "chat data_agent",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "data_agent",
+            "advisor.layer": "L1",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "data_agent",
+            "langgraph_triggers": [
+              "sql_query"
+            ]
+          },
+          "input": {
+            "query": "How many active users last week?"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "sql_query",
+                "args": {
+                  "query": "How many active users last week?"
+                }
+              }
+            ]
+          },
+          "tokens": 70,
+          "latency_ms": 110,
+          "error": false,
+          "span_id": "3e6eeb380e7f4c64",
+          "parent_span_id": "f1b3d044e35b482b"
+        },
+        {
+          "name": "execute_tool sql_query",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "sql_query",
+            "advisor.layer": "L2",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "data_agent",
+            "gen_ai.tool.name": "sql_query"
+          },
+          "input": {
+            "query": "How many active users last week?"
+          },
+          "output": {
+            "result": "stub result for sql_query"
+          },
+          "tokens": 0,
+          "latency_ms": 8,
+          "error": false,
+          "span_id": "793219366d7c40a5",
+          "parent_span_id": "3e6eeb380e7f4c64"
+        },
+        {
+          "name": "chat data_agent",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "data_agent",
+            "advisor.layer": "L1",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "data_agent",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "stub"
+          },
+          "output": {
+            "text": "Synthesized answer for: How many active users last week?"
+          },
+          "tokens": 48,
+          "latency_ms": 85,
+          "error": false,
+          "span_id": "cf1d704ec9084c39",
+          "parent_span_id": "793219366d7c40a5"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "supervisor_gate",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "supervisor_gate",
+            "advisor.layer": "L0",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "task_router"
+            ]
+          },
+          "input": {
+            "query": "Export cohort metrics from warehouse"
+          },
+          "output": {
+            "status": "ok",
+            "policy_version": 1,
+            "orchestration": "supervisor"
+          },
+          "tokens": 12,
+          "latency_ms": 8,
+          "error": false,
+          "span_id": "c9c5a4e2153c4179"
+        },
+        {
+          "name": "task_router",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "task_router",
+            "advisor.layer": "L0",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "data_agent"
+            ]
+          },
+          "input": {
+            "query": "Export cohort metrics from warehouse"
+          },
+          "output": {
+            "route": "data_agent",
+            "confidence": 0.95,
+            "intent_summary": "Export cohort metrics from warehouse"
+          },
+          "tokens": 32,
+          "latency_ms": 35,
+          "error": false,
+          "span_id": "39817305e73a4a87",
+          "parent_span_id": "c9c5a4e2153c4179"
+        },
+        {
+          "name": "chat data_agent",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "data_agent",
+            "advisor.layer": "L1",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "data_agent",
+            "langgraph_triggers": [
+              "mcp_warehouse"
+            ]
+          },
+          "input": {
+            "query": "Export cohort metrics from warehouse"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "mcp_warehouse",
+                "args": {
+                  "query": "Export cohort metrics from warehouse"
+                }
+              }
+            ]
+          },
+          "tokens": 70,
+          "latency_ms": 110,
+          "error": false,
+          "span_id": "cbb672b0e7624373",
+          "parent_span_id": "39817305e73a4a87"
+        },
+        {
+          "name": "execute_tool mcp_warehouse",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "mcp_warehouse",
+            "advisor.layer": "L2",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "data_agent",
+            "advisor.mcp_namespace": "warehouse"
+          },
+          "input": {
+            "query": "Export cohort metrics from warehouse"
+          },
+          "output": {
+            "result": "stub result for mcp_warehouse"
+          },
+          "tokens": 0,
+          "latency_ms": 25,
+          "error": false,
+          "span_id": "9ddd0d3a3eef4f56",
+          "parent_span_id": "cbb672b0e7624373"
+        },
+        {
+          "name": "chat data_agent",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "data_agent",
+            "advisor.layer": "L1",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "data_agent",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "stub"
+          },
+          "output": {
+            "text": "Synthesized answer for: Export cohort metrics from warehouse"
+          },
+          "tokens": 48,
+          "latency_ms": 85,
+          "error": false,
+          "span_id": "983ade7b451d4fd4",
+          "parent_span_id": "9ddd0d3a3eef4f56"
+        }
+      ]
+    },
+    {
+      "spans": [
+        {
+          "name": "supervisor_gate",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "supervisor_gate",
+            "advisor.layer": "L0",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "task_router"
+            ]
+          },
+          "input": {
+            "query": "Research best practices for SQL indexing"
+          },
+          "output": {
+            "status": "ok",
+            "policy_version": 1,
+            "orchestration": "supervisor"
+          },
+          "tokens": 12,
+          "latency_ms": 8,
+          "error": false,
+          "span_id": "7e7922e931f045ca"
+        },
+        {
+          "name": "task_router",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "task_router",
+            "advisor.layer": "L0",
+            "gen_ai.request.model": "fake-list",
+            "langgraph_triggers": [
+              "code_agent"
+            ]
+          },
+          "input": {
+            "query": "Research best practices for SQL indexing"
+          },
+          "output": {
+            "route": "code_agent",
+            "confidence": 0.95,
+            "intent_summary": "Research best practices for SQL indexing"
+          },
+          "tokens": 32,
+          "latency_ms": 35,
+          "error": false,
+          "span_id": "eff426d7995a43d4",
+          "parent_span_id": "7e7922e931f045ca"
+        },
+        {
+          "name": "chat code_agent",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "code_agent",
+            "advisor.layer": "L1",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "code_agent",
+            "langgraph_triggers": [
+              "code_exec"
+            ]
+          },
+          "input": {
+            "query": "Research best practices for SQL indexing"
+          },
+          "output": {
+            "tool_calls": [
+              {
+                "name": "code_exec",
+                "args": {
+                  "query": "Research best practices for SQL indexing"
+                }
+              }
+            ]
+          },
+          "tokens": 70,
+          "latency_ms": 110,
+          "error": false,
+          "span_id": "e30dda8c55da470c",
+          "parent_span_id": "eff426d7995a43d4"
+        },
+        {
+          "name": "execute_tool code_exec",
+          "attributes": {
+            "gen_ai.operation.name": "execute_tool",
+            "langgraph_node": "code_exec",
+            "advisor.layer": "L2",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "code_agent",
+            "gen_ai.tool.name": "code_exec"
+          },
+          "input": {
+            "query": "Research best practices for SQL indexing"
+          },
+          "output": {
+            "result": "stub result for code_exec"
+          },
+          "tokens": 0,
+          "latency_ms": 8,
+          "error": false,
+          "span_id": "95f56147a9254b45",
+          "parent_span_id": "e30dda8c55da470c"
+        },
+        {
+          "name": "chat code_agent",
+          "attributes": {
+            "gen_ai.operation.name": "chat",
+            "langgraph_node": "code_agent",
+            "advisor.layer": "L1",
+            "gen_ai.request.model": "fake-list",
+            "advisor.parent_agent": "code_agent",
+            "langgraph_triggers": [
+              "__end__"
+            ]
+          },
+          "input": {
+            "tool_result": "stub"
+          },
+          "output": {
+            "text": "Synthesized answer for: Research best practices for SQL indexing"
+          },
+          "tokens": 48,
+          "latency_ms": 85,
+          "error": false,
+          "span_id": "6584c7dfbde44c9d",
+          "parent_span_id": "95f56147a9254b45"
+        }
+      ]
+    }
+  ],
+  "source": "agent-as-model-scripted"
+}

@@ -118,3 +118,66 @@ def report_dict_to_narrative(report: dict[str, Any]) -> str:
             ]
         )
     return "\n".join(lines)
+
+
+def build_narrative(report: dict[str, Any]) -> str:
+    """Studio-facing architecture improvement bullets grounded in evidence."""
+    recs = report.get("recommendations") or []
+    if not recs:
+        return "## Architecture improvements\n\nNo recommendations in report.\n"
+
+    lines = [
+        "## Architecture improvements (simulation ≠ production)",
+        "",
+    ]
+    flip = [r for r in recs if r.get("action") == "FlipToDet"]
+    abstain = [r for r in recs if r.get("action") == "ABSTAIN"]
+    strengthen = [r for r in recs if r.get("action") == "STRENGTHEN_SDB"]
+
+    if flip:
+        for r in flip:
+            n = r.get("n", 0)
+            lo = r.get("p_mode_lower", 0)
+            replay = r.get("replay_status", "")
+            lines.append(
+                f"1. **Promote `{r['node_id']}` to a deterministic policy node** — "
+                f"{n} runs with Wilson lower ≥ {lo:.2f}; L0 splice `{replay}`. "
+                f"Replace LLM routing with a typed function when intent classes are stable."
+            )
+
+    diverged = [r for r in abstain if r.get("replay_status") == "diverged"]
+    for r in diverged:
+        lines.append(
+            f"2. **Split `{r['node_id']}` tool-call from answer synthesis** — "
+            f"cassette diverged across runs (tool-then-answer vs direct answer). "
+            f"Keep tool invocation deterministic; isolate the LLM to the synthesis step only."
+        )
+
+    if any(r.get("node_id") in ("task_router", "supervisor_gate") for r in recs):
+        lines.append(
+            "3. **Add routing eval for ambiguous intents** — "
+            "misrouted scenarios in the trace pack show specialist mismatch risk; "
+            "maintain a golden set before tightening router determinism."
+        )
+
+    lines.append(
+        "4. **Label MCP and skill spans in production traces** — "
+        "use `advisor.layer=L2`, `advisor.mcp_namespace`, and `advisor.skill_id` "
+        "so Studio groups tools under the owning agent."
+    )
+
+    for r in strengthen:
+        lines.append(
+            f"5. **STRENGTHEN_SDB on `{r['node_id']}`** — "
+            f"schema_ok={r.get('schema_ok', 0):.2f}; add output validation before merge."
+        )
+
+    if len(lines) <= 3:
+        lines.append(
+            "5. **Review ABSTAIN nodes** — insufficient cassette stability or n; "
+            "collect more runs or stratify workloads before FlipToDet."
+        )
+
+    lines.append("")
+    lines.append("> Draft advice from ingested traces. Canary before production changes.")
+    return "\n".join(lines)

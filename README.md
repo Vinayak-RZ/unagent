@@ -38,6 +38,22 @@ Unagent reconstructs your agent graph from traces, **simulates** determinism-cla
 
 ## See it in Studio
 
+### Multi-layer orchestrator (recommended)
+
+Supervisor → specialist agents → tools/MCPs/skills. Layer lens, cinematic playback, and architecture improvement narrative.
+
+```bash
+bash demos/e2e-orchestrator/run_pipeline.sh
+cd ui && npm run dev
+# http://127.0.0.1:5173/?report=/e2e_orchestrator_studio_report.json
+```
+
+![L0 orchestrator](docs/assets/e2e-orchestrator/layer_L0_orchestrator.png)
+
+Full report: [docs/reports/E2E_ORCHESTRATOR_STUDIO.md](docs/reports/E2E_ORCHESTRATOR_STUDIO.md)
+
+### LangGraph research assistant (minimal)
+
 End-to-end run against a real LangGraph topology (mirror of [JoshuaC215/agent-service-toolkit](https://github.com/JoshuaC215/agent-service-toolkit) `research_assistant`): harness emits 40 traces → `studio-report` → Unagent Studio.
 
 Architecture graph — `guard_input` certified **FlipToDet**; `model` and `calculator` **ABSTAIN**:

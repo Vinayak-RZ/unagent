@@ -15,7 +15,8 @@ export function EmptyState({ onLoadClick }: EmptyStateProps) {
         Choose report JSON
       </button>
       <p style={{ marginTop: 24, fontSize: 13 }}>
-        Sample: <code>examples/studio_report.json</code> in the repo root.
+        Sample: <code>examples/studio_report.json</code> or orchestrator demo{" "}
+        <code>?report=/e2e_orchestrator_studio_report.json</code>
       </p>
     </div>
   );

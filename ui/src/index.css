@@ -394,6 +394,53 @@ button {
   font-weight: 600;
 }
 
+.layer-lens {
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-hairline-soft);
+  background: #fff;
+}
+
+.layer-lens-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 6px 12px;
+  border: 1px solid var(--color-hairline-soft);
+  border-radius: 8px;
+  background: var(--color-surface);
+  font-size: 12px;
+  color: var(--color-ink);
+}
+
+.layer-lens-btn.is-active {
+  border-color: var(--color-accent);
+  background: #e8f1fd;
+  color: var(--color-accent-deep);
+}
+
+.layer-lens-id {
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+.layer-lens-label {
+  font-weight: 500;
+}
+
+.narrative-panel {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.playback-strip .btn.is-active {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
 @media (max-width: 960px) {
   .app-main {
     grid-template-columns: 1fr;
