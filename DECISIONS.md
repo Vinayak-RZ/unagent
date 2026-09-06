@@ -87,3 +87,19 @@ Written as ADRs in `docs/decisions/`. Do not silently override them.
 | D18 | Sinks dual-mode file + live (Langfuse/LangSmith/MLflow) | accepted | [0012-sinks-dual-mode.md](docs/decisions/0012-sinks-dual-mode.md) |
 | D19 | Studio UI: React Flow viewer + playback + proposal edit only | accepted | [0013-ui-studio-react-flow.md](docs/decisions/0013-ui-studio-react-flow.md) |
 | D20 | Narrative stdout for non-technical readers | accepted | [0014-narrative-stdout.md](docs/decisions/0014-narrative-stdout.md) |
+| D21 | Studio-only `nest_for_studio`; core reconstruct stays flat | accepted | this file; [layered-multiagent-e2e](docs/plans/layered-multiagent-e2e.md) |
+| D22 | Agent-as-model transcripts + replay (not paid API, not canned FakeList-only) | accepted | this file; D5 still holds |
+
+## D21 — Studio-only hierarchy
+
+- **Context:** Unagent Studio already drills into `children` / `subgraph`, but `studio-report` emits a flat inspect graph. The delivery-orchestrator E2E needs layers without changing recommend identity.
+- **Alternatives:** Nest inside `reconstruct`; hand-author Studio JSON; change GraphNode to carry children.
+- **Selected:** `nest_for_studio(graph, traces)` attached only by `studio-report`. Reconstruct, identity, and `_decide` stay flat.
+- **Rationale:** Hierarchy is a view. Pooling and cassette splice key on flat `node_id`.
+
+## D22 — Agent-as-model for demo traces
+
+- **Context:** The 3-node E2E used `FakeMessagesListChatModel` with a canned calculator script. The user asked the lead agent to *be* the model.
+- **Alternatives:** Keep FakeList-only; call a paid API; record this agent’s routing and tool I/O as cassettes and replay them through real LangGraph nodes.
+- **Selected:** Agent-as-model transcripts in `demos/e2e-multiagent/scenarios/`, replayed by the harness. No live LLM.
+- **Rationale:** Matches the request and D5 (offline L0). The author of the cassette is this agent; repeating a scenario supplies n for Wilson / L0.

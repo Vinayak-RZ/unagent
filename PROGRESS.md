@@ -19,3 +19,20 @@ Authority: viral product hardening master plan (nawab). Do not edit the plan fil
 
 - PyPI publish remains **human-gated** — see `docs/pypi-checklist.md`
 - Production GIFs/videos remain user-owned
+
+---
+
+## Layered multi-agent Studio E2E
+
+Branch: `cursor/layered-multiagent-studio-02f6`  
+Authority: [docs/plans/layered-multiagent-e2e.md](docs/plans/layered-multiagent-e2e.md)
+
+| Phase | Status | Notes |
+|-------|--------|-------|
+| 0 Plan | in_progress | Nawab plan + D21/D22 |
+| A Subject + agent-as-model | pending | supervisor + 3 agents |
+| B Nest + layer-follow | pending | Studio-only hierarchy |
+| C Traces + recommend | pending | ≥30 mixed runs |
+| D Media | pending | layer photos + video |
+| E Improvements | pending | human-legible, evidence-tied |
+| N Harden | pending | tests + PR |
