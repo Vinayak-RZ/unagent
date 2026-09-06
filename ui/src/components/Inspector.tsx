@@ -1,17 +1,45 @@
 import type { Recommendation } from "../types/report";
 import { PROPOSAL_OPTIONS, UI_PROPOSAL_DISCLAIMER, type ProposalAction } from "../types/report";
 
+function renderNarrative(md: string) {
+  return md.split("\n").map((line, i) => {
+    if (line.startsWith("## ")) {
+      return <h3 key={i} style={{ marginTop: i === 0 ? 0 : 16 }}>{line.slice(3)}</h3>;
+    }
+    if (line.startsWith("> ")) {
+      return (
+        <p key={i} style={{ fontSize: 12, color: "#5d6c7b", fontStyle: "italic" }}>
+          {line.slice(2)}
+        </p>
+      );
+    }
+    if (/^\d+\.\s\*\*/.test(line)) {
+      const text = line.replace(/\*\*([^*]+)\*\*/g, "$1");
+      return <p key={i} style={{ margin: "8px 0" }}>{text}</p>;
+    }
+    if (line.trim()) {
+      return <p key={i}>{line}</p>;
+    }
+    return null;
+  });
+}
+
 interface InspectorProps {
   recommendation?: Recommendation;
   selectedNodeId?: string;
+  narrative?: string;
 }
 
-export default function Inspector({ recommendation, selectedNodeId }: InspectorProps) {
+export default function Inspector({ recommendation, selectedNodeId, narrative }: InspectorProps) {
   if (!selectedNodeId) {
     return (
       <section className="panel-section">
         <h2>Inspector</h2>
-        <p>Select a node on the graph to review evidence, Wilson bounds, and advisor reasons.</p>
+        {narrative ? (
+          <div className="narrative-panel">{renderNarrative(narrative)}</div>
+        ) : (
+          <p>Select a node on the graph to review evidence, Wilson bounds, and advisor reasons.</p>
+        )}
       </section>
     );
   }

@@ -7,6 +7,7 @@ export interface GraphNodeSpec {
   mixed?: boolean;
   side_effects?: boolean;
   is_decision?: boolean;
+  advisor_layer?: string;
   children?: GraphNodeSpec[];
   subgraph?: StudioSubgraph;
 }
@@ -45,6 +46,7 @@ export interface SimulationEvent {
   node_id: string;
   detail?: string;
   status?: string;
+  phase?: string;
 }
 
 export interface StudioReport {
@@ -88,6 +90,8 @@ export interface StudioState {
   proposalEdits: Record<string, ProposalAction>;
   playbackIndex: number;
   playbackPlaying: boolean;
+  activeLayer: string;
+  cinematicMode: boolean;
 }
 
 export type StudioAction =
@@ -104,7 +108,9 @@ export type StudioAction =
   | { type: "PLAYBACK_PAUSE" }
   | { type: "PLAYBACK_STEP"; direction: 1 | -1 }
   | { type: "PLAYBACK_RESET" }
-  | { type: "PLAYBACK_TICK" };
+  | { type: "PLAYBACK_TICK" }
+  | { type: "SET_LAYER"; breadcrumbs: BreadcrumbFrame[]; layer: string }
+  | { type: "TOGGLE_CINEMATIC" };
 
 export const PROPOSAL_OPTIONS: ProposalAction[] = [
   "FlipToDet",
