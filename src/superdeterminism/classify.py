@@ -48,8 +48,14 @@ def classify_span(span: Span) -> tuple[str, NodeKind, DetClass]:
             kind = NodeKind.WORKFLOW
         elif "handoff" in name or "router" in name or "goto" in name:
             kind = NodeKind.ROUTER
+    tool_name = str(tool or "")
+    # handoff before "search" substring — transfer_to_research_agent is a router
     if kind == NodeKind.DETERMINISTIC_TOOL and (
-        _attr_get(attrs, "gen_ai.tool.type") == "datastore" or "search" in str(tool or "")
+        tool_name.startswith("transfer_to_") or "handoff" in tool_name.lower()
+    ):
+        kind = NodeKind.ROUTER
+    elif kind == NodeKind.DETERMINISTIC_TOOL and (
+        _attr_get(attrs, "gen_ai.tool.type") == "datastore" or "search" in tool_name
     ):
         kind = NodeKind.RETRIEVER
     ns = _attr_get(attrs, "langgraph_checkpoint_ns")
@@ -59,11 +65,6 @@ def classify_span(span: Span) -> tuple[str, NodeKind, DetClass]:
         "invoke_workflow",
     }:
         kind = NodeKind.SUBAGENT if op != "invoke_workflow" else NodeKind.WORKFLOW
-    tool_name = str(tool or "")
-    if kind == NodeKind.DETERMINISTIC_TOOL and (
-        tool_name.startswith("transfer_to_") or "handoff" in tool_name.lower()
-    ):
-        kind = NodeKind.ROUTER
     det = {
         NodeKind.DETERMINISTIC_TOOL: DetClass.DETERMINISTIC,
         NodeKind.RETRIEVER: DetClass.STOCHASTIC_INDEX,

@@ -137,3 +137,98 @@ def reconstruct(traces: list[Trace]) -> ArchitectureGraph:
         warnings=tuple(warnings),
         commitment_node_ids=commitment,
     )
+
+
+def nest_for_studio(graph: ArchitectureGraph, traces: list[Trace] | None = None) -> dict:
+    """Hierarchy for Studio only. Reconstruct / identity stay flat (D21).
+
+    Subagent descendants (parent edges) become that agent's subgraph.
+    Other nodes stay on the root orchestration layer.
+    """
+    by_id = {n.node_id: n for n in graph.nodes}
+    subagents = {n.node_id for n in graph.nodes if n.node_kind is NodeKind.SUBAGENT}
+    children: dict[str, set[str]] = defaultdict(set)
+    for e in graph.edges:
+        if e.kind is EdgeKind.PARENT:
+            children[e.src].add(e.dst)
+
+    def descendants(start: str) -> set[str]:
+        seen: set[str] = set()
+        stack = list(children.get(start, ()))
+        while stack:
+            nid = stack.pop()
+            if nid in seen or nid in subagents:
+                continue
+            seen.add(nid)
+            stack.extend(children.get(nid, ()))
+        return seen
+
+    nested: set[str] = set()
+    subgraphs: dict[str, set[str]] = {}
+    for sid in subagents:
+        inner = descendants(sid)
+        subgraphs[sid] = inner
+        nested |= inner
+
+    surfaces: dict[str, str] = {}
+    if traces:
+        for trace in traces:
+            for span in trace.spans:
+                nid, _, _ = classify_span(span)
+                surf = span.attributes.get("advisor.surface")
+                if surf:
+                    surfaces[nid] = str(surf)
+
+    def as_node(n: GraphNode, *, inner: bool) -> dict:
+        row: dict = {
+            "node_id": n.node_id,
+            "node_kind": n.node_kind.value,
+            "det_class": n.det_class.value,
+            "mixed": n.mixed,
+            "side_effects": n.side_effects,
+            "is_decision": n.is_decision,
+        }
+        if n.node_id in surfaces:
+            row["surface"] = surfaces[n.node_id]
+        if not inner and n.node_id in subgraphs and subgraphs[n.node_id]:
+            ids = subgraphs[n.node_id]
+            row["subgraph"] = {
+                "nodes": [as_node(by_id[i], inner=True) for i in sorted(ids) if i in by_id],
+                "edges": [
+                    {"src": e.src, "dst": e.dst, "kind": e.kind.value}
+                    for e in graph.edges
+                    if e.src in ids and e.dst in ids
+                ],
+            }
+        return row
+
+    root_ids = [n.node_id for n in graph.nodes if n.node_id not in nested]
+    root_set = set(root_ids)
+    return {
+        "nodes": [as_node(by_id[i], inner=False) for i in root_ids if i in by_id],
+        "edges": [
+            {"src": e.src, "dst": e.dst, "kind": e.kind.value}
+            for e in graph.edges
+            if e.src in root_set and e.dst in root_set
+        ],
+    }
+
+
+def story_events_from_traces(traces: list[Trace], *, limit: int = 48) -> list[dict]:
+    """First-span-order walk of the richest trace — orchestration then specialists."""
+    if not traces:
+        return []
+    best = max(traces, key=lambda t: len(t.spans))
+    events: list[dict] = []
+    for i, span in enumerate(best.spans[:limit]):
+        nid, kind, _ = classify_span(span)
+        events.append(
+            {
+                "t": i,
+                "kind": kind.value,
+                "node_id": nid,
+                "detail": span.name,
+                "status": "",
+            }
+        )
+    return events

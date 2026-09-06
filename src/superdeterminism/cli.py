@@ -9,6 +9,7 @@ import webbrowser
 from pathlib import Path
 
 from superdeterminism.adapters import AdapterError, resolve
+from superdeterminism.graph import nest_for_studio, reconstruct, story_events_from_traces
 from superdeterminism.ingest import IngestError, load_traces_dir, load_traces_path
 from superdeterminism.sinks import load_sink
 from superdeterminism.pipeline import (
@@ -227,13 +228,20 @@ def _studio_report(args: argparse.Namespace) -> int:
             traces = load_traces_path(args.traces)
         payload = simulate_report(traces, n_min=args.n_min)
         inspected = inspect_traces(traces)
+        nested = nest_for_studio(reconstruct(traces), traces)
         payload["graph"] = {
-            "nodes": inspected["nodes"],
-            "edges": inspected["edges"],
+            "nodes": nested["nodes"],
+            "edges": nested["edges"],
             "identity": inspected["graph_identity"],
             "completeness": inspected["completeness"],
             "trust": inspected["trust"],
         }
+        story = story_events_from_traces(traces)
+        l0 = list(payload.get("simulation_events") or [])
+        offset = (story[-1]["t"] + 1) if story else 0
+        for ev in l0:
+            ev["t"] = int(ev.get("t") or 0) + offset
+        payload["simulation_events"] = story + l0
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     except _BOUNDARY as exc:
