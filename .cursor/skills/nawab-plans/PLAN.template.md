@@ -1,8 +1,8 @@
 # [PROJECT_OR_FEATURE_NAME] — Master Execution Plan
 
-> Nawab master plan — entire project or major feature execution in one document.
-> **Mode:** project | feature  
-> Copy to `IMPLEMENTATION_PLAN.md` and maintain `PROGRESS.md` during execution.
+> Nawab **standard** or **project** profile. Cursor Plan defaults to
+> [PLAN.template.lite.md](PLAN.template.lite.md) instead.
+> Copy to `IMPLEMENTATION_PLAN.md` when Delivery is repo.
 
 ---
 
@@ -10,12 +10,16 @@
 
 | Field | Value |
 |-------|-------|
+| **Profile** | standard / project |
 | **Mode** | project / feature |
 | **Stack** | [from repo — e.g. Python/FastAPI + Next.js + Postgres] |
 | **Base branch** | `main` |
 | **Feature branch(es)** | `cursor/[name]-[suffix]` or per-workstream |
+| **User commit budget** | [ask first if missing — overrides §9 defaults] |
+| **Delivery** | cursor-plan / repo IMPLEMENTATION_PLAN |
+| **Supersedes** | none / [prior plan] |
 | **Authority docs** | [links] |
-| **Estimated commits** | [range — see §9; marketing UI pass ≈ 7–8; multi-package ≈ 18–25] |
+| **Estimated commits** | [must match user budget when set] |
 | **Lead agent** | Orchestrate, commit, integrate subagents, PR |
 
 ---
@@ -193,6 +197,11 @@ todos:
 ---
 
 ## §9 Commit matrix
+
+**User commit budget (from §0):** **[N]** — hard requirement. If this matrix
+would exceed **2×** that number, coalesce rows here before asking approval.
+
+Work-class defaults apply **only** when the user did not give a number.
 
 > One row = one commit. Tests in same commit when applicable. Gates = project-native commands.
 > **Size to work class** — marketing/UI multi-page ≈ **7–8**; multi-package/platform ≈ **18–30+**.
@@ -376,6 +385,26 @@ _or:_
 7. Verify §16 P0 → draft PR with evidence
 ```
 
+If **§19 is filled**, do not run this linear protocol as the primary loop.
+On approval: the graph is the plan you read; node plans are linked from it.
+Write `EXECUTION_GRAPH.md` and execute graph waves immediately
+(`graph-engineering` skill). Keep §9 commits, gates, and lead-owned git.
+
+---
+
+## §19 Execution graph
+
+`N/A — graph-engineering not requested`
+
+When `graph-engineering` was named, **ask questions first**, then replace N/A
+with the full shape from
+`.cursor/skills/graph-engineering/GRAPH.template.md`. **Required:** a
+**Node plans** table with working links, and a **Lifecycle** table (run,
+trials, docs-out present or N/A with reason).
+
+**If this section is filled:** approving this plan starts graph execution
+immediately. No second wait.
+
 ---
 
 ## Open questions
@@ -388,4 +417,5 @@ _or:_
 
 **Mode:** [project | feature]  
 Plan ready for review. Approve to begin **Phase [0/A]**.  
-Lead agent follows **§18 Execution protocol**.
+Lead agent follows **§18 Execution protocol**.  
+If §19 is filled: approving writes `EXECUTION_GRAPH.md` and **starts graph execution immediately**.
